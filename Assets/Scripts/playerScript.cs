@@ -13,6 +13,7 @@ public class playerScript : MonoBehaviour
     [SerializeField]private Animator animation;
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Running = Animator.StringToHash("running");
+    private static readonly int Attack = Animator.StringToHash("attack");
 
     // Update is called once per frame
     void Update()
@@ -20,6 +21,7 @@ public class playerScript : MonoBehaviour
         var moveIntent = Vector3.zero;
         var moveSpeed = walkSpeed;
         var rotationAngle = 0f;
+        var tmpEuler = transform.eulerAngles;
         short keysCount = 0;
         float RotationIntent = 0f;
         
@@ -84,6 +86,17 @@ public class playerScript : MonoBehaviour
                 moveIntent = Vector3.forward;
                 transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y + rotationAngle, 0f);
             }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animation.SetTrigger(Attack);
+        }
+
+        if (animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            moveIntent = Vector3.zero;
+            transform.eulerAngles = tmpEuler;
         }
 
         moveIntent = moveIntent.normalized;
