@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1773498569492994676}
-  moveSpeed: 0
+  moveSpeed: 12
 --- !u!95 &1773498569492994676
 Animator:
   serializedVersion: 3

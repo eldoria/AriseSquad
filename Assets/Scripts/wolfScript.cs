@@ -17,6 +17,8 @@ public class wolfScript : MonoBehaviour
         animation.SetBool(Moving, true);
         player = GameObject.FindWithTag("Player").transform;
         transform.LookAt(player);
-        transform.position = Vector3.Lerp(transform.position, player.position, 0.01f);
+        //transform.position = Vector3.Lerp(transform.position, player.position, 0.01f);
+        var direction = Vector3.forward;
+        transform.position += transform.rotation * direction * moveSpeed * Time.deltaTime;
     }
 }
