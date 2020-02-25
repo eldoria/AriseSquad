@@ -1223,6 +1223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7483058286383242773}
   - component: {fileID: -1685240784875048935}
+  - component: {fileID: 1773498569492994676}
   m_Layer: 10
   m_Name: Wolf_3D
   m_TagString: Untagged
@@ -1258,7 +1259,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d045de1a2a7d8bd4b894e3c10ded011e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation: {fileID: 1773498569492994676}
   moveSpeed: 0
+--- !u!95 &1773498569492994676
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873380034025909254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3423437cf6360e46a2e26a4a11bd09e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6238190033699557880
 GameObject:
   m_ObjectHideFlags: 0
