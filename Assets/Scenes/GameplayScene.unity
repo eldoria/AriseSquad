@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 1930919500}
-  walkSpeed: 10
-  runSpeed: 25
+  walkSpeed: 15
+  runSpeed: 35
   animation: {fileID: 637473946}
 --- !u!95 &637473946 stripped
 Animator:
