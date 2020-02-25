@@ -1261,6 +1261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animation: {fileID: 1773498569492994676}
   moveSpeed: 12
+  detectionDistance: 100
+  attackDistance: 15
 --- !u!95 &1773498569492994676
 Animator:
   serializedVersion: 3
