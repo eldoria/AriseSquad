@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -132,9 +133,20 @@ public class playerScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.layer == 10)
+        if(other.gameObject.layer == 10 && attackCollider.enabled && !other.GetComponent<wolfScript>().hasBeenHit)
         {
+            other.GetComponent<wolfScript>().hasBeenHit = true;
             Destroy(other.gameObject);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        hitPoints -= damage;
+        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
+        if (hitPoints <= 0)
+        {
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
