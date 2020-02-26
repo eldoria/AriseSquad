@@ -1194,6 +1194,7 @@ GameObject:
   - component: {fileID: -1685240784875048935}
   - component: {fileID: 1773498569492994676}
   - component: {fileID: 2554554687071178150}
+  - component: {fileID: 7946107605437284856}
   - component: {fileID: 5182497274087522748}
   m_Layer: 10
   m_Name: Wolf_3D
@@ -1231,6 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1773498569492994676}
+  attackCollider: {fileID: 7946107605437284856}
   moveSpeed: 16
   detectionDistance: 100
   attackDistance: 20
@@ -1266,6 +1268,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7, y: 17, z: 31}
   m_Center: {x: 0, y: 8.5, z: -5}
+--- !u!65 &7946107605437284856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873380034025909254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 7.7, y: 17, z: 20}
+  m_Center: {x: 0, y: 8.5, z: 11}
 --- !u!54 &5182497274087522748
 Rigidbody:
   m_ObjectHideFlags: 0

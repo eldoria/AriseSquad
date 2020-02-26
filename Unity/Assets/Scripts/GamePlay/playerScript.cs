@@ -8,6 +8,8 @@ public class playerScript : MonoBehaviour
     public Transform cameraTarget;
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
+
+    [SerializeField] private int hitPoints = 20;
     
     private float RotationSpeed;
 
@@ -16,6 +18,11 @@ public class playerScript : MonoBehaviour
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Attack = Animator.StringToHash("attack");
+
+    private void Start()
+    {
+        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
+    }
 
     // Update is called once per frame
     void Update()
@@ -125,6 +132,9 @@ public class playerScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Destroy(other.gameObject);
+        if(other.gameObject.layer == 10)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
