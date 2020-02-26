@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8438526088080189426}
   - component: {fileID: 2749205335803239179}
   - component: {fileID: -4610982402375351237}
+  - component: {fileID: 5707440811856529857}
   m_Layer: 11
   m_Name: prefabTree1
   m_TagString: Untagged
@@ -97,3 +98,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &5707440811856529857
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475440736941846487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -900964548563982232, guid: 2483c56f672302b4798b1990399f4aa5, type: 3}
