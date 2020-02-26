@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 8413797799922207519}
   - component: {fileID: 3355606127181094452}
   - component: {fileID: 466008742580152224}
+  - component: {fileID: 2044741631178413217}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -561,6 +562,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 3
   target: {fileID: 1100658753175843952}
+--- !u!114 &2044741631178413217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266170046357429735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa01430ff343ff46a8f9795eff5882e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381807174240631400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,9 +1423,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7930425609802430387}
   - component: {fileID: -4935287422315795903}
+  - component: {fileID: 2097128237674006528}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1453,6 +1467,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &2097128237674006528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365224321429390752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 6, z: 6}
+  m_Center: {x: 0, y: 12, z: 5}
 --- !u!1 &6416143176268342497
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
     public Transform cameraTarget;
-    [SerializeField]private float walkSpeed = 8f;
-    [SerializeField]private float runSpeed = 20f;
+    [SerializeField]private float walkSpeed = 15f;
+    [SerializeField]private float runSpeed = 35f;
     
     private float RotationSpeed;
 
     [SerializeField]private Animator animation;
+    [SerializeField] private BoxCollider attackCollider;
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Attack = Animator.StringToHash("attack");
@@ -97,6 +99,11 @@ public class playerScript : MonoBehaviour
         {
             moveIntent = Vector3.zero;
             transform.eulerAngles = tmpEuler;
+            attackCollider.enabled = true;
+        }
+        else
+        {
+            attackCollider.enabled = false;
         }
 
         moveIntent = moveIntent.normalized;
@@ -116,4 +123,8 @@ public class playerScript : MonoBehaviour
         transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        Destroy(other.gameObject);
+    }
 }
