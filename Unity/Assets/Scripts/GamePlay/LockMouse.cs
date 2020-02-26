@@ -14,8 +14,6 @@ public class LockMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
         if(Input.GetKeyDown(KeyCode.LeftAlt))
         {
             if(Cursor.visible == true)
