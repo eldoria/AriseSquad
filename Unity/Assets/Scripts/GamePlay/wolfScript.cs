@@ -18,11 +18,11 @@ public class wolfScript : MonoBehaviour
     void Update()
     {
         player = GameObject.FindWithTag("Player").transform;
-        if (Vector3.Distance(transform.position, player.position) < attackDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+        if (Vector3.Distance(transform.position, player.position) < attackDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
             animation.SetTrigger(Attack);
         }
-        else if (Vector3.Distance(transform.position, player.position) < detectionDistance)
+        else if (Vector3.Distance(transform.position, player.position) < detectionDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
             animation.SetBool(Moving, true);
             transform.LookAt(player);
