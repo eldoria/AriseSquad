@@ -1256,13 +1256,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5873380034025909254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d045de1a2a7d8bd4b894e3c10ded011e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f76148cdafc7154490ddaa16b647e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1773498569492994676}
-  moveSpeed: 12
+  moveSpeed: 16
   detectionDistance: 100
-  attackDistance: 15
+  attackDistance: 20
 --- !u!95 &1773498569492994676
 Animator:
   serializedVersion: 3
