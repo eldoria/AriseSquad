@@ -136,7 +136,13 @@ public class playerScript : MonoBehaviour
         if(other.gameObject.layer == 10 && attackCollider.enabled && !other.GetComponent<wolfScript>().hasBeenHit)
         {
             other.GetComponent<wolfScript>().hasBeenHit = true;
-            Destroy(other.gameObject);
+            other.GetComponent<wolfScript>().TakeDamage(1);
+        }
+        else if (other.gameObject.layer == 12 && attackCollider.enabled && !other.GetComponent<bossScript>().hasBeenHit)
+        {
+            other.GetComponent<bossScript>().hasBeenHit = true;
+            other.GetComponent<bossScript>().TakeDamage(1);
+            Debug.Log("Hit");
         }
     }
 
@@ -148,5 +154,10 @@ public class playerScript : MonoBehaviour
         {
             SceneManager.LoadScene("MenuScene");
         }
+    }
+
+    public bool Attacking()
+    {
+        return attackCollider.enabled;
     }
 }

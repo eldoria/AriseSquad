@@ -9,19 +9,22 @@ public class generationMap : MonoBehaviour
 {
     public GameObject [] treePrefab;
     public GameObject monsterPrefab;
+    public GameObject bossPrefab;
     private float posX = -495;
     private float posZ = -495;
     private float randomX, randomZ;
     // the first two values are the boundary of the x zone, the nex two are the boudary of the y zone, then repeats for each area
     private readonly int [] arrayMonsters = {300, 400, 200, 300, 100, 200, 50, 150};
+    private readonly int[] areaBoss = {100, 400, 150, 300};
     private bool arrayWithMonsters;
+    private bool bossCreated = false;
     void Start()
     {
         for (int i = -490; i < 490; i += 40)
         {
             for (int j = -490; j < 490; j += 40)
             {
-                if (createArrayWithMonsters(i, j) == false)
+                if (createArrayWithMonsters(i, j) == false && createAreaWithBoss(i, j) == false)
                 {
                     Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), 0f, z: j + Random.Range(0f, 8f));
                     int treeChoose = Random.Range(0, 2);
@@ -49,5 +52,23 @@ public class generationMap : MonoBehaviour
             Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
         }
         return arrayWithMonsters;
+    }
+
+    bool createAreaWithBoss(int i, int j)
+    {
+        bool areaWithBoss = false;
+        for (int l = 0; l < areaBoss.Length && !areaWithBoss; l += 4)
+        {
+            areaWithBoss = (i > areaBoss[l] && i < areaBoss[l + 1]) && (j > areaBoss[l + 2] && j < areaBoss[l + 3]);
+        }
+
+        if (areaWithBoss && !bossCreated)
+        {
+            Vector3 position = new Vector3(i + 4f, 0f, j + 4f);
+            Instantiate(bossPrefab, position, bossPrefab.transform.rotation);
+            bossCreated = true;
+        }
+
+        return areaWithBoss;
     }
 }

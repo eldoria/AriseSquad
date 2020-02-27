@@ -2,18 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class wolfScript : MonoBehaviour
+public class bossScript : MonoBehaviour
 {
-
     private Transform player;
     [SerializeField] private Animator animation;
     [SerializeField] private BoxCollider attackCollider;
     public float moveSpeed;
-    public float detectionDistance = 100f;
-    public float attackDistance = 20f;
-    public int hitPoints = 2;
-
+    public float detectionDistance = 110f;
+    public float attackDistance = 40f;
+    public int hitPoints = 3;
+    
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
 
@@ -72,5 +72,10 @@ public class wolfScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }

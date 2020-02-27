@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\User\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\User\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Unity.73857451.00" t="ExcludeRecursive" />
-    <e p="C:\Users\User\Desktop\Arise_Squad\AriseSquad\Unity" t="IncludeRecursive">
+    <e p="C:\Users\Eric\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Eric\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Unity.1023509645.00" t="ExcludeRecursive" />
+    <e p="D:\Unity Projects\AriseSquad\Unity" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="GamePlay" t="Include">
+            <e p="bossScript.cs" t="Include" />
             <e p="cameraController.cs" t="Include" />
             <e p="generationMap.cs" t="Include" />
             <e p="hPDisplayScript.cs" t="Include" />
