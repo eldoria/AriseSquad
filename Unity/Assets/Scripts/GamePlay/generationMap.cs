@@ -64,7 +64,7 @@ public class generationMap : MonoBehaviour
 
         if (areaWithBoss && !bossCreated)
         {
-            Vector3 position = new Vector3(i + 4f, 0f, j + 4f);
+            Vector3 position = new Vector3(i + 8f, 0f, j + 8f);
             Instantiate(bossPrefab, position, bossPrefab.transform.rotation);
             bossCreated = true;
         }

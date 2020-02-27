@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bda63b-066f-4e1d-a08e-ed7d905372f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Wolf_3D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Wolf_3D.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,9 +32,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
       </list>
     </option>
   </component>
@@ -97,7 +93,7 @@
       <workItem from="1582704409688" duration="2014000" />
       <workItem from="1582736958295" duration="559000" />
       <workItem from="1582752301182" duration="250000" />
-      <workItem from="1582757911325" duration="4315000" />
+      <workItem from="1582757911325" duration="4592000" />
     </task>
     <servers />
   </component>

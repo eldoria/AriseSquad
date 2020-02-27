@@ -142,7 +142,6 @@ public class playerScript : MonoBehaviour
         {
             other.GetComponent<bossScript>().hasBeenHit = true;
             other.GetComponent<bossScript>().TakeDamage(1);
-            Debug.Log("Hit");
         }
     }
 
