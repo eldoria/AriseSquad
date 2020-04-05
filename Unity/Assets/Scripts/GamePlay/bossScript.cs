@@ -12,15 +12,14 @@ public class bossScript : MonoBehaviour
     public float moveSpeed;
     public float detectionDistance = 110f;
     public float attackDistance = 40f;
-    public int hitPoints = 3;
+    public static int hitPoints = 3;
     
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
 
     private bool hasHit = false;
     public bool hasBeenHit = false;
-
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -76,6 +75,12 @@ public class bossScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene("MenuScene");
+        //SceneManager.LoadScene("MenuScene");
+        
     }
+    
+    
+
 }
+
+    

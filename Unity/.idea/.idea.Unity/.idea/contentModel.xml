@@ -15,6 +15,7 @@
             <e p="LockMouse.cs" t="Include" />
             <e p="PauseGame.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
+            <e p="WinScreen.cs" t="Include" />
             <e p="wolfScript.cs" t="Include" />
           </e>
           <e p="MenuScene" t="Include">

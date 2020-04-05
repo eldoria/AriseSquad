@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,15 +18,16 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/hPDisplayScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/WinScreen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Player.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScene/ExitGame.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -34,11 +35,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/WinScreen.cs" />
       </list>
     </option>
   </component>
@@ -99,6 +101,7 @@
       <workItem from="1585914441979" duration="1000000" />
       <workItem from="1585919380901" duration="2366000" />
       <workItem from="1585921891992" duration="183000" />
+      <workItem from="1586085668033" duration="6351000" />
     </task>
     <servers />
   </component>
