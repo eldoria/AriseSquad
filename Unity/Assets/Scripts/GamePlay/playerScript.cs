@@ -20,6 +20,8 @@ public class playerScript : MonoBehaviour
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Attack = Animator.StringToHash("attack");
 
+    public GameObject gameOverUI;
+
     private void Start()
     {
         GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
@@ -145,14 +147,17 @@ public class playerScript : MonoBehaviour
         }
     }
 
+    public GameObject player;
+    
     public void TakeDamage(int damage)
     {
         hitPoints -= damage;
         GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
         if (hitPoints <= 0)
         {
-            SceneManager.LoadScene("MenuScene");
-        }
+            Destroy(player);
+            gameOverUI.SetActive(true);
+        } 
     }
 
     public bool Attacking()
