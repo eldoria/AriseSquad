@@ -20,7 +20,7 @@ public class playerScript : MonoBehaviour
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Attack = Animator.StringToHash("attack");
 
-    public GameObject gameOverUI;
+    
 
     private void Start()
     {
@@ -30,6 +30,12 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (GameManager.gameOver == true)
+        {
+            return;
+        }
+        
         var moveIntent = Vector3.zero;
         var moveSpeed = walkSpeed;
         var rotationAngle = 0f;
@@ -147,7 +153,7 @@ public class playerScript : MonoBehaviour
         }
     }
 
-    public GameObject player;
+   
     
     public void TakeDamage(int damage)
     {
@@ -155,8 +161,7 @@ public class playerScript : MonoBehaviour
         GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
         if (hitPoints <= 0)
         {
-            Destroy(player);
-            gameOverUI.SetActive(true);
+            FindObjectOfType<GameManager>().EndGame();
         } 
     }
 

@@ -24,6 +24,12 @@ public class wolfScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (GameManager.gameOver == true)
+        {
+            return;
+        }
+        
         player = GameObject.FindWithTag("Player").transform;
         if (!player.GetComponent<playerScript>().Attacking())
         {

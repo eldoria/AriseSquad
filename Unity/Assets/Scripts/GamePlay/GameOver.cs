@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 {
 
     private void OnEnable() {
-        Time.timeScale = 0;
+    
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         
@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        Time.timeScale = 1;
+ 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
