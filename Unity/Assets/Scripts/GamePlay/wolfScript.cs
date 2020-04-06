@@ -27,6 +27,8 @@ public class wolfScript : MonoBehaviour
 
         if (GameManager.gameOver == true)
         {
+            animation.SetBool(Attack, false);
+            animation.SetBool(Moving, false);
             return;
         }
         
