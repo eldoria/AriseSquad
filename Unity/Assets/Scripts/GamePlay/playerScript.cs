@@ -169,4 +169,9 @@ public class playerScript : MonoBehaviour
     {
         return attackCollider.enabled;
     }
+
+    public void stopMoving()
+    {
+        animation.SetBool(Running, false);
+    }
 }

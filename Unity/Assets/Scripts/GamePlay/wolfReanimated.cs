@@ -4,19 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class wolfScript : MonoBehaviour
+public class wolfReanimated : MonoBehaviour
 {
+
     private Transform player;
     [SerializeField] private Animator animation;
     [SerializeField] private BoxCollider attackCollider;
-    
-    // num and is Attacking is used for the monstersFigths scripts
-    public bool isAttacking = false;
-    
     public float moveSpeed;
     public float detectionDistance = 100f;
     public float attackDistance = 20f;
     public int hitPoints = 2;
+    private float dist;
+    public bool isAttacking = false;
 
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
@@ -26,30 +25,17 @@ public class wolfScript : MonoBehaviour
 
     void Update()
     {
-
-        if (GameManager.gameOver == true)
-        {
-            animation.SetBool(Attack, false);
-            animation.SetBool(Moving, false);
-            return;
-        }
-        
         player = GameObject.FindWithTag("Player").transform;
+        dist = Vector3.Distance(transform.position, player.transform.position);
         if (!player.GetComponent<playerScript>().Attacking())
         {
             hasBeenHit = false;
         }
-        if (Vector3.Distance(transform.position, player.transform.position) < attackDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto") && isAttacking == false)
-        {
-            transform.LookAt(player.transform);
-            animation.SetTrigger(Attack);
-        }
-        else if (Vector3.Distance(transform.position, player.transform.position) < detectionDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto") && isAttacking == false)
+        if (dist > 40 && isAttacking == false)
         {
             animation.SetBool(Moving, true);
             transform.LookAt(player.transform);
-            var direction = Vector3.forward;
-            transform.position += transform.rotation * direction * moveSpeed * Time.deltaTime;
+            transform.position += transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
         }
         else
         {
@@ -72,14 +58,10 @@ public class wolfScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 8 && attackCollider.enabled && !hasHit)
+        if (other.gameObject.layer == 10 && attackCollider.enabled && !hasHit)
         {
-            other.GetComponent<playerScript>().TakeDamage(1);
+            other.GetComponent<wolfScript>().TakeDamage(1);
             hasHit = true;
-        }
-        else if(other.gameObject.layer == 9)
-        {
-            other.GetComponent<wolfReanimated>().TakeDamage(1);
         }
     }
 
@@ -89,11 +71,9 @@ public class wolfScript : MonoBehaviour
         if (hitPoints <= 0)
         {
             Destroy(gameObject);
-            reanimationMonstre.UpdateNbMonstre();
         }
     }
-
-    // use in monstersFights script
+    
     public void AnimationAttack()
     {
         animation.SetTrigger(Attack);

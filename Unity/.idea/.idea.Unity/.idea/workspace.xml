@@ -4,8 +4,12 @@
     <list default="true" id="87bda63b-066f-4e1d-a08e-ed7d905372f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Wolf_3D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Wolf_3D.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wolf_3D.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wolf_3D.blend" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,31 +20,37 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/hPDisplayScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/WinScreen.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Player.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScene/ExitGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/reanimationMonstre.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Player.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/hPDisplayScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/monstersFight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfReanimated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/WinScreen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/reanimationMonstre.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfReanimated.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/monstersFight.cs" />
       </list>
     </option>
   </component>
@@ -55,6 +65,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
@@ -102,6 +113,9 @@
       <workItem from="1585919380901" duration="2366000" />
       <workItem from="1585921891992" duration="183000" />
       <workItem from="1586085668033" duration="6351000" />
+      <workItem from="1586193805224" duration="1256000" />
+      <workItem from="1586197098630" duration="458000" />
+      <workItem from="1586197643394" duration="6617000" />
     </task>
     <servers />
   </component>

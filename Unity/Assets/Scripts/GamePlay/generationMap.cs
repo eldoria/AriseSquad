@@ -9,21 +9,19 @@ public class generationMap : MonoBehaviour
     public GameObject [] treePrefab;
     public GameObject monsterPrefab;
     public GameObject bossPrefab;
-    private float posX = -495;
-    private float posZ = -495;
     private float randomX, randomZ;
     // the first two values are the boundary of the x zone, the nex two are the boudary of the y zone, then repeats for each area
-    private readonly int [] arrayMonsters = {300, 400, 200, 300, 100, 200, 50, 150};
+    private readonly int [] areaMonsters = {300, 400, 200, 300, 100, 200, 50, 150};
     private readonly int[] areaBoss = {100, 400, 150, 300};
-    private bool arrayWithMonsters;
+    private bool areaWithMonsters;
     private bool bossCreated = false;
     void Start()
     {
-        for (int i = -490; i < 490; i += 40)
+        for (int i = -490; i < 490; i += 50)
         {
-            for (int j = -490; j < 490; j += 40)
+            for (int j = -490; j < 490; j += 50)
             {
-                if (createArrayWithMonsters(i, j) == false && createAreaWithBoss(i, j) == false)
+                if (createAreaWithMonsters(i, j) == false && createAreaWithBoss(i, j) == false)
                 {
                     Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), 0f, z: j + Random.Range(0f, 8f));
                     int treeChoose = Random.Range(0, 2);
@@ -35,22 +33,22 @@ public class generationMap : MonoBehaviour
         }
     }
 
-    bool createArrayWithMonsters(int i, int j)
+    bool createAreaWithMonsters(int i, int j)
     {
-        arrayWithMonsters = false;
+        areaWithMonsters = false;
         // check if the coordinates match with a zone monster
-        for (int l = 0; l < arrayMonsters.Length && !arrayWithMonsters; l += 4)
+        for (int l = 0; l < areaMonsters.Length && !areaWithMonsters; l += 4)
         {
-            arrayWithMonsters = (i > arrayMonsters[l] && i < arrayMonsters[l + 1]) && (j > arrayMonsters[l + 2] && j < arrayMonsters[l + 3]);
-            if (arrayWithMonsters) Debug.Log("x : " + i + ", z : " + j);
+            areaWithMonsters = (i > areaMonsters[l] && i < areaMonsters[l + 1]) && (j > areaMonsters[l + 2] && j < areaMonsters[l + 3]);
         }
         // if the coordinates match with a zone monster, spawn monsters
-        if (arrayWithMonsters)
+        if (areaWithMonsters)
         {
             Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), -.1f, z: j + Random.Range(0f, 8f));
-            Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
+            GameObject monster = Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
+            GetComponent<monstersFight>().AddWolfEnemy(monster);
         }
-        return arrayWithMonsters;
+        return areaWithMonsters;
     }
 
     bool createAreaWithBoss(int i, int j)
