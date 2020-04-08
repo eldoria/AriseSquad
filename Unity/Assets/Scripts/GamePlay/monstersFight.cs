@@ -7,9 +7,9 @@ public class monstersFight : MonoBehaviour
 {
     public int moveSpeed;
     public int detectionDistance;
-    private GameObject[] wolfEnemies;
+    [SerializeField]private GameObject[] wolfEnemies;
     private int indE = 0;
-    private GameObject[] wolfAllies;
+    [SerializeField]private GameObject[] wolfAllies;
     private int indA = 0;
     private float timeDelay = 0;
 

@@ -1239,6 +1239,8 @@ MonoBehaviour:
   attackDistance: 20
   hitPoints: 1
   hasBeenHit: 0
+  num: 0
+  objectWithScripts: {fileID: 0}
 --- !u!95 &1773498569492994676
 Animator:
   serializedVersion: 3

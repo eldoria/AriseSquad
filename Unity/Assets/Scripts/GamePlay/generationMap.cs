@@ -15,6 +15,8 @@ public class generationMap : MonoBehaviour
     private readonly int[] areaBoss = {100, 400, 150, 300};
     private bool areaWithMonsters;
     private bool bossCreated = false;
+
+    private int count = 0;
     void Start()
     {
         for (int i = -490; i < 490; i += 50)
@@ -28,7 +30,6 @@ public class generationMap : MonoBehaviour
                     if (treeChoose == 0) Instantiate(treePrefab[0], position + new Vector3(0, 9f, 0), treePrefab[0].transform.rotation);
                     else Instantiate(treePrefab[1], position + new Vector3(0, 35.5f, 0), treePrefab[1].transform.rotation);
                 }
-                
             }
         }
     }
@@ -46,6 +47,7 @@ public class generationMap : MonoBehaviour
         {
             Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), -.1f, z: j + Random.Range(0f, 8f));
             GameObject monster = Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
+            monster.GetComponent<wolfScript>().num = count++;
             GetComponent<monstersFight>().AddWolfEnemy(monster);
         }
         return areaWithMonsters;

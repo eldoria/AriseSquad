@@ -14,6 +14,8 @@ public class reanimationMonstre : MonoBehaviour
     private playerScript script1;
     private cameraController script2;
     private GameObject scripts;
+
+    private int count = 0;
     void Start()
     {
         nbMonstresReanimables = 10;
@@ -63,6 +65,7 @@ public class reanimationMonstre : MonoBehaviour
         {
             Vector3 position = new Vector3(x: player.transform.position.x + Random.Range(-20,20), 0, z: player.transform.position.z + Random.Range(-20,-35));
             GameObject wolfReanim = Instantiate(monstreReanime, position, monstreReanime.transform.rotation);
+            wolfReanim.GetComponent<wolfReanimated>().num = count++;
             GetComponent<monstersFight>().AddWolfAlly(wolfReanim);
             nbMonstresReanimables--;
         }

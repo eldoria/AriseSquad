@@ -24,9 +24,17 @@ public class wolfScript : MonoBehaviour
     private bool hasHit = false;
     public bool hasBeenHit = false;
 
+    public int num;
+
+    [SerializeField]private GameObject objectWithScripts;
+
+    private void Start()
+    {
+        objectWithScripts = GameObject.Find("Scripts_Map_boss");
+    }
+
     void Update()
     {
-
         if (GameManager.gameOver == true)
         {
             animation.SetBool(Attack, false);
@@ -88,6 +96,7 @@ public class wolfScript : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
+            objectWithScripts.GetComponent<monstersFight>().DeleteWolfEnemy(num);
             Destroy(gameObject);
             reanimationMonstre.UpdateNbMonstre();
         }

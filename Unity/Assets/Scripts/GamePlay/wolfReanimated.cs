@@ -23,6 +23,15 @@ public class wolfReanimated : MonoBehaviour
     private bool hasHit = false;
     public bool hasBeenHit = false;
 
+    public int num;
+    
+    public GameObject objectWithScripts;
+
+    private void Start()
+    {
+        objectWithScripts = GameObject.Find("Scripts_Map_boss");
+    }
+
     void Update()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -70,6 +79,7 @@ public class wolfReanimated : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
+            objectWithScripts.GetComponent<monstersFight>().DeleteWolfAlly(num);
             Destroy(gameObject);
         }
     }
