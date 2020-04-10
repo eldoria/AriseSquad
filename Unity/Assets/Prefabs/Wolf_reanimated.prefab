@@ -767,6 +767,8 @@ MonoBehaviour:
   hitPoints: 2
   isAttacking: 0
   hasBeenHit: 0
+  num: 0
+  objectWithScripts: {fileID: 0}
 --- !u!1 &3371075891770261005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1224,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6145372942434396051}
-  m_LocalRotation: {x: -0.7071068, y: -3.0570834e-23, z: -2.4903104e-30, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0000000037252892, y: -0.00000033681482, z: -0.0000010332985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

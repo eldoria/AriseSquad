@@ -43,9 +43,9 @@ public class reanimationMonstre : MonoBehaviour
                 updateText();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                script1.stopMoving();
                 script1.enabled = false;
                 script2.enabled = false;
+                script1.stopMoving();
             }
             else
             {

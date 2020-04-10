@@ -48,7 +48,7 @@ public class monstersFight : MonoBehaviour
                 //Debug.Log("test : " + wolfAllies[i].GetComponent<wolfReanimated>().isAttacking);
                 //Debug.Log("test2 : " + wolfEnemies[i].GetComponent<wolfScript>().isAttacking);
                 //if only the 2 monsters exist and both are not already attacking
-                if(wolfAllies[i].scene.IsValid() && wolfEnemies[j].scene.IsValid() && (wolfAllies[i].GetComponent<wolfReanimated>().isAttacking == false || wolfEnemies[j].GetComponent<wolfScript>().isAttacking == false))
+                if(wolfAllies[i] && wolfEnemies[j] && (wolfAllies[i].GetComponent<wolfReanimated>().isAttacking == false || wolfEnemies[j].GetComponent<wolfScript>().isAttacking == false))
                 {
                     // if the distance is inferior to the detectionDistance
                     if(Vector3.Distance(wolfAllies[i].transform.position, wolfEnemies[i].transform.position) <= 120)
@@ -141,8 +141,9 @@ public class monstersFight : MonoBehaviour
             StartCoroutine(Wait(numWolfAlly, numWolfEnemy, caseSelected));
         else
         {
-            if (wolfEnemies[numWolfEnemy].scene.IsValid()) wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().isAttacking = false;
-            else wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().isAttacking = false;
+            Debug.Log("test");
+            if (wolfEnemies[numWolfEnemy]) wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().isAttacking = false;
+            else if (wolfAllies[numWolfAlly]) wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().isAttacking = false;
         }
     }
 

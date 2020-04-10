@@ -172,6 +172,6 @@ public class playerScript : MonoBehaviour
 
     public void stopMoving()
     {
-        animation.SetBool(Running, false);
+        animation.SetBool(Moving, false);
     }
 }
