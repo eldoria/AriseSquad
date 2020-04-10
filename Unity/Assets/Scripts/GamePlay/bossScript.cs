@@ -40,6 +40,10 @@ public class bossScript : MonoBehaviour
             var direction = Vector3.forward;
             transform.position += transform.rotation * direction * moveSpeed * Time.deltaTime;
         }
+        else
+        {
+            animation.SetBool(Moving, false);
+        }
 
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {

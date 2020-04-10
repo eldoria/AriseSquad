@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bda63b-066f-4e1d-a08e-ed7d905372f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/reanimationMonstre.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/hPDisplayScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GamePlay/monstersFight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Player.prefab" root0="FORCE_HIGHLIGHTING" />
@@ -33,7 +34,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/LockMouse.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScene/changeScene.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/PauseGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/WinScreen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/generationMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/wolfReanimated.cs" />
@@ -42,6 +42,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/monstersFight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/cameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GamePlay/bossScript.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +111,7 @@
       <workItem from="1586246359775" duration="1197000" />
       <workItem from="1586270399625" duration="2831000" />
       <workItem from="1586335258751" duration="2637000" />
-      <workItem from="1586528904792" duration="36000" />
+      <workItem from="1586528904792" duration="915000" />
     </task>
     <servers />
   </component>
