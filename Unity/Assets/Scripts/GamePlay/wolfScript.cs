@@ -31,6 +31,7 @@ public class wolfScript : MonoBehaviour
     private void Start()
     {
         objectWithScripts = GameObject.Find("Scripts_Map_boss");
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
@@ -41,8 +42,11 @@ public class wolfScript : MonoBehaviour
             animation.SetBool(Moving, false);
             return;
         }
+        else
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
         
-        player = GameObject.FindWithTag("Player").transform;
         if (!player.GetComponent<playerScript>().Attacking())
         {
             hasBeenHit = false;

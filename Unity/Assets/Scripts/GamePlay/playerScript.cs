@@ -35,6 +35,10 @@ public class playerScript : MonoBehaviour
         {
             return;
         }
+        else
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
         
         var moveIntent = Vector3.zero;
         var moveSpeed = walkSpeed;

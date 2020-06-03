@@ -1236,7 +1236,6 @@ MonoBehaviour:
   moveSpeed: 20
   detectionDistance: 110
   attackDistance: 40
-  hitPoints: 3
   hasBeenHit: 0
 --- !u!95 &1773498569492994676
 Animator:

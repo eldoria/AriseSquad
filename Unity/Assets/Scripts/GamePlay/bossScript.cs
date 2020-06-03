@@ -23,6 +23,16 @@ public class bossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameOver == true)
+        {
+            animation.SetBool(Attack, false);
+            animation.SetBool(Moving, false);
+            return;
+        }
+        else
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
         player = GameObject.FindWithTag("Player").transform;
         if (!player.GetComponent<playerScript>().Attacking())
         {
