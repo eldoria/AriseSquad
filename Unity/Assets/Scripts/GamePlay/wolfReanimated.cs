@@ -30,11 +30,12 @@ public class wolfReanimated : MonoBehaviour
     private void Start()
     {
         objectWithScripts = GameObject.Find("Scripts_Map_boss");
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         dist = Vector3.Distance(transform.position, player.transform.position);
         if (!player.GetComponent<playerScript>().Attacking())
         {
@@ -46,7 +47,7 @@ public class wolfReanimated : MonoBehaviour
             transform.LookAt(player.transform);
             transform.position += transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
         }
-        else
+        else if(!isAttacking)
         {
             animation.SetBool(Moving, false);
         }
@@ -71,6 +72,8 @@ public class wolfReanimated : MonoBehaviour
         {
             other.GetComponent<wolfScript>().TakeDamage(1);
             hasHit = true;
+            if (other.GetComponent<wolfScript>().hitPoints <= 0)
+                isAttacking = false;
         }
     }
 

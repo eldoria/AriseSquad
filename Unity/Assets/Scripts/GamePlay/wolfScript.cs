@@ -63,7 +63,7 @@ public class wolfScript : MonoBehaviour
             var direction = Vector3.forward;
             transform.position += transform.rotation * direction * moveSpeed * Time.deltaTime;
         }
-        else
+        else if(!isAttacking)
         {
             animation.SetBool(Moving, false);
         }
@@ -92,6 +92,8 @@ public class wolfScript : MonoBehaviour
         else if(other.gameObject.layer == 9)
         {
             other.GetComponent<wolfReanimated>().TakeDamage(1);
+            if (other.GetComponent<wolfReanimated>().hitPoints <= 0) 
+                isAttacking = false;
         }
     }
 
