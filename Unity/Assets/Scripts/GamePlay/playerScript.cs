@@ -19,9 +19,13 @@ public class playerScript : MonoBehaviour
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Attack = Animator.StringToHash("attack");
-
+    private static readonly int sort1 = Animator.StringToHash("sort1");
+    private static readonly int sort2 = Animator.StringToHash("sort2");
+    private static readonly int esquiveAvant = Animator.StringToHash("esquiveAvant");
+    private static readonly int esquiveArriere = Animator.StringToHash("esquiveArriere");
+    private static readonly int esquiveDroite = Animator.StringToHash("esquiveDroite");
+    private static readonly int esquiveGauche = Animator.StringToHash("esquiveGauche");
     
-
     private void Start()
     {
         GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
@@ -114,7 +118,6 @@ public class playerScript : MonoBehaviour
         {
             animation.SetTrigger(Attack);
         }
-
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             moveIntent = Vector3.zero;
@@ -126,6 +129,69 @@ public class playerScript : MonoBehaviour
             attackCollider.enabled = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            animation.SetTrigger(sort1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            animation.SetTrigger(sort2);
+        }
+
+        if (Input.GetKey(KeyCode.Z))
+        {    
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animation.SetTrigger(esquiveAvant);
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.S))
+        {    
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animation.SetTrigger(esquiveAvant);
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.D))
+        {    
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animation.SetTrigger(esquiveDroite);
+            }
+        }
+        
+        if (Input.GetKey(KeyCode.Q))
+        {    
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animation.SetTrigger(esquiveGauche);
+            }
+        }
+        
+        /*
+        if (Input.GetKey(KeyCode.S))
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animation.SetTrigger(esquiveArriere);
+            }
+        }
+        */
+        /*
+        if (animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
+        {
+            moveIntent = Vector3.zero;
+            transform.eulerAngles = tmpEuler;
+            attackCollider.enabled = true;
+        }
+        else
+        {
+            attackCollider.enabled = false;
+        }
+*/
         moveIntent = moveIntent.normalized;
         
         //transform.Rotate(0f,RotationIntent * Time.deltaTime * RotationSpeed,0f);
@@ -179,3 +245,5 @@ public class playerScript : MonoBehaviour
         animation.SetBool(Moving, false);
     }
 }
+    
+    
