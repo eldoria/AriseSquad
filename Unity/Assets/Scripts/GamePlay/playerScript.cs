@@ -43,7 +43,9 @@ public class playerScript : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        
+
+        MoveDuringDash();
+
         var moveIntent = Vector3.zero;
         var moveSpeed = walkSpeed;
         var rotationAngle = 0f;
@@ -51,42 +53,92 @@ public class playerScript : MonoBehaviour
         short keysCount = 0;
         float RotationIntent = 0f;
         
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Space))
         {
-            animation.SetBool(Moving,true);
-            /*moveIntent = transform.position - camera.position;
-            moveIntent.y = 0f;*/
-            /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y, 0f);
-            moveIntent += Vector3.forward;*/
-            rotationAngle += Input.GetKey(KeyCode.Q) ? 360f : 0f;
-            keysCount++;
-        }
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                animation.SetTrigger(esquiveAvant);
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            animation.SetBool(Moving,true);
-            /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y - 180f, 0f);
-            moveIntent += Vector3.forward;*/
-            rotationAngle += 180f;
-            keysCount++;
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                animation.SetTrigger(esquiveArriere);
+                
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                animation.SetTrigger(esquiveDroite);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                animation.SetTrigger(esquiveGauche);
+            }
         }
-        
-        if (Input.GetKey(KeyCode.Q))
+        else
         {
-            animation.SetBool(Moving,true);
-            /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y - 90f, 0f);
-            moveIntent += Vector3.forward;*/
-            rotationAngle += 270f;
-            keysCount++;
-        }
+            if (Input.GetKey(KeyCode.Z))
+            {
+                animation.SetBool(Moving,true);
+                rotationAngle += Input.GetKey(KeyCode.Q) ? 360f : 0f;
+                keysCount++;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                animation.SetBool(Moving,true);
+                
+                rotationAngle += 180f;
+                keysCount++;
+            }
         
-        if (Input.GetKey(KeyCode.D))
-        {
-            animation.SetBool(Moving,true);
-            /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y + 90f, 0f);
-            moveIntent += Vector3.forward;*/
-            rotationAngle += 90f;
-            keysCount++;
+            if (Input.GetKey(KeyCode.Q) & !animation.GetCurrentAnimatorStateInfo(0).IsName("sort2") &
+                !animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
+            {
+                animation.SetBool(Moving,true);
+                /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y - 90f, 0f);
+                moveIntent += Vector3.forward;*/
+                rotationAngle += 270f;
+                keysCount++;
+            }
+        
+            if (Input.GetKey(KeyCode.D) & !animation.GetCurrentAnimatorStateInfo(0).IsName("sort2") &
+                !animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
+            {
+                animation.SetBool(Moving,true);
+                /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y + 90f, 0f);
+                moveIntent += Vector3.forward;*/
+                rotationAngle += 90f;
+                keysCount++;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                animation.SetTrigger(sort1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                animation.SetTrigger(sort2);
+            }
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                animation.SetTrigger(Attack);
+            }
+            if (animation.GetCurrentAnimatorStateInfo(0).IsName("Attack") || 
+                animation.GetCurrentAnimatorStateInfo(0).IsName("sort1") || 
+                animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
+            {
+                moveIntent = Vector3.zero;
+                transform.eulerAngles = tmpEuler;
+                attackCollider.enabled = true;
+            }
+            else
+            {
+                attackCollider.enabled = false;
+            }
         }
 
         /*if (!(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.D)))
@@ -114,62 +166,8 @@ public class playerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            animation.SetTrigger(Attack);
-        }
-        if (animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            moveIntent = Vector3.zero;
-            transform.eulerAngles = tmpEuler;
-            attackCollider.enabled = true;
-        }
-        else
-        {
-            attackCollider.enabled = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            animation.SetTrigger(sort1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            animation.SetTrigger(sort2);
-        }
-
-        if (Input.GetKey(KeyCode.Z))
-        {    
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                animation.SetTrigger(esquiveAvant);
-            }
-        }
         
-        if (Input.GetKey(KeyCode.S))
-        {    
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                animation.SetTrigger(esquiveAvant);
-            }
-        }
         
-        if (Input.GetKey(KeyCode.D))
-        {    
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                animation.SetTrigger(esquiveDroite);
-            }
-        }
-        
-        if (Input.GetKey(KeyCode.Q))
-        {    
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                animation.SetTrigger(esquiveGauche);
-            }
-        }
         
         /*
         if (Input.GetKey(KeyCode.S))
@@ -205,8 +203,14 @@ public class playerScript : MonoBehaviour
         {
             animation.SetBool(Running, false);
         }
-        
-        transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
+        if(animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
+        {
+            transform.position += transform.rotation * moveIntent * moveSpeed/2 * Time.deltaTime;
+        }
+        else if(!animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -243,6 +247,41 @@ public class playerScript : MonoBehaviour
     public void stopMoving()
     {
         animation.SetBool(Moving, false);
+    }
+
+    public void MoveDuringDash()
+    {
+        float factor = 80;
+        if (animation.GetCurrentAnimatorStateInfo(0).IsName("esquiveAvant"))
+        {
+            transform.position += transform.rotation * Vector3.forward * Time.deltaTime * factor;
+        }
+        else if (animation.GetCurrentAnimatorStateInfo(0).IsName("esquiveArriere"))
+        {
+            transform.position += transform.rotation * Vector3.back * Time.deltaTime * factor;
+        }
+        else if (animation.GetCurrentAnimatorStateInfo(0).IsName("esquiveDroite"))
+        {
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.6)
+            {
+                transform.position += transform.rotation * Vector3.right * Time.deltaTime * factor;
+            }
+        }
+        else if (animation.GetCurrentAnimatorStateInfo(0).IsName("esquiveGauche"))
+        {
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.6)
+            {
+                transform.position += transform.rotation * Vector3.left * Time.deltaTime * factor;
+            }
+        }
+        else if (animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
+        {
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime >0.2 && 
+                animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.6)
+            {
+                transform.position += transform.rotation * Vector3.forward * Time.deltaTime * 10;
+            }
+        }
     }
 }
     

@@ -6,12 +6,13 @@ using Random = UnityEngine.Random;
 
 public class generationMap : MonoBehaviour
 {
+    [SerializeField] private int tailleMap = 1000;
     public GameObject [] treePrefab;
     public GameObject monsterPrefab;
     public GameObject bossPrefab;
     private float randomX, randomZ;
     // the first two values are the boundary of the x zone, the nex two are the boudary of the y zone, then repeats for each area
-    private readonly int [] areaMonsters = {300, 400, 200, 300, 100, 200, 50, 150};
+    private readonly int [] areaMonsters = {200, 400, 200, 400, 100, 300, 50, 250};
     private readonly int[] areaBoss = {100, 400, 150, 300};
     private bool areaWithMonsters;
     private bool bossCreated = false;
@@ -19,9 +20,9 @@ public class generationMap : MonoBehaviour
     private int count = 0;
     void Start()
     {
-        for (int i = -490; i < 490; i += 50)
+        for (int i = -tailleMap; i < tailleMap; i += 50)
         {
-            for (int j = -490; j < 490; j += 50)
+            for (int j = -tailleMap; j < tailleMap; j += 50)
             {
                 if (createAreaWithMonsters(i, j) == false && createAreaWithBoss(i, j) == false)
                 {
