@@ -73,7 +73,8 @@ public class bossScript : MonoBehaviour
     {
         if ((other.gameObject.layer == 8 || other.gameObject.layer == 9) && attackCollider.enabled && !hasHit)
         {
-            other.GetComponent<playerScript>().TakeDamage(1);
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(20);
             hasHit = true;
         }
     }

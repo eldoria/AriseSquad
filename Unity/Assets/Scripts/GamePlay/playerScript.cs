@@ -25,10 +25,10 @@ public class playerScript : MonoBehaviour
     private static readonly int esquiveArriere = Animator.StringToHash("esquiveArriere");
     private static readonly int esquiveDroite = Animator.StringToHash("esquiveDroite");
     private static readonly int esquiveGauche = Animator.StringToHash("esquiveGauche");
+    private static readonly int arise = Animator.StringToHash("arise");
     
     private void Start()
     {
-        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
     }
 
     // Update is called once per frame
@@ -78,6 +78,10 @@ public class playerScript : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                animation.SetTrigger(arise);
+            }
             if (Input.GetKey(KeyCode.Z))
             {
                 animation.SetBool(Moving,true);
@@ -225,18 +229,6 @@ public class playerScript : MonoBehaviour
             other.GetComponent<bossScript>().hasBeenHit = true;
             other.GetComponent<bossScript>().TakeDamage(1);
         }
-    }
-
-   
-    
-    public void TakeDamage(int damage)
-    {
-        hitPoints -= damage;
-        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
-        if (hitPoints <= 0)
-        {
-            FindObjectOfType<GameManager>().EndGame();
-        } 
     }
 
     public bool Attacking()

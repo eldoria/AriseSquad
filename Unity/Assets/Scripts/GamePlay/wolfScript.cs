@@ -86,7 +86,8 @@ public class wolfScript : MonoBehaviour
     {
         if (other.gameObject.layer == 8 && attackCollider.enabled && !hasHit)
         {
-            other.GetComponent<playerScript>().TakeDamage(1);
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(10);
             hasHit = true;
         }
         else if(other.gameObject.layer == 9)
