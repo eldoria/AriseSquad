@@ -25,6 +25,7 @@ public class playerScript : MonoBehaviour
     private static readonly int esquiveArriere = Animator.StringToHash("esquiveArriere");
     private static readonly int esquiveDroite = Animator.StringToHash("esquiveDroite");
     private static readonly int esquiveGauche = Animator.StringToHash("esquiveGauche");
+    private static readonly int arise = Animator.StringToHash("arise");
     
     private void Start()
     {
@@ -77,6 +78,10 @@ public class playerScript : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                animation.SetTrigger(arise);
+            }
             if (Input.GetKey(KeyCode.Z))
             {
                 animation.SetBool(Moving,true);
