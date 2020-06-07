@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bda63b-066f-4e1d-a08e-ed7d905372f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player Animation Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Player Animation Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameplayScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamePlay/playerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +112,7 @@
       <workItem from="1586528904792" duration="1516000" />
       <workItem from="1591160029572" duration="1214000" />
       <workItem from="1591335888586" duration="9960000" />
-      <workItem from="1591528677363" duration="7279000" />
+      <workItem from="1591528677363" duration="7912000" />
     </task>
     <servers />
   </component>
