@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1199,7 +1200,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e212398d4b354254b9226d6031928448,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 109
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e212398d4b354254b9226d6031928448,
         type: 3}
@@ -1209,7 +1210,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e212398d4b354254b9226d6031928448,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1016
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e212398d4b354254b9226d6031928448,
         type: 3}
@@ -3327,7 +3328,7 @@ MonoBehaviour:
   textNbMonstres: {fileID: 1288539425}
   monstreReanime: {fileID: 3015308817734714355, guid: 1026aaa9f05cf6c41b2be6d00d900cfd,
     type: 3}
-  player: {fileID: 0}
+  player: {fileID: 83265362}
 --- !u!114 &1860411685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3443,6 +3444,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3632,8 +3634,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034775616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalPosition: {x: -25, y: -0.1, z: -25}
+  m_LocalScale: {x: 200, y: 1, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
