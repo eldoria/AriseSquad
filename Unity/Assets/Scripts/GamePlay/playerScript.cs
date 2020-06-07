@@ -28,7 +28,6 @@ public class playerScript : MonoBehaviour
     
     private void Start()
     {
-        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
     }
 
     // Update is called once per frame
@@ -225,18 +224,6 @@ public class playerScript : MonoBehaviour
             other.GetComponent<bossScript>().hasBeenHit = true;
             other.GetComponent<bossScript>().TakeDamage(1);
         }
-    }
-
-   
-    
-    public void TakeDamage(int damage)
-    {
-        hitPoints -= damage;
-        GetComponent<hPDisplayScript>().ChangeHitPoints(hitPoints);
-        if (hitPoints <= 0)
-        {
-            FindObjectOfType<GameManager>().EndGame();
-        } 
     }
 
     public bool Attacking()
