@@ -105,7 +105,7 @@ public class wolfScript : MonoBehaviour
         {
             objectWithScripts.GetComponent<monstersFight>().DeleteWolfEnemy(num);
             Destroy(gameObject);
-            GetComponent<reanimationMonstre>().UpdateNbMonstre();
+            objectWithScripts.GetComponent<reanimationMonstre>().UpdateNbMonstre();
         }
     }
 

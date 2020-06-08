@@ -78,10 +78,6 @@ public class playerScript : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                animation.SetTrigger(arise);
-            }
             if (Input.GetKey(KeyCode.Z))
             {
                 animation.SetBool(Moving,true);
@@ -239,6 +235,11 @@ public class playerScript : MonoBehaviour
     public void stopMoving()
     {
         animation.SetBool(Moving, false);
+    }
+
+    public void animationReanimation()
+    {
+        animation.SetTrigger(arise);
     }
 
     public void MoveDuringDash()

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class reanimationMonstre : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class reanimationMonstre : MonoBehaviour
     private playerScript script1;
     private cameraController script2;
     private GameObject scripts;
-    public InputField nombreField;
+    public GameObject nombreField;
     
     private int count = 0;
     void Start()
@@ -29,6 +31,7 @@ public class reanimationMonstre : MonoBehaviour
     public void UpdateNbMonstre()
     {
         nbMonstresReanimables++;
+        textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
     }
 
     public void UpdateText()
@@ -64,15 +67,27 @@ public class reanimationMonstre : MonoBehaviour
 
     public void reanimation()
     {
-        if (nbMonstresReanimables > 0)
+        int nbLoups;
+        int.TryParse(nombreField.GetComponent<Text>().text, out nbLoups);
+        if (nbMonstresReanimables > 0 & nbLoups > 0)
         {
-            Vector3 position = new Vector3(x: player.transform.position.x + Random.Range(-20,20), 0, z: player.transform.position.z + Random.Range(-20,-35));
-            GameObject wolfReanim = Instantiate(monstreReanime, position, monstreReanime.transform.rotation);
-            wolfReanim.GetComponent<wolfReanimated>().num = count++;
-            GetComponent<monstersFight>().AddWolfAlly(wolfReanim);
-            nbMonstresReanimables--;
+            script1.animationReanimation();
+            if (nbLoups > nbMonstresReanimables) nbLoups = nbMonstresReanimables;
+            for (int i = 0; i < nbLoups; i++)
+            {
+                Vector3 position = new Vector3(x: player.transform.position.x + Random.Range(-20,20), 0, z: player.transform.position.z + Random.Range(-20,-35));
+                GameObject wolfReanim = Instantiate(monstreReanime, position, monstreReanime.transform.rotation);
+                wolfReanim.GetComponent<wolfReanimated>().num = count++;
+                GetComponent<monstersFight>().AddWolfAlly(wolfReanim);
+                nbMonstresReanimables--;
+            }
             UpdateText();
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            script1.enabled = true;
+            script2.enabled = true;
+            menu.SetActive(false);
         }
-        
     }
 }
