@@ -1,0 +1,10 @@
+Nouveauté :
+
+-Ajouter la barre de vie
+-Ajout la barre de vie
+-Résoudre des problèmes des Collisions
+-Réanimer les morts
+-Ajoute Mini-Map
+-Changement de la map
+-Ajout nouvelle monstre
+-Ajoute un château
