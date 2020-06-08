@@ -23,6 +23,7 @@ JiongJiong :
 - création écran de victoire
 - création script pour bouger la caméra et rendre invisible le curseur
 - création mini-map
+- création script caméra
 
 Jonathan :
 - création script fin de partie
@@ -31,5 +32,10 @@ Jonathan :
 - création barre de vie
 
 Eric :
-- développement des scripts des loups, du boss, du joueur pour la proto
-- création des prefabs loups
+- développement des scripts des loups, du boss, du joueur pour le proto
+- implémentation de l'animation attaque, marcher et courir sur Unity pour le proto
+
+touches spéciales:
+- P pour menu pause
+- A/E attaques spéciales
+- Tab menu réanimation
