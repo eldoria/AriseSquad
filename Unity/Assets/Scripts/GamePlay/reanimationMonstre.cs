@@ -14,7 +14,8 @@ public class reanimationMonstre : MonoBehaviour
     private playerScript script1;
     private cameraController script2;
     private GameObject scripts;
-
+    public InputField nombreField;
+    
     private int count = 0;
     void Start()
     {
@@ -32,12 +33,14 @@ public class reanimationMonstre : MonoBehaviour
 
     private void updateText()
     {
-        textNbMonstres.text = "nombre de monstres réanimables : " + nbMonstresReanimables;
+        textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
     }
     void Update()
     {
+
         if(Input.GetKeyDown("tab")){
             menu.SetActive(!menu.activeSelf);
+            
             if (menu.activeSelf is true)
             {
                 updateText();

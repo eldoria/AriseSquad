@@ -19,11 +19,13 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
  
+        Time.timeScale = 1; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
 
     public void TitleScreen() {
+        Time.timeScale = 1; 
         SceneManager.LoadScene("MenuScene");
     }
 }
