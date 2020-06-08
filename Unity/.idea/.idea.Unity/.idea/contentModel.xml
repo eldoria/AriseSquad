@@ -21,7 +21,6 @@
             <e p="PlayerHealth.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
             <e p="reanimationMonstre.cs" t="Include" />
-            <e p="Ui_input_window.cs" t="Include" />
             <e p="WinScreen.cs" t="Include" />
             <e p="wolfReanimated.cs" t="Include" />
             <e p="wolfScript.cs" t="Include" />

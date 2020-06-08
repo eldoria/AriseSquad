@@ -21,17 +21,17 @@ public class reanimationMonstre : MonoBehaviour
     {
         nbMonstresReanimables = 10;
         menu.SetActive(false);
-        updateText();
+        UpdateText();
         script1 = player.GetComponent<playerScript>();
         script2 = player.GetComponentInChildren<cameraController>();
     }
 
-    public static void UpdateNbMonstre()
+    public void UpdateNbMonstre()
     {
         nbMonstresReanimables++;
     }
 
-    private void updateText()
+    public void UpdateText()
     {
         textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
     }
@@ -43,7 +43,7 @@ public class reanimationMonstre : MonoBehaviour
             
             if (menu.activeSelf is true)
             {
-                updateText();
+                UpdateText();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 script1.enabled = false;
@@ -71,6 +71,7 @@ public class reanimationMonstre : MonoBehaviour
             wolfReanim.GetComponent<wolfReanimated>().num = count++;
             GetComponent<monstersFight>().AddWolfAlly(wolfReanim);
             nbMonstresReanimables--;
+            UpdateText();
         }
         
     }
