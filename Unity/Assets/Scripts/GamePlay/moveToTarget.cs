@@ -11,17 +11,17 @@ public class moveToTarget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GetComponent<entityType>().GetType() == "wolfAlly")
+        if (CompareTag("wolfAlly"))
         {
             moveSpeed = GetComponent<wolfReanimated>().moveSpeed;
             attackDistance = 20;
         }
-        else if (GetComponent<entityType>().GetType() == "wolfEnemy")
+        else if (CompareTag("wolfEnemy"))
         {
             moveSpeed = GetComponent<wolfScript>().moveSpeed;
             attackDistance = 20;
         }
-        else if (GetComponent<entityType>().GetType() == "wolfBoss")
+        else if (CompareTag("wolfBoss"))
         {
             moveSpeed = GetComponent<bossScript>().moveSpeed;
             attackDistance = 30;
@@ -46,15 +46,15 @@ public class moveToTarget : MonoBehaviour
                 // l'unité attaque
                 if (distance <= attackDistance)
                 {
-                    if (GetComponent<entityType>().GetType() == "wolfAlly")
+                    if (CompareTag("wolfAlly"))
                     {
                         GetComponent<wolfReanimated>().AnimationAttack();
                     }
-                    else if (GetComponent<entityType>().GetType() == "wolfEnemy")
+                    else if (CompareTag("wolfEnemy"))
                     {
                         GetComponent<wolfScript>().AnimationAttack();
                     }
-                    else if (GetComponent<entityType>().GetType() == "wolfBoss")
+                    else if (CompareTag("wolfBoss"))
                     {
                         GetComponent<bossScript>().AnimationAttack();
                     }
@@ -63,15 +63,15 @@ public class moveToTarget : MonoBehaviour
                 else
                 {
                     transform.position += transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
-                    if (GetComponent<entityType>().GetType() == "wolfAlly")
+                    if (CompareTag("wolfAlly"))
                     {
                         GetComponent<wolfReanimated>().AnimationMove();
                     }
-                    else if (GetComponent<entityType>().GetType() == "wolfEnemy")
+                    else if (CompareTag("wolfEnemy"))
                     {
                         GetComponent<wolfScript>().AnimationMove();
                     }
-                    else if (GetComponent<entityType>().GetType() == "wolfBoss")
+                    else if (CompareTag("wolfBoss"))
                     {
                         GetComponent<bossScript>().AnimationMove();
                     }
