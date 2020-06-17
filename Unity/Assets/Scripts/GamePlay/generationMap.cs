@@ -49,7 +49,7 @@ public class generationMap : MonoBehaviour
             Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), -.1f, z: j + Random.Range(0f, 8f));
             GameObject monster = Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
             monster.GetComponent<wolfScript>().num = count++;
-            GetComponent<monstersFight>().AddWolfEnemy(monster);
+            GetComponent<monstersFight>().AddEnemy(monster);
         }
         return areaWithMonsters;
     }

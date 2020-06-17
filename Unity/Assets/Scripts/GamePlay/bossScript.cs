@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class bossScript : MonoBehaviour
 {
-    private Transform player;
-    [SerializeField] private Animator animation;
+    //private Transform player;
+    [SerializeField] private new Animator animation;
     [SerializeField] private BoxCollider attackCollider;
     public float moveSpeed;
-    public float detectionDistance = 110f;
-    public float attackDistance = 40f;
+    //public float detectionDistance = 110f;
+    //public float attackDistance = 40f;
     public static int hitPoints = 3;
     
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
 
     private bool hasHit = false;
-    public bool hasBeenHit = false;
-    
-    // Update is called once per frame
+    //public bool hasBeenHit = false;
+
+    private void Start()
+    {
+        //player = GameObject.FindWithTag("Player").transform;
+    }
+
     void Update()
     {
         if (GameManager.gameOver == true)
@@ -29,35 +33,15 @@ public class bossScript : MonoBehaviour
             animation.SetBool(Moving, false);
             return;
         }
-        else
-        {
-            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
-        player = GameObject.FindWithTag("Player").transform;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        /*
         if (!player.GetComponent<playerScript>().Attacking())
         {
             hasBeenHit = false;
-        }
-        if (Vector3.Distance(transform.position, player.position) < attackDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
-        {
-            transform.LookAt(player);
-            animation.SetTrigger(Attack);
-        }
-        else if (Vector3.Distance(transform.position, player.position) < detectionDistance && !animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
-        {
-            animation.SetBool(Moving, true);
-            transform.LookAt(player);
-            var direction = Vector3.forward;
-            transform.position += transform.rotation * direction * moveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            animation.SetBool(Moving, false);
-        }
-
+        }*/
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
-            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f)
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9)
             {
                 attackCollider.enabled = true;
             }
@@ -71,16 +55,25 @@ public class bossScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if ((other.gameObject.layer == 8 || other.gameObject.layer == 9) && attackCollider.enabled && !hasHit)
+        Debug.Log("BOSS A TOUCHE : ", other);
+        if (attackCollider.enabled && !hasHit)
         {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(20);
-            hasHit = true;
+            if (other.GetComponent<entityType>().GetType() == "wolfAlly")
+            {
+                other.GetComponent<wolfReanimated>().TakeDamage(1);
+                hasHit = true;
+            }
+            else if (other.GetComponent<entityType>().GetType() == "player")
+            {
+                other.GetComponent<PlayerHealth>().TakeDamage(20);
+                hasHit = true;
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("LE BOSS A PERDU 1 PV");
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
@@ -88,14 +81,20 @@ public class bossScript : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void AnimationMove()
     {
-        //SceneManager.LoadScene("MenuScene");
-        
+        animation.SetBool(Moving, true);
     }
-    
-    
 
+    public void StopMoving()
+    {
+        animation.SetBool(Moving, false);
+    }
+
+    public void AnimationAttack()
+    {
+        animation.SetTrigger(Attack);
+    }
 }
 
     

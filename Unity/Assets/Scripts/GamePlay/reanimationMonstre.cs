@@ -78,7 +78,7 @@ public class reanimationMonstre : MonoBehaviour
                 Vector3 position = new Vector3(x: player.transform.position.x + Random.Range(-20,20), 0, z: player.transform.position.z + Random.Range(-20,-35));
                 GameObject wolfReanim = Instantiate(monstreReanime, position, monstreReanime.transform.rotation);
                 wolfReanim.GetComponent<wolfReanimated>().num = count++;
-                GetComponent<monstersFight>().AddWolfAlly(wolfReanim);
+                GetComponent<monstersFight>().AddAlly(wolfReanim);
                 nbMonstresReanimables--;
             }
             UpdateText();

@@ -658,11 +658,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2270903537078153696}
+  - component: {fileID: 8072991164008732045}
+  - component: {fileID: 5927368136070431174}
+  - component: {fileID: -987757226044063239}
   - component: {fileID: 3398253430554253523}
   - component: {fileID: -3555046878343151031}
   - component: {fileID: 1305944378807110439}
   - component: {fileID: 428301096055181666}
-  - component: {fileID: -987757226044063239}
   m_Layer: 9
   m_Name: Wolf_reanimated
   m_TagString: Untagged
@@ -686,6 +688,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8072991164008732045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015308817734714355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290335ea1c53b824db76a78bff7cdfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: wolfAlly
+--- !u!114 &5927368136070431174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015308817734714355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf1905058ec43f41ae160f84b20f9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &-987757226044063239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015308817734714355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7674bf8b27dcb4c953b2e6602d85d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation: {fileID: -3555046878343151031}
+  attackCollider: {fileID: 428301096055181666}
+  moveSpeed: 16
+  detectionDistance: 100
+  attackDistance: 20
+  hitPoints: 2
+  isAttacking: 0
+  hasBeenHit: 0
+  num: 0
+  objectWithScripts: {fileID: 0}
+  cible: {fileID: 0}
 --- !u!54 &3398253430554253523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -747,28 +798,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.7, y: 17, z: 20}
   m_Center: {x: 0, y: 8.5, z: 11}
---- !u!114 &-987757226044063239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3015308817734714355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7674bf8b27dcb4c953b2e6602d85d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animation: {fileID: -3555046878343151031}
-  attackCollider: {fileID: 428301096055181666}
-  moveSpeed: 16
-  detectionDistance: 100
-  attackDistance: 20
-  hitPoints: 2
-  isAttacking: 0
-  hasBeenHit: 0
-  num: 0
-  objectWithScripts: {fileID: 0}
 --- !u!1 &3371075891770261005
 GameObject:
   m_ObjectHideFlags: 0

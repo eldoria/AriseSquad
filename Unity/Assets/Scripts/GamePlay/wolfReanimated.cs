@@ -8,20 +8,20 @@ public class wolfReanimated : MonoBehaviour
 {
 
     private Transform player;
-    [SerializeField] private Animator animation;
+    [SerializeField] private new Animator animation;
     [SerializeField] private BoxCollider attackCollider;
     public float moveSpeed;
-    public float detectionDistance = 100f;
-    public float attackDistance = 20f;
-    public int hitPoints = 2;
+    //public float detectionDistance = 100f;
+    //public float attackDistance = 20f;
+    private int hitPoints = 1;
     private float dist;
-    public bool isAttacking = false;
+    //public bool isAttacking = false;
 
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
 
     private bool hasHit = false;
-    public bool hasBeenHit = false;
+    //public bool hasBeenHit = false;
 
     public int num;
     
@@ -35,23 +35,17 @@ public class wolfReanimated : MonoBehaviour
 
     void Update()
     {
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        dist = Vector3.Distance(transform.position, player.transform.position);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        followPlayer();
+        /*
         if (!player.GetComponent<playerScript>().Attacking())
         {
             hasBeenHit = false;
         }
-        if (dist > 40 && isAttacking == false)
-        {
-            animation.SetBool(Moving, true);
-            transform.LookAt(player.transform);
-            transform.position += transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
-        }
         else if(!isAttacking)
         {
             animation.SetBool(Moving, false);
-        }
-
+        }*/
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
             if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f)
@@ -68,12 +62,19 @@ public class wolfReanimated : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 10 && attackCollider.enabled && !hasHit)
+        if (attackCollider.enabled && !hasHit)
         {
-            other.GetComponent<wolfScript>().TakeDamage(1);
-            hasHit = true;
-            if (other.GetComponent<wolfScript>().hitPoints <= 0)
-                isAttacking = false;
+            Debug.Log("TATATATATA");
+            if (other.GetComponent<entityType>().GetType() == "wolfEnemy")
+            {
+                other.GetComponent<wolfScript>().TakeDamage(1);
+                hasHit = true;
+            }
+            else if (other.GetComponent<entityType>().GetType() == "wolfBoss")
+            {
+                other.GetComponent<bossScript>().TakeDamage(1);
+                hasHit = true;
+            }
         }
     }
 
@@ -82,9 +83,21 @@ public class wolfReanimated : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
-            objectWithScripts.GetComponent<monstersFight>().DeleteWolfAlly(num);
+            objectWithScripts.GetComponent<monstersFight>().DeleteAlly(num);
             Destroy(gameObject);
         }
+    }
+
+    public void followPlayer()
+    {
+        if (!GetComponent<moveToTarget>().target &&
+            Vector3.Distance(transform.position, player.transform.position) > 40)
+        {
+            animation.SetBool(Moving, true);
+            transform.LookAt(player.transform);
+            transform.position += transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
+        }
+        else if (!GetComponent<moveToTarget>().target) animation.SetBool(Moving, false);
     }
     
     public void AnimationAttack()
@@ -95,5 +108,10 @@ public class wolfReanimated : MonoBehaviour
     public void AnimationMove()
     {
         animation.SetBool(Moving, true);
+    }
+
+    public void StopMoving()
+    {
+        animation.SetBool(Moving, false);
     }
 }

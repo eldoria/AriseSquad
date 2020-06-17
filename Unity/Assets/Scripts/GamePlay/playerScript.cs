@@ -10,11 +10,11 @@ public class playerScript : MonoBehaviour
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
 
-    [SerializeField] private int hitPoints = 20;
+    private bool hasHit = false;
     
     private float RotationSpeed;
 
-    [SerializeField]private Animator animation;
+    [SerializeField]private new Animator animation;
     [SerializeField] private BoxCollider attackCollider;
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Running = Animator.StringToHash("running");
@@ -27,8 +27,11 @@ public class playerScript : MonoBehaviour
     private static readonly int esquiveGauche = Animator.StringToHash("esquiveGauche");
     private static readonly int arise = Animator.StringToHash("arise");
     
+    [SerializeField]private GameObject objectWithScripts;
     private void Start()
     {
+        objectWithScripts = GameObject.Find("Scripts_Map_boss");
+        objectWithScripts.GetComponent<monstersFight>().AddAlly(gameObject);
     }
 
     // Update is called once per frame
@@ -51,7 +54,7 @@ public class playerScript : MonoBehaviour
         var rotationAngle = 0f;
         var tmpEuler = transform.eulerAngles;
         short keysCount = 0;
-        float RotationIntent = 0f;
+        //float RotationIntent = 0f;
         
         if (Input.GetKey(KeyCode.Space))
         {
@@ -131,13 +134,18 @@ public class playerScript : MonoBehaviour
                 animation.GetCurrentAnimatorStateInfo(0).IsName("sort1") || 
                 animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
             {
-                moveIntent = Vector3.zero;
-                transform.eulerAngles = tmpEuler;
-                attackCollider.enabled = true;
-            }
-            else
-            {
-                attackCollider.enabled = false;
+                if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f &&
+                    animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
+                {
+                    moveIntent = Vector3.zero;
+                    transform.eulerAngles = tmpEuler;
+                    attackCollider.enabled = true;
+                }
+                else
+                {
+                    attackCollider.enabled = false;
+                    hasHit = false;
+                }
             }
         }
 
@@ -215,15 +223,18 @@ public class playerScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.layer == 10 && attackCollider.enabled && !other.GetComponent<wolfScript>().hasBeenHit)
+        if (attackCollider.enabled && !hasHit)
         {
-            other.GetComponent<wolfScript>().hasBeenHit = true;
-            other.GetComponent<wolfScript>().TakeDamage(1);
-        }
-        else if (other.gameObject.layer == 12 && attackCollider.enabled && !other.GetComponent<bossScript>().hasBeenHit)
-        {
-            other.GetComponent<bossScript>().hasBeenHit = true;
-            other.GetComponent<bossScript>().TakeDamage(1);
+            if(other.GetComponent<entityType>().GetType() == "wolfEnemy")
+            {
+                other.GetComponent<wolfScript>().TakeDamage(1);
+                hasHit = true;
+            }
+            else if (other.GetComponent<entityType>().GetType() == "wolfBoss")
+            {
+                other.GetComponent<bossScript>().TakeDamage(1);
+                hasHit = true;
+            }
         }
     }
 

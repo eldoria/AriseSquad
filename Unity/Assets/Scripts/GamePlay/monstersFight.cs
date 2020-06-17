@@ -8,143 +8,229 @@ public class monstersFight : MonoBehaviour
 {
     public int moveSpeed;
     public int detectionDistance;
-    [SerializeField]private GameObject[] wolfEnemies;
+    [SerializeField]private GameObject[] Enemies;
     private int indE = 0;
-    [SerializeField]private GameObject[] wolfAllies;
+    [SerializeField]private GameObject[] Allies;
     private int indA = 0;
     private float timeDelay = 0;
 
     private void Awake()
     {
-        wolfEnemies = new GameObject[100];
-        wolfAllies = new GameObject[100];
-    }
-
-    public void AddWolfEnemy(GameObject wolfEnemy)
-    {
-        wolfEnemies[indE++] = wolfEnemy;
-    }
-
-    public void DeleteWolfEnemy(int count)
-    {
-        wolfEnemies[count] = null;
+        Enemies = new GameObject[100];
+        Allies = new GameObject[100];
     }
     
-    public void AddWolfAlly(GameObject wolfAlly)
+    public int GetCountAlly()
     {
-        wolfAllies[indA++] = wolfAlly;
-    }
-    
-    public void DeleteWolfAlly(int count)
-    {
-        wolfAllies[count] = null;
+        return indA;
     }
 
-    public void checkForFight()
+    public int GetCountEnemy()
     {
+        return indE;
+    }
+
+    public void AddEnemy(GameObject wolfEnemy)
+    {
+        Enemies[indE++] = wolfEnemy;
+    }
+
+    public void DeleteEnemy(int count)
+    {
+        Enemies[count] = null;
+    }
+    
+    public void AddAlly(GameObject wolfAlly)
+    {
+        Allies[indA++] = wolfAlly;
+    }
+    
+    public void DeleteAlly(int count)
+    {
+        Allies[count] = null;
+    }
+
+    private void CalculateDistance()
+    {
+        // Assigne les combats pour les unités
         for (int i = 0; i < indA; i++)
         {
+            int indValMin = -1;
+            float valMin = 120;
+            float dist;
             for (int j = 0; j < indE; j++)
             {
-                //if only the 2 monsters exist and both are not already attacking
-                if (wolfAllies[i] && wolfEnemies[j])
+                if (Allies[i] && Enemies[j])
                 {
-                    if(wolfAllies[i].GetComponent<wolfReanimated>().isAttacking == false || wolfEnemies[j].GetComponent<wolfScript>().isAttacking == false)
-                    {
-                        // if the distance is inferior to the detectionDistance
-                        if(Vector3.Distance(wolfAllies[i].transform.position, wolfEnemies[j].transform.position) <= 120)
-                        {
-                            //3 cases possibles
-                            
-                            //first case : both of the wolfs are not attacking
-                            if (wolfAllies[i].GetComponent<wolfReanimated>().isAttacking == false &&
-                                wolfEnemies[j].GetComponent<wolfScript>().isAttacking == false)
-                            {
-                                wolfAllies[i].GetComponent<wolfReanimated>().isAttacking = true;
-                                wolfEnemies[j].GetComponent<wolfScript>().isAttacking = true;
-                                MakeFigthsBtwnMonsters (i, j, 0);
-                            }
-                            // the ennemy wolf is not attacking but our wolf is currently attacking
-                            else if(wolfAllies[i].GetComponent<wolfReanimated>().isAttacking &&
-                                    wolfEnemies[j].GetComponent<wolfScript>().isAttacking == false)
-                            {
-                                wolfEnemies[j].GetComponent<wolfScript>().isAttacking = true;
-                                MakeFigthsBtwnMonsters (i, j, 1);
-                            }
-                            // our wolf is not attcking and the ennemey wolf is currently attacking
-                            else if(wolfAllies[i].GetComponent<wolfReanimated>().isAttacking == false &&
-                                    wolfEnemies[j].GetComponent<wolfScript>().isAttacking)
-                            {
-                                wolfAllies[i].GetComponent<wolfReanimated>().isAttacking = true;
-                                MakeFigthsBtwnMonsters (i,j,2);
-                            }
-                        }
-                    }
+                     dist = DistanceBtwUnits(Allies[i], Enemies[j]);
+                     if (dist < valMin)
+                     {
+                         dist = valMin;
+                         indValMin = j;
+                     }
                 }
+            }
+            // Des unités sont à moins de 120 unités les une des autres
+            if (indValMin != -1)
+            {
+                AssignTargets(Allies[i], Enemies[indValMin]);
             }
         }
     }
 
+    private float DistanceBtwUnits(GameObject Ally, GameObject Enemy)
+    {
+        float dist = 0;
+        if(Ally.GetComponent<entityType>().GetType() != "player")
+        {
+            if (Ally.GetComponent<moveToTarget>().target)
+            {
+                dist = Vector3.Distance(Ally.transform.position, Ally.GetComponent<moveToTarget>().target.transform.position);
+            }
+            else
+            {
+                dist = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+            }
+        }
+        else if (Ally.GetComponent<entityType>().GetType() == "player")
+        {
+            dist = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+        }
+        //Debug.Log(dist);
+        return dist;
+    }
+
+    private void AssignTargets(GameObject Ally, GameObject Enemy)
+    {
+        float distance =  Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+        if (Ally.GetComponent<entityType>().GetType() != "player")
+        {
+            // Si les deux unités ont déjà des cibles assignés
+            if (Ally.GetComponent<moveToTarget>().target && Enemy.GetComponent<moveToTarget>().target)
+            {
+                // Si l'unité ennemie est plus proche que son ancienne cible, change de cible
+                if(distance < Vector3.Distance(Ally.transform.position, Ally.GetComponent<moveToTarget>().target.position)) Ally.GetComponent<moveToTarget>().target = Enemy.transform;
+                // Si l'unité allié est plus proche que son ancienne cible, change de cible
+                if(distance < Vector3.Distance(Enemy.transform.position, Enemy.GetComponent<moveToTarget>().target.position)) Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+            else if(Ally.GetComponent<moveToTarget>().target)
+            {
+                // Si l'unité ennemie est plus proche que son ancienne cible, change de cible
+                if(distance < Vector3.Distance(Ally.transform.position, Ally.GetComponent<moveToTarget>().target.position)) Ally.GetComponent<moveToTarget>().target = Enemy.transform;
+                Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+            else if (Enemy.GetComponent<moveToTarget>().target)
+            {
+                Ally.GetComponent<moveToTarget>().target = Enemy.transform;
+                // Si l'unité allié est plus proche que son ancienne cible, change de cible
+                if(distance < Vector3.Distance(Enemy.transform.position, Enemy.GetComponent<moveToTarget>().target.position)) Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+            else
+            {
+                Ally.GetComponent<moveToTarget>().target = Enemy.transform;
+                Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+        }
+        else if (Ally.GetComponent<entityType>().GetType() == "player")
+        {
+            if (Enemy.GetComponent<moveToTarget>().target)
+            {
+                // Si l'unité allié est plus proche que son ancienne cible, change de cible
+                if(distance < Vector3.Distance(Enemy.transform.position, Enemy.GetComponent<moveToTarget>().target.position)) Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+            else
+            {
+                Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
+        }
+
+        /*
+        if (Ally.GetComponent<entityType>().GetType() == "wolfAllie")
+        {
+            if (Ally.GetComponent<wolfReanimated>().cible)
+            {
+                float dist = Vector3.Distance(Allies[i].transform.position,
+                    Allies[i].GetComponent<wolfReanimated>().cible.position);
+                if(valMin < dist) Allies[i].GetComponent<wolfReanimated>().cible = Enemies[j].transform;
+            }
+            else
+            {
+                Allies[i].GetComponent<wolfReanimated>().cible = Enemies[j].transform;
+            }
+        }
+        if (Enemies[j].GetComponent<wolfScript>().cible)
+        {
+            float dist = Vector3.Distance(Enemies[j].transform.position,
+                Enemies[j].GetComponent<wolfScript>().cible.position);
+            if (valMin < dist) Enemies[j].GetComponent<wolfScript>().cible = Allies[i].transform;
+        }
+        else
+        {
+            Enemies[j].GetComponent<wolfScript>().cible = Allies[i].transform;
+        }*/
+    }
+
+    /*
     public void MakeFigthsBtwnMonsters(int numWolfAlly, int numWolfEnemy, int caseSelected)
     {
-        if (wolfAllies[numWolfAlly] && wolfEnemies[numWolfEnemy])
+        if (Allies[numWolfAlly] && Enemies[numWolfEnemy])
         {
             if (caseSelected == 0)
             {
-                wolfAllies[numWolfAlly].transform.LookAt(wolfEnemies[numWolfEnemy].transform);
-                wolfEnemies[numWolfEnemy].transform.LookAt(wolfAllies[numWolfAlly].transform);
-                if (Vector3.Distance(wolfAllies[numWolfAlly].transform.position,
-                        wolfEnemies[numWolfEnemy].transform.position) > 25)
+                Allies[numWolfAlly].transform.LookAt(Enemies[numWolfEnemy].transform);
+                Enemies[numWolfEnemy].transform.LookAt(Allies[numWolfAlly].transform);
+                if (Vector3.Distance(Allies[numWolfAlly].transform.position,
+                        Enemies[numWolfEnemy].transform.position) > 25)
                 {
-                    wolfAllies[numWolfAlly].transform.position += wolfAllies[numWolfAlly].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
-                    wolfEnemies[numWolfEnemy].transform.position += wolfEnemies[numWolfEnemy].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
+                    Allies[numWolfAlly].transform.position += Allies[numWolfAlly].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
+                    Enemies[numWolfEnemy].transform.position += Enemies[numWolfEnemy].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
                     
-                    wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().AnimationMove();
-                    wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().AnimationMove();
+                    Allies[numWolfAlly].GetComponent<wolfReanimated>().AnimationMove();
+                    Enemies[numWolfEnemy].GetComponent<wolfScript>().AnimationMove();
                 }
                 else
                 {
-                    wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().AnimationAttack();
-                    wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().AnimationAttack();
+                    Allies[numWolfAlly].GetComponent<wolfReanimated>().AnimationAttack();
+                    Enemies[numWolfEnemy].GetComponent<wolfScript>().AnimationAttack();
                 }
             }
             else if (caseSelected == 1)
             {
-                wolfEnemies[numWolfEnemy].transform.LookAt(wolfAllies[numWolfAlly].transform);
-                if (Vector3.Distance(wolfAllies[numWolfAlly].transform.position,
-                        wolfEnemies[numWolfEnemy].transform.position) > 25)
+                Enemies[numWolfEnemy].transform.LookAt(Allies[numWolfAlly].transform);
+                if (Vector3.Distance(Allies[numWolfAlly].transform.position,
+                        Enemies[numWolfEnemy].transform.position) > 25)
                 {
-                    wolfEnemies[numWolfEnemy].transform.position += wolfEnemies[numWolfEnemy].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
+                    Enemies[numWolfEnemy].transform.position += Enemies[numWolfEnemy].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
                     
-                    wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().AnimationMove();
+                    Enemies[numWolfEnemy].GetComponent<wolfScript>().AnimationMove();
                 }
                 else
                 {
-                    wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().AnimationAttack();
+                    Enemies[numWolfEnemy].GetComponent<wolfScript>().AnimationAttack();
                 }
                 
             }
             else
             {
-                wolfAllies[numWolfAlly].transform.LookAt(wolfEnemies[numWolfEnemy].transform);
-                if (Vector3.Distance(wolfAllies[numWolfAlly].transform.position,
-                        wolfEnemies[numWolfEnemy].transform.position) > 25)
+                Allies[numWolfAlly].transform.LookAt(Enemies[numWolfEnemy].transform);
+                if (Vector3.Distance(Allies[numWolfAlly].transform.position,
+                        Enemies[numWolfEnemy].transform.position) > 25)
                 {
-                    wolfAllies[numWolfAlly].transform.position += wolfAllies[numWolfAlly].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
+                    Allies[numWolfAlly].transform.position += Allies[numWolfAlly].transform.rotation * Vector3.forward * moveSpeed * Time.deltaTime;
                     
-                    wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().AnimationMove();
+                    Allies[numWolfAlly].GetComponent<wolfReanimated>().AnimationMove();
                 }
                 else
                 {
-                    wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().AnimationAttack();
+                    Allies[numWolfAlly].GetComponent<wolfReanimated>().AnimationAttack();
                 }
             }
             StartCoroutine(Wait(numWolfAlly, numWolfEnemy, caseSelected));
         }
         else
         {
-            if (wolfAllies[numWolfAlly]) wolfAllies[numWolfAlly].GetComponent<wolfReanimated>().isAttacking = false;
-            else if (wolfEnemies[numWolfEnemy]) wolfEnemies[numWolfEnemy].GetComponent<wolfScript>().isAttacking = false;
+            if (Allies[numWolfAlly]) Allies[numWolfAlly].GetComponent<wolfReanimated>().isAttacking = false;
+            else if (Enemies[numWolfEnemy]) Enemies[numWolfEnemy].GetComponent<wolfScript>().isAttacking = false;
         }
     }
 
@@ -152,15 +238,19 @@ public class monstersFight : MonoBehaviour
     {
         yield return new WaitForSeconds(Time.deltaTime);
         MakeFigthsBtwnMonsters(numWolfAlly, numWolfEnemy, caseSelected);
-    }
+    }*/
 
     private void Update()
     {
         timeDelay += Time.deltaTime;
-        if (timeDelay > 2)
+        if (timeDelay > .1f)
         {
-            timeDelay = 0f;
-            checkForFight();
+            CalculateDistance();
         }
+    }
+
+    private void Start()
+    {
+        AddEnemy(GameObject.Find("Wolf_3DBoss(Clone)"));
     }
 }

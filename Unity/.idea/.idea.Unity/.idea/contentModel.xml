@@ -10,6 +10,7 @@
           <e p="GamePlay" t="Include">
             <e p="bossScript.cs" t="Include" />
             <e p="cameraController.cs" t="Include" />
+            <e p="entityType.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GameOver.cs" t="Include" />
             <e p="generationMap.cs" t="Include" />
@@ -17,6 +18,7 @@
             <e p="LockMouse.cs" t="Include" />
             <e p="MiniMap.cs" t="Include" />
             <e p="monstersFight.cs" t="Include" />
+            <e p="moveToTarget.cs" t="Include" />
             <e p="PauseGame.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
