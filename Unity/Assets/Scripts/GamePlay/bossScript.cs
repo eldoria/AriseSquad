@@ -19,10 +19,15 @@ public class bossScript : MonoBehaviour
 
     private bool hasHit = false;
     //public bool hasBeenHit = false;
+    public int num;
+    [SerializeField] private GameObject objectWithScripts;
 
     private void Start()
     {
         //player = GameObject.FindWithTag("Player").transform;
+        objectWithScripts = GameObject.Find("Scripts_Map_boss");
+        num = objectWithScripts.GetComponent<monstersFight>().GetCountEnemy();
+        objectWithScripts.GetComponent<monstersFight>().AddEnemy(gameObject);
     }
 
     void Update()
@@ -75,7 +80,9 @@ public class bossScript : MonoBehaviour
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
+            objectWithScripts.GetComponent<monstersFight>().DeleteEnemy(num);
             Destroy(gameObject);
+            objectWithScripts.GetComponent<reanimationMonstre>().UpdateNbMonstre();
         }
     }
 

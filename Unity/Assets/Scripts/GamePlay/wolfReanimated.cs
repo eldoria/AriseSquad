@@ -89,7 +89,7 @@ public class wolfReanimated : MonoBehaviour
 
     public void followPlayer()
     {
-        if (!GetComponent<moveToTarget>().target &&
+        if ((!GetComponent<moveToTarget>().target || (GetComponent<moveToTarget>().target && Vector3.Distance(transform.position, GetComponent<moveToTarget>().target.transform.position) >= 120f)) &&
             Vector3.Distance(transform.position, player.transform.position) > 40)
         {
             animation.SetBool(Moving, true);

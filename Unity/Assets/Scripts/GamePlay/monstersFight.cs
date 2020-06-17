@@ -250,9 +250,4 @@ public class monstersFight : MonoBehaviour
             CalculateDistance();
         }
     }
-
-    private void Start()
-    {
-        AddEnemy(GameObject.Find("Wolf_3DBoss(Clone)"));
-    }
 }
