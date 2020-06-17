@@ -80,15 +80,15 @@ public class moveToTarget : MonoBehaviour
             // l'unité est trop loin et arrête de bouger
             else
             {
-                if (GetComponent<entityType>().GetType() == "wolfAlly")
+                if (CompareTag("wolfAlly"))
                 {
                     GetComponent<wolfReanimated>().StopMoving();
                 }
-                else if (GetComponent<entityType>().GetType() == "wolfEnemy")
+                else if (CompareTag("wolfEnemy"))
                 {
                     GetComponent<wolfScript>().StopMoving();
                 }
-                else if (GetComponent<entityType>().GetType() == "wolfBoss")
+                else if (CompareTag("wolfBoss"))
                 {
                     GetComponent<bossScript>().StopMoving();
                 }

@@ -83,12 +83,12 @@ public class wolfScript : MonoBehaviour
     {
         if (attackCollider.enabled && !hasHit)
         {
-            if (other.GetComponent<entityType>().GetType() == "wolfAlly")
+            if (other.CompareTag("wolfAlly"))
             {
                 other.GetComponent<wolfReanimated>().TakeDamage(1);
                 hasHit = true;
             }
-            else if (other.GetComponent<entityType>().GetType() == "player")
+            else if (other.CompareTag("Player"))
             {
                 other.GetComponent<PlayerHealth>().TakeDamage(10);
                 hasHit = true;

@@ -64,12 +64,12 @@ public class wolfReanimated : MonoBehaviour
     {
         if (attackCollider.enabled && !hasHit)
         {
-            if (other.GetComponent<entityType>().GetType() == "wolfEnemy")
+            if (other.CompareTag("wolfEnemy"))
             {
                 other.GetComponent<wolfScript>().TakeDamage(1);
                 hasHit = true;
             }
-            else if (other.GetComponent<entityType>().GetType() == "wolfBoss")
+            else if (other.CompareTag("wolfBoss"))
             {
                 other.GetComponent<bossScript>().TakeDamage(1);
                 hasHit = true;

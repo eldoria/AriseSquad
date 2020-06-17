@@ -68,7 +68,7 @@ public class monstersFight : MonoBehaviour
     private void AssignUnits(GameObject Ally, GameObject Enemy)
     {
         float distBtwUnits = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
-        if (Ally.GetComponent<entityType>().GetType() != "player")
+        if (!Ally.CompareTag("Player"))
         {
             if (Ally.GetComponent<moveToTarget>().target)
             {
@@ -76,7 +76,7 @@ public class monstersFight : MonoBehaviour
                     Ally.GetComponent<moveToTarget>().target.transform.position);
                 if (distBtwUnits < distBtwTargetAlly) Ally.GetComponent<moveToTarget>().target = Enemy.transform;   
             }
-            else if(Ally.GetComponent<entityType>().GetType() != "player")
+            else if(!Ally.CompareTag("Player"))
             {
                 Ally.GetComponent<moveToTarget>().target = Enemy.transform;  
             }
