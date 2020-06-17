@@ -302,7 +302,6 @@ MonoBehaviour:
   cameraTarget: {fileID: 1031485353}
   walkSpeed: 20
   runSpeed: 40
-  hitPoints: 20
   animation: {fileID: 83265368}
   attackCollider: {fileID: 83265367}
   objectWithScripts: {fileID: 0}
@@ -6560,7 +6559,6 @@ GameObject:
   - component: {fileID: 83265365}
   - component: {fileID: 83265367}
   - component: {fileID: 83265368}
-  - component: {fileID: 8296172668458103376}
   - component: {fileID: 83265363}
   - component: {fileID: 83265364}
   m_Layer: 8
@@ -6570,19 +6568,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8296172668458103376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172668458103375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290335ea1c53b824db76a78bff7cdfde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: player
 --- !u!1 &8372093268209560926
 GameObject:
   m_ObjectHideFlags: 0
