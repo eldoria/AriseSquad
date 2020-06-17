@@ -55,7 +55,6 @@ public class bossScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("BOSS A TOUCHE : ", other);
         if (attackCollider.enabled && !hasHit)
         {
             if (other.GetComponent<entityType>().GetType() == "wolfAlly")
@@ -73,7 +72,6 @@ public class bossScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("LE BOSS A PERDU 1 PV");
         hitPoints -= damage;
         if (hitPoints <= 0)
         {

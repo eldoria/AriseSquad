@@ -55,54 +55,57 @@ public class monstersFight : MonoBehaviour
         // Assigne les combats pour les unités
         for (int i = 0; i < indA; i++)
         {
-            int indValMin = -1;
-            float valMin = 120;
-            float dist;
             for (int j = 0; j < indE; j++)
             {
                 if (Allies[i] && Enemies[j])
                 {
-                     dist = DistanceBtwUnits(Allies[i], Enemies[j]);
-                     if (dist < valMin)
-                     {
-                         dist = valMin;
-                         indValMin = j;
-                     }
+                    AssignUnits(Allies[i], Enemies[j]);
                 }
-            }
-            // Des unités sont à moins de 120 unités les une des autres
-            if (indValMin != -1)
-            {
-                AssignTargets(Allies[i], Enemies[indValMin]);
             }
         }
     }
 
-    private float DistanceBtwUnits(GameObject Ally, GameObject Enemy)
+    private void AssignUnits(GameObject Ally, GameObject Enemy)
     {
-        float dist = 0;
-        if(Ally.GetComponent<entityType>().GetType() != "player")
+        float distBtwUnits = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+        if (Ally.GetComponent<entityType>().GetType() != "player")
         {
             if (Ally.GetComponent<moveToTarget>().target)
             {
-                dist = Vector3.Distance(Ally.transform.position, Ally.GetComponent<moveToTarget>().target.transform.position);
+                float distBtwTargetAlly = Vector3.Distance(Ally.transform.position,
+                    Ally.GetComponent<moveToTarget>().target.transform.position);
+                if (distBtwUnits < distBtwTargetAlly) Ally.GetComponent<moveToTarget>().target = Enemy.transform;   
             }
-            else
+            else if(Ally.GetComponent<entityType>().GetType() != "player")
             {
-                dist = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+                Ally.GetComponent<moveToTarget>().target = Enemy.transform;  
             }
         }
-        else if (Ally.GetComponent<entityType>().GetType() == "player")
+
+        if (Enemy.GetComponent<moveToTarget>().target)
         {
-            dist = Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+            float distBtwTargetEnemy = Vector3.Distance(Enemy.transform.position,
+                Enemy.GetComponent<moveToTarget>().target.transform.position);
+            if (distBtwUnits < distBtwTargetEnemy)
+            {
+                Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+            }
         }
-        //Debug.Log(dist);
-        return dist;
+        else
+        {
+            Enemy.GetComponent<moveToTarget>().target = Ally.transform;
+        }
     }
 
-    private void AssignTargets(GameObject Ally, GameObject Enemy)
+    /*
+    private void AssignTargetForEnemy(int numAlly, int numEnemy)
     {
-        float distance =  Vector3.Distance(Ally.transform.position, Enemy.transform.position);
+        Enemies[numEnemy].GetComponent<moveToTarget>().target = Allies[numAlly].transform;
+    }
+    private void AssignTargetsForAlly(int numAlly, int numEnemy)
+    {
+        Allies[numAlly].GetComponent<moveToTarget>().target = Enemies[numEnemy].transform;
+    float distance =  Vector3.Distance(Ally.transform.position, Enemy.transform.position);
         if (Ally.GetComponent<entityType>().GetType() != "player")
         {
             // Si les deux unités ont déjà des cibles assignés
@@ -144,7 +147,6 @@ public class monstersFight : MonoBehaviour
             }
         }
 
-        /*
         if (Ally.GetComponent<entityType>().GetType() == "wolfAllie")
         {
             if (Ally.GetComponent<wolfReanimated>().cible)
@@ -167,10 +169,10 @@ public class monstersFight : MonoBehaviour
         else
         {
             Enemies[j].GetComponent<wolfScript>().cible = Allies[i].transform;
-        }*/
-    }
+        }
+}
 
-    /*
+    
     public void MakeFigthsBtwnMonsters(int numWolfAlly, int numWolfEnemy, int caseSelected)
     {
         if (Allies[numWolfAlly] && Enemies[numWolfEnemy])

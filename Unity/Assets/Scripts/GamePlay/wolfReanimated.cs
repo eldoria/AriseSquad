@@ -64,7 +64,6 @@ public class wolfReanimated : MonoBehaviour
     {
         if (attackCollider.enabled && !hasHit)
         {
-            Debug.Log("TATATATATA");
             if (other.GetComponent<entityType>().GetType() == "wolfEnemy")
             {
                 other.GetComponent<wolfScript>().TakeDamage(1);
