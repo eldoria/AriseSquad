@@ -48,13 +48,48 @@ public class playerScript : MonoBehaviour
         {
             return;
         }
-        else
-        {
-            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
-
-        MoveDuringDash();
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         
+        // Get the key that player hit and move in consequence by the call of movePlayer function
+        getKeyCode();
+        // Move the player during dash
+        MoveDuringDash();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (attackCollider.enabled && !hasHit)
+        {
+            if(other.CompareTag("wolfEnemy"))
+            {
+                other.GetComponent<wolfScript>().TakeDamage(1);
+                hasHit = true;
+            }
+            else if (other.CompareTag("wolfBoss"))
+            {
+                other.GetComponent<bossScript>().TakeDamage(1);
+                hasHit = true;
+            }
+        }
+    }
+
+    public bool Attacking()
+    {
+        return attackCollider.enabled;
+    }
+
+    public void stopMoving()
+    {
+        animation.SetBool(Moving, false);
+    }
+
+    public void animationReanimation()
+    {
+        animation.SetTrigger(arise);
+    }
+
+    private void getKeyCode()
+    {
         short keysCount = 0;
         //float RotationIntent = 0f;
         
@@ -156,59 +191,6 @@ public class playerScript : MonoBehaviour
                 movePlayer();
             }
         }
-
-
-        
-        
-        /*
-        if(animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
-        {
-         
-            transform.position += transform.rotation * moveIntent * moveSpeed/2 * Time.deltaTime;
-        }
-        else if(!animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-        
-            transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
-        }*/
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (attackCollider.enabled && !hasHit)
-        {
-            if(other.CompareTag("wolfEnemy"))
-            {
-                other.GetComponent<wolfScript>().TakeDamage(1);
-                hasHit = true;
-            }
-            else if (other.CompareTag("wolfBoss"))
-            {
-                other.GetComponent<bossScript>().TakeDamage(1);
-                hasHit = true;
-            }
-        }
-    }
-
-    public bool Attacking()
-    {
-        return attackCollider.enabled;
-    }
-
-    public void stopMoving()
-    {
-        animation.SetBool(Moving, false);
-    }
-
-    public void animationReanimation()
-    {
-        animation.SetTrigger(arise);
-    }
-
-    public void getKeyCode()
-    {
-        
     }
 
     private void movePlayer()
