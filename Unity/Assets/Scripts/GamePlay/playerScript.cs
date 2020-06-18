@@ -9,6 +9,7 @@ public class playerScript : MonoBehaviour
     public Transform cameraTarget;
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
+    private float moveSpeed;
 
     public CharacterController controller;
     public float turnSmoothTime = 0.1f;
@@ -53,11 +54,7 @@ public class playerScript : MonoBehaviour
         }
 
         MoveDuringDash();
-
-        var moveIntent = Vector3.zero;
-        var moveSpeed = walkSpeed;
-        var rotationAngle = 0f;
-        var tmpEuler = transform.eulerAngles;
+        
         short keysCount = 0;
         //float RotationIntent = 0f;
         
@@ -86,8 +83,6 @@ public class playerScript : MonoBehaviour
         }
         else
         {
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 moveSpeed = runSpeed;
@@ -95,24 +90,10 @@ public class playerScript : MonoBehaviour
             }
             else
             {
+                moveSpeed = walkSpeed;
                 animation.SetBool(Running, false);
             }
-
-            float MoveHorizontal = Input.GetAxisRaw("Horizontal");
-            float MoveVertical = Input.GetAxisRaw("Vertical");
-            Vector3 direction = new Vector3(MoveHorizontal,0f,MoveVertical).normalized;
-
-            if (direction.magnitude >= 0.1f)
-            {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTarget.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVel,
-                    turnSmoothTime);
-                transform.rotation = Quaternion.Euler(0f,angle,0f);
-
-                Vector3 MoveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                
-                controller.Move(MoveDir.normalized * moveSpeed * Time.deltaTime);
-            }
+            
             if (Input.GetKey(KeyCode.Z))
             {
                 animation.SetBool(Moving,true);
@@ -140,9 +121,7 @@ public class playerScript : MonoBehaviour
             {
                 animation.SetBool(Moving, false);
             }
-            
-            ///////////////////////////////////////////
-            
+
             if (Input.GetKeyDown(KeyCode.A))
             {
                 animation.SetTrigger(sort1);
@@ -164,8 +143,6 @@ public class playerScript : MonoBehaviour
                 if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f &&
                     animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
                 {
-                    moveIntent = Vector3.zero;
-                    transform.eulerAngles = tmpEuler;
                     attackCollider.enabled = true;
                 }
                 else
@@ -174,11 +151,16 @@ public class playerScript : MonoBehaviour
                     hasHit = false;
                 }
             }
+            else
+            {
+                movePlayer();
+            }
         }
 
 
-        moveIntent = moveIntent.normalized;
         
+        
+        /*
         if(animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
         {
          
@@ -188,7 +170,7 @@ public class playerScript : MonoBehaviour
         {
         
             transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
-        }
+        }*/
 
     }
 
@@ -224,6 +206,30 @@ public class playerScript : MonoBehaviour
         animation.SetTrigger(arise);
     }
 
+    public void getKeyCode()
+    {
+        
+    }
+
+    private void movePlayer()
+    {
+        float MoveHorizontal = Input.GetAxisRaw("Horizontal");
+        float MoveVertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(MoveHorizontal,0f,MoveVertical).normalized;
+
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTarget.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVel,
+                turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f,angle,0f);
+
+            Vector3 MoveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                
+            controller.Move(MoveDir.normalized * moveSpeed * Time.deltaTime);
+        }
+    }
+    
     public void MoveDuringDash()
     {
         float factor = 80;
