@@ -10,6 +10,11 @@ public class playerScript : MonoBehaviour
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
 
+    public CharacterController controller;
+    public float turnSmoothTime = 0.1f;
+    private float turnSmoothVel;
+    
+    
     private bool hasHit = false;
     
     private float RotationSpeed;
@@ -81,40 +86,62 @@ public class playerScript : MonoBehaviour
         }
         else
         {
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveSpeed = runSpeed;
+                animation.SetBool(Running, true);
+            }
+            else
+            {
+                animation.SetBool(Running, false);
+            }
+
+            float MoveHorizontal = Input.GetAxisRaw("Horizontal");
+            float MoveVertical = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(MoveHorizontal,0f,MoveVertical).normalized;
+
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTarget.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVel,
+                    turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f,angle,0f);
+
+                Vector3 MoveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                
+                controller.Move(MoveDir.normalized * moveSpeed * Time.deltaTime);
+            }
             if (Input.GetKey(KeyCode.Z))
             {
                 animation.SetBool(Moving,true);
-                rotationAngle += Input.GetKey(KeyCode.Q) ? 360f : 0f;
                 keysCount++;
             }
-
             if (Input.GetKey(KeyCode.S))
             {
                 animation.SetBool(Moving,true);
-                
-                rotationAngle += 180f;
                 keysCount++;
             }
-        
             if (Input.GetKey(KeyCode.Q) & !animation.GetCurrentAnimatorStateInfo(0).IsName("sort2") &
                 !animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
             {
                 animation.SetBool(Moving,true);
-                /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y - 90f, 0f);
-                moveIntent += Vector3.forward;*/
-                rotationAngle += 270f;
                 keysCount++;
             }
-        
             if (Input.GetKey(KeyCode.D) & !animation.GetCurrentAnimatorStateInfo(0).IsName("sort2") &
                 !animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
             {
                 animation.SetBool(Moving,true);
-                /*transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y + 90f, 0f);
-                moveIntent += Vector3.forward;*/
-                rotationAngle += 90f;
                 keysCount++;
             }
+            
+            if (keysCount == 0 || keysCount == 4)
+            {
+                animation.SetBool(Moving, false);
+            }
+            
+            ///////////////////////////////////////////
             
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -149,76 +176,20 @@ public class playerScript : MonoBehaviour
             }
         }
 
-        /*if (!(Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.D)))
-        {
-            animation.SetBool(Moving, false);
-        }*/
-        
-        if (keysCount == 0 || keysCount == 4)
-        {
-            animation.SetBool(Moving, false);
-        }
-        else
-        {
-            rotationAngle /= keysCount;
-            if (keysCount % 2 == 0 && (rotationAngle - 180f < 0.01f && rotationAngle - 180f > -0.01f ||
-                                       rotationAngle - 90f < 0.01f && rotationAngle - 90f > -0.01f))
-            {
-                moveIntent = Vector3.zero;
-                animation.SetBool(Moving, false);
-            }
-            else
-            {
-                moveIntent = Vector3.forward;
-                transform.eulerAngles = new Vector3(0f, cameraTarget.transform.eulerAngles.y + rotationAngle, 0f);
-            }
-        }
 
-        
-        
-        
-        /*
-        if (Input.GetKey(KeyCode.S))
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                animation.SetTrigger(esquiveArriere);
-            }
-        }
-        */
-        /*
-        if (animation.GetCurrentAnimatorStateInfo(0).IsName("sort1"))
-        {
-            moveIntent = Vector3.zero;
-            transform.eulerAngles = tmpEuler;
-            attackCollider.enabled = true;
-        }
-        else
-        {
-            attackCollider.enabled = false;
-        }
-*/
         moveIntent = moveIntent.normalized;
         
-        //transform.Rotate(0f,RotationIntent * Time.deltaTime * RotationSpeed,0f);
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            moveSpeed = runSpeed;
-            animation.SetBool(Running, true);
-        }
-        else
-        {
-            animation.SetBool(Running, false);
-        }
         if(animation.GetCurrentAnimatorStateInfo(0).IsName("sort2"))
         {
+         
             transform.position += transform.rotation * moveIntent * moveSpeed/2 * Time.deltaTime;
         }
         else if(!animation.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
+        
             transform.position += transform.rotation * moveIntent * moveSpeed * Time.deltaTime;
         }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -288,5 +259,4 @@ public class playerScript : MonoBehaviour
         }
     }
 }
-    
     
