@@ -18,7 +18,7 @@ public class reanimationMonstre : MonoBehaviour
     private GameObject scripts;
     public GameObject nombreField;
     
-    private int count = 0;
+    //private int count = 0;
     void Start()
     {
         nbMonstresReanimables = 10;

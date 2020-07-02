@@ -46,7 +46,7 @@ public class bossScript : MonoBehaviour
         }*/
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
-            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9)
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
             {
                 attackCollider.enabled = true;
             }

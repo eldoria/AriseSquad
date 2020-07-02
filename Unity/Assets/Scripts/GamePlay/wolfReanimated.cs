@@ -26,7 +26,6 @@ public class wolfReanimated : MonoBehaviour
     public int num;
     
     public GameObject objectWithScripts;
-
     private void Start()
     {
         objectWithScripts = GameObject.Find("Scripts_Map_boss");
@@ -48,7 +47,7 @@ public class wolfReanimated : MonoBehaviour
         }*/
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
-            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f)
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
             {
                 attackCollider.enabled = true;
             }
@@ -58,6 +57,7 @@ public class wolfReanimated : MonoBehaviour
                 hasHit = false;
             }
         }
+
     }
 
     private void OnTriggerStay(Collider other)

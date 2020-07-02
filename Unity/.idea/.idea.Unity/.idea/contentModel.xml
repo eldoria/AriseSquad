@@ -6,6 +6,7 @@
     <e p="C:\Users\user\Documents\Ecole\ESGI\3DJV\AriseSquad\Unity" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="data.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="GamePlay" t="Include">
             <e p="bossScript.cs" t="Include" />
@@ -22,6 +23,7 @@
             <e p="PlayerHealth.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
             <e p="reanimationMonstre.cs" t="Include" />
+            <e p="SaveData.cs" t="Include" />
             <e p="WinScreen.cs" t="Include" />
             <e p="wolfReanimated.cs" t="Include" />
             <e p="wolfScript.cs" t="Include" />
