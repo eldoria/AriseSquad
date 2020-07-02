@@ -100,8 +100,8 @@ public class SaveData : MonoBehaviour
             Destroy(GetComponent<monstersFight>().Enemies[i]);
             GetComponent<monstersFight>().DeleteEnemy(i);
         }
-
-        for (int i = 0; i < dataEnemies.Length - 1; i++)
+        
+        for (int i = 0; i < (dataEnemies.Length - 1)/9; i++)
         {
             if (dataEnemies[9 * i + 1] == "wolfEnemy")
             {
@@ -109,7 +109,6 @@ public class SaveData : MonoBehaviour
                 Vector3 rotation = new Vector3(float.Parse(dataEnemies[9 * i + 7]), float.Parse(dataEnemies[9 * i + 8]), float.Parse(dataEnemies[9 * i + 9]));
 
                 GameObject obj = Instantiate(wolfEnemy, position, Quaternion.Euler(rotation));
-                Debug.Log(dataEnemies[9 * i + 1]);
 
                 int num = int.Parse(dataEnemies[9 * i + 2]);
                 obj.GetComponent<wolfScript>().num = num;
