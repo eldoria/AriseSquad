@@ -8,10 +8,10 @@ public class monstersFight : MonoBehaviour
 {
     public int moveSpeed;
     public int detectionDistance;
-    [SerializeField]private GameObject[] Enemies;
-    private int indE = 0;
-    [SerializeField]private GameObject[] Allies;
-    private int indA = 0;
+    public GameObject[] Enemies;
+    public int indE = 0;
+    public GameObject[] Allies;
+    public int indA = 0;
     private float timeDelay = 0;
 
     private void Awake()
@@ -30,9 +30,14 @@ public class monstersFight : MonoBehaviour
         return indE;
     }
 
-    public void AddEnemy(GameObject wolfEnemy)
+    public void AddEnemy(GameObject Enemy)
     {
-        Enemies[indE++] = wolfEnemy;
+        Enemies[indE++] = Enemy;
+    }
+
+    public void AddEnemy(int cpt, GameObject Enemy)
+    {
+        Enemies[cpt] = Enemy;
     }
 
     public void DeleteEnemy(int count)
@@ -40,9 +45,9 @@ public class monstersFight : MonoBehaviour
         Enemies[count] = null;
     }
     
-    public void AddAlly(GameObject wolfAlly)
+    public void AddAlly(GameObject Ally)
     {
-        Allies[indA++] = wolfAlly;
+        Allies[indA++] = Ally;
     }
     
     public void DeleteAlly(int count)

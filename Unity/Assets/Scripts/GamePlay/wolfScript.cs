@@ -13,7 +13,7 @@ public class wolfScript : MonoBehaviour
     public float moveSpeed;
     //public float detectionDistance = 100f;
     //public float attackDistance = 20f;
-    private int hitPoints = 2;
+    public int hitPoints = 2;
 
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");

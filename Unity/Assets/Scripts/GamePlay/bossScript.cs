@@ -12,7 +12,7 @@ public class bossScript : MonoBehaviour
     public float moveSpeed;
     //public float detectionDistance = 110f;
     //public float attackDistance = 40f;
-    public static int hitPoints = 3;
+    public int hitPoints = 3;
     
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
