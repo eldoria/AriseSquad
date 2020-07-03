@@ -10,6 +10,7 @@ public class playerScript : MonoBehaviour
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
     private float moveSpeed;
+    private Camera cam;
 
     public CharacterController controller;
     public float turnSmoothTime = 0.1f;
@@ -54,6 +55,9 @@ public class playerScript : MonoBehaviour
         getKeyCode();
         // Move the player during dash
         MoveDuringDash();
+        
+        
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -246,5 +250,22 @@ public class playerScript : MonoBehaviour
             }
         }
     }
+
+    public void GetPotion()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Debug.Log("héhé" + hit.collider.name + " " + hit.point);
+            }
+        }
+    }
+    
+    
+    
 }
     

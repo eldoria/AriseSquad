@@ -31,7 +31,6 @@ public class cameraController : MonoBehaviour
             //transform.LookAt(target);
             target.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
         }
-        
-        
+
     }
 }
