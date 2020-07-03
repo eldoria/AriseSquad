@@ -13,7 +13,7 @@ public class wolfReanimated : MonoBehaviour
     public float moveSpeed;
     //public float detectionDistance = 100f;
     //public float attackDistance = 20f;
-    private int hitPoints = 1;
+    public int hitPoints = 1;
     private float dist;
     //public bool isAttacking = false;
 

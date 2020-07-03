@@ -67,7 +67,10 @@ public class generationMap : MonoBehaviour
             Vector3 position = new Vector3(i + 8f, 0f, j + 8f);
             GameObject boss = Instantiate(bossPrefab, position, bossPrefab.transform.rotation);
             bossCreated = true;
+            boss.GetComponent<bossScript>().num = count++;
             GameObject.Find("Joueur").GetComponentInChildren<WinScreen>().bossWolf = boss;
+            Debug.Log(boss);
+            GetComponent<monstersFight>().AddEnemy(boss);
         }
 
         return areaWithBoss;

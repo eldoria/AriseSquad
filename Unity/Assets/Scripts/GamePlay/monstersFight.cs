@@ -9,9 +9,9 @@ public class monstersFight : MonoBehaviour
     public int moveSpeed;
     public int detectionDistance;
     public GameObject[] Enemies;
-    public int indE = 0;
+    private int indE = 0;
     public GameObject[] Allies;
-    public int indA = 0;
+    private int indA = 0;
     private float timeDelay = 0;
 
     private void Awake()
@@ -50,6 +50,12 @@ public class monstersFight : MonoBehaviour
         Allies[indA++] = Ally;
     }
     
+    public void AddAlly(int cpt, GameObject Ally)
+    {
+        Allies[cpt] = Ally;
+    }
+    
+    
     public void DeleteAlly(int count)
     {
         Allies[count] = null;
@@ -58,6 +64,7 @@ public class monstersFight : MonoBehaviour
     private void CalculateDistance()
     {
         // Assigne les combats pour les unités
+        //Debug.Log(indA + " " + indE);
         for (int i = 0; i < indA; i++)
         {
             for (int j = 0; j < indE; j++)
