@@ -10,12 +10,25 @@ public class playerScript : MonoBehaviour
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
     private float moveSpeed;
+<<<<<<< HEAD
     //private Camera cam;
+=======
+>>>>>>> 010023a2e353719ed0e76baafb5f5a306951fdde
 
+    // Contrôleur mouvement/Rotation
     public CharacterController controller;
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVel;
-    
+
+    private Vector3 PlayerPos;
+    private Vector3 Direction;
+    public float SphereRadius = 4;
+    public LayerMask layerMask;
+    public float MaxDistance;
+    private float currentHitDistance;
+    public GameObject currentHitObject;
+
+    public Interactable focus;
     
     private bool hasHit = false;
     
@@ -39,6 +52,7 @@ public class playerScript : MonoBehaviour
     {
         objectWithScripts = GameObject.Find("Scripts_Map_boss");
         objectWithScripts.GetComponent<monstersFight>().AddAlly(gameObject);
+        
     }
 
     // Update is called once per frame
@@ -55,9 +69,10 @@ public class playerScript : MonoBehaviour
         getKeyCode();
         // Move the player during dash
         MoveDuringDash();
-        
-        
-        
+        GetPotion();
+
+
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -174,6 +189,7 @@ public class playerScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 animation.SetTrigger(Attack);
+                RemoveFocus();
             }
             if (animation.GetCurrentAnimatorStateInfo(0).IsName("Attack") || 
                 animation.GetCurrentAnimatorStateInfo(0).IsName("sort1") || 
@@ -253,19 +269,53 @@ public class playerScript : MonoBehaviour
 
     public void GetPotion()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        PlayerPos = transform.position;
+        Direction = transform.forward;
+        RaycastHit hit;
+        if (Physics.SphereCast(PlayerPos,SphereRadius,Direction, out hit,MaxDistance,layerMask, QueryTriggerInteraction.UseGlobal))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100))
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            currentHitObject = hit.transform.gameObject;
+            currentHitDistance = hit.distance;
+            //Debug.Log("hit" + hit.collider.name + " " + hit.point);
+            if (interactable)
             {
-                Debug.Log("héhé" + hit.collider.name + " " + hit.point);
+                SetFocus(interactable);
             }
         }
+        else
+        {
+            currentHitDistance = MaxDistance;
+            currentHitObject = null;
+            RemoveFocus();
+        }
     }
-    
-    
-    
+
+    void SetFocus(Interactable newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if (focus != null)
+                focus.OnDefocused();
+                
+            focus = newFocus;
+        }
+        
+        newFocus.OnFocused(transform);
+    }
+
+    void RemoveFocus()
+    {
+        if (focus != null)
+            focus.OnDefocused();
+        focus = null;
+    }
+   
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(PlayerPos ,PlayerPos + Direction * currentHitDistance);
+        Gizmos.DrawWireSphere(PlayerPos + Direction * currentHitDistance ,SphereRadius);
+    }
 }
     

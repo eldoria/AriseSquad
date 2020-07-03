@@ -27,6 +27,7 @@
             <e p="monstersFight.cs" t="Include" />
             <e p="moveToTarget.cs" t="Include" />
             <e p="PauseGame.cs" t="Include" />
+            <e p="PickUpItem.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
             <e p="reanimationMonstre.cs" t="Include" />
