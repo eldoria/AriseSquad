@@ -8,9 +8,10 @@ public class WinScreen : MonoBehaviour
     
     [SerializeField] private GameObject UIWin;
 
-    private float CurrentTime = 0f;
+    private float CurrentTime;
     private float StartTime = 10f;
 
+    public GameObject bossWolf;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class WinScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bossScript.hitPoints == 0)
+        if (!bossWolf)
         {
             AfficherTheWin();
             
@@ -31,6 +32,7 @@ public class WinScreen : MonoBehaviour
             {
                 CurrentTime = 0;
                 OffWin();
+                GetComponent<WinScreen>().enabled = false;
             }
 
         }

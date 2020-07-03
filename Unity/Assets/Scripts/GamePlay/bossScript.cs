@@ -12,7 +12,7 @@ public class bossScript : MonoBehaviour
     public float moveSpeed;
     //public float detectionDistance = 110f;
     //public float attackDistance = 40f;
-    public static int hitPoints = 3;
+    public int hitPoints = 3;
     
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
@@ -46,7 +46,7 @@ public class bossScript : MonoBehaviour
         }*/
         if (animation.GetCurrentAnimatorStateInfo(0).IsName("AttackSalto"))
         {
-            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9)
+            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animation.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
             {
                 attackCollider.enabled = true;
             }
