@@ -61,6 +61,11 @@ public class monstersFight : MonoBehaviour
         Allies[count] = null;
     }
 
+    public void DecreaseNumberOfAllies(int val)
+    {
+        indA -= val;
+    }
+
     private void CalculateDistance()
     {
         // Assigne les combats pour les unités

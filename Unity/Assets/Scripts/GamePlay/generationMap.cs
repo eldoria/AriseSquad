@@ -69,7 +69,6 @@ public class generationMap : MonoBehaviour
             bossCreated = true;
             boss.GetComponent<bossScript>().num = count++;
             GameObject.Find("Joueur").GetComponentInChildren<WinScreen>().bossWolf = boss;
-            Debug.Log(boss);
             GetComponent<monstersFight>().AddEnemy(boss);
         }
 

@@ -10,10 +10,8 @@ public class playerScript : MonoBehaviour
     [SerializeField]private float walkSpeed = 15f;
     [SerializeField]private float runSpeed = 35f;
     private float moveSpeed;
-<<<<<<< HEAD
-    //private Camera cam;
-=======
->>>>>>> 010023a2e353719ed0e76baafb5f5a306951fdde
+    private Camera cam;
+
 
     // Contrôleur mouvement/Rotation
     public CharacterController controller;

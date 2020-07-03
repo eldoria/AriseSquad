@@ -78,20 +78,16 @@ public class SaveData : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/dataEnemies.txt", stringDataEnemies);
         
         
-        string[] dataAllies = new string[GetComponent<monstersFight>().GetCountAlly() * 9];
+        string[] dataAllies = new string[(GetComponent<monstersFight>().GetCountAlly() - 1) * 9 + 1];
         cpt = 0;
 
         for (int i = 0; i < GetComponent<monstersFight>().GetCountAlly(); i++)
         {
-            if (GetComponent<monstersFight>().Allies[i])
+            if (GetComponent<monstersFight>().Allies[i] && GetComponent<monstersFight>().Allies[i].CompareTag("wolfAlly"))
             {
                 dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].tag;
-                
-                if (GetComponent<monstersFight>().Allies[i].CompareTag("wolfAlly"))
-                {
-                    dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].GetComponent<wolfReanimated>().num.ToString();
-                    dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].GetComponent<wolfReanimated>().hitPoints.ToString();
-                }
+                dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].GetComponent<wolfReanimated>().num.ToString();
+                dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].GetComponent<wolfReanimated>().hitPoints.ToString();
 
                 dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].transform.position.x.ToString();
                 dataAllies[cpt++] = GetComponent<monstersFight>().Allies[i].transform.position.y.ToString();
@@ -103,6 +99,8 @@ public class SaveData : MonoBehaviour
             }
         }
 
+        dataAllies[cpt++] = GetComponent<reanimationMonstre>().nbMonstresReanimables.ToString();
+
         string stringDataAllies = string.Join(saveSeparator, dataAllies);
         File.WriteAllText(Application.dataPath + "/dataAllies.txt", stringDataAllies);
         
@@ -111,7 +109,6 @@ public class SaveData : MonoBehaviour
 
     void Load()
     {
-        Debug.Log("avant : " + GetComponent<monstersFight>().GetCountEnemy());
         string saveStringPlayer = File.ReadAllText(Application.dataPath + "/dataPlayer.txt");
         string[] dataPlayer = saveStringPlayer.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
 
@@ -162,38 +159,44 @@ public class SaveData : MonoBehaviour
                 GameObject.Find("Joueur").GetComponentInChildren<WinScreen>().bossWolf = obj;
             }
         }
-        Debug.Log("après : " + GetComponent<monstersFight>().GetCountEnemy());
-        
-        
+
+
         string saveStringAllies = File.ReadAllText(Application.dataPath + "/dataAllies.txt");
         string[] dataAllies = saveStringAllies.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
+
+        int cpt = 0;
         
-        for (int i = 0; i < dataAllies.Length/9; i++)
+        for (int i = 0; i < GetComponent<monstersFight>().GetCountAlly(); i++)
         {
             if (GetComponent<monstersFight>().Allies[i] && GetComponent<monstersFight>().Allies[i].CompareTag("wolfAlly"))
             {
                 Destroy(GetComponent<monstersFight>().Allies[i]);
                 GetComponent<monstersFight>().DeleteAlly(i);
+                cpt++;
             }
         }
         
+        GetComponent<monstersFight>().DecreaseNumberOfAllies(cpt);
         
-        for (int i = 0; i < dataAllies.Length/9; i++)
+        for (int i = 0; i < (dataAllies.Length - 1)/9; i++)
         {
-            if (dataAllies[9 * i + 1] == "wolfAlly")
+            if (dataAllies[9 * i] == "wolfAlly")
             {
-                Vector3 position = new Vector3(float.Parse(dataAllies[9 * i + 4]), float.Parse(dataAllies[9 * i + 5]), float.Parse(dataAllies[9 * i + 6]));
-                Vector3 rotation = new Vector3(float.Parse(dataAllies[9 * i + 7]), float.Parse(dataAllies[9 * i + 8]), float.Parse(dataAllies[9 * i + 9]));
+                Vector3 position = new Vector3(float.Parse(dataAllies[9 * i + 3]), float.Parse(dataAllies[9 * i + 4]), float.Parse(dataAllies[9 * i + 5]));
+                Vector3 rotation = new Vector3(float.Parse(dataAllies[9 * i + 6]), float.Parse(dataAllies[9 * i + 7]), float.Parse(dataAllies[9 * i + 8]));
 
                 GameObject obj = Instantiate(wolfAlly, position, Quaternion.Euler(rotation));
 
-                int num = int.Parse(dataEnemies[9 * i + 2]);
+                int num = int.Parse(dataEnemies[9 * i + 1]);
                 obj.GetComponent<wolfReanimated>().num = num;
-                obj.GetComponent<wolfReanimated>().hitPoints = int.Parse(dataAllies[9 * i + 3]);
+                obj.GetComponent<wolfReanimated>().hitPoints = int.Parse(dataAllies[9 * i + 2]);
                 
                 GetComponent<monstersFight>().AddAlly(num, obj);
             }
         }
+
+        Debug.Log("val : " + dataAllies[dataAllies.Length - 1]);
+        GetComponent<reanimationMonstre>().nbMonstresReanimables = int.Parse(dataAllies[dataAllies.Length - 1]);
 
         Debug.Log("Chargement effectué");
     }
