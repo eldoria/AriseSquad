@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.UNetWeaver;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 
 public class Inventaire_Slot : MonoBehaviour
 {
+    private PlayerHealth playerHealth;
     public Image icon;
     Item item;
 
@@ -20,9 +23,19 @@ public class Inventaire_Slot : MonoBehaviour
     {
         item = null;
         icon.sprite = null;
-
-
         icon.enabled = false;
+    }
+
+    public void UseItem()
+    {
+        
+        if (item != null)
+        {
+            
+            item.UsePotion();
+            Inventaire_Script.instance.Remove(item);
+            playerHealth.GetHeal(20);
+        }
     }
     
     

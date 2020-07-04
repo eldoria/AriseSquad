@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventaire_Script : MonoBehaviour
 {
-    
+    PlayerHealth PlayerHP;
     [SerializeField] private GameObject inventaire_UI;
     [SerializeField] private bool isOpen;
     public List<Item> items = new List<Item>();
@@ -58,19 +58,9 @@ public class Inventaire_Script : MonoBehaviour
         {
             onItemChangedCallBack.Invoke();
         }
-    }
-    
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-        
-        
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -101,10 +91,12 @@ public class Inventaire_Script : MonoBehaviour
     }
 
 
-    void Inventaire_Close()
+    public void Inventaire_Close()
     {
         inventaire_UI.SetActive(false);
         isOpen = false;
     }
+    
+    
     
 }

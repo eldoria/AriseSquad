@@ -24,8 +24,7 @@ public class Inventaire_UI : MonoBehaviour
     {
         
     }
-
-
+    
     void Update_UI()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -41,4 +40,6 @@ public class Inventaire_UI : MonoBehaviour
         }
         
     }
+    
+    
 }

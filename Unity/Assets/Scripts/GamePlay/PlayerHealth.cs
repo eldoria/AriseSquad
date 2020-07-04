@@ -24,6 +24,11 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            GetHeal(20);
+        }
         
     }
     
@@ -44,11 +49,22 @@ public class PlayerHealth : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
         } 
     }
-
+    
     public IEnumerator invincible()
     {
         yield return new WaitForSeconds(0.5f);
         isInvincible = false;
     }
+    
+    public void GetHeal(int heal)
+    {
+        if (currentHealth < 90)
+        {
+            currentHealth += heal;
+            healthBar.setHealth(currentHealth);
+            //currentHealth = maxHealth;
+        } 
+    }
+    
     
 }
