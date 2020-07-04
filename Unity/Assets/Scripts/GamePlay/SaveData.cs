@@ -15,6 +15,7 @@ public class SaveData : MonoBehaviour
     public GameObject wolfEnemy;
     public GameObject wolfAlly;
     public GameObject wolfBoss;
+    public GameObject potion;
 
     private void Start()
     {
@@ -103,6 +104,21 @@ public class SaveData : MonoBehaviour
 
         string stringDataAllies = string.Join(saveSeparator, dataAllies);
         File.WriteAllText(Application.dataPath + "/dataAllies.txt", stringDataAllies);
+
+        GameObject potion = GameObject.Find("Potions");
+
+        string[] dataPotions = new string[potion.transform.childCount * 3];// +1 for the number of potions in the inventory
+        cpt = 0;
+
+        foreach (Transform child in potion.transform)
+        {
+            dataPotions[cpt++] = child.transform.position.x.ToString();
+            dataPotions[cpt++] = child.transform.position.y.ToString();
+            dataPotions[cpt++] = child.transform.position.z.ToString();
+        }
+
+        string stringDataPotions = string.Join(saveSeparator, dataPotions);
+        File.WriteAllText(Application.dataPath + "/dataPotions.txt", stringDataPotions);
         
         Debug.Log("Sauvegarde effectuée");
     }
@@ -199,6 +215,22 @@ public class SaveData : MonoBehaviour
             }
         }
         GetComponent<reanimationMonstre>().nbMonstresReanimables = int.Parse(dataAllies[dataAllies.Length - 1]);
+        
+        GameObject potion = GameObject.Find("Potions");
+
+        string saveStringPotions = File.ReadAllText(Application.dataPath + "/dataPotions.txt");
+        string[] dataPotions = saveStringPotions.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
+        
+        foreach (Transform child in potion.transform)
+        {
+            Destroy(child);
+        }
+        
+        for (int i = 0; i < dataPotions.Length/3; i++)
+        {
+            Vector3 pos = new Vector3(float.Parse(dataPotions[i]), float.Parse(dataPotions[i + 1]), float.Parse(dataPotions[i + 2]));
+            Instantiate(potion, pos, Quaternion.identity);
+        }
 
         Debug.Log("Chargement effectué");
     }
