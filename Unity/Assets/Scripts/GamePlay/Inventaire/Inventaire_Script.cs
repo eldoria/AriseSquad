@@ -104,7 +104,4 @@ public class Inventaire_Script : MonoBehaviour
         isOpen = false;
         scriptCamera.enabled = true;
     }
-    
-    
-    
 }

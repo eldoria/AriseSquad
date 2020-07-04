@@ -34,15 +34,11 @@ public class Inventaire_Slot : MonoBehaviour
 
     public void UseItem()
     {
-        
-        if (item != null)
+        if (item != null && playerHealth.currentHealth < playerHealth.maxHealth)
         {
-            
             item.UsePotion();
             Inventaire_Script.instance.Remove(item);
             playerHealth.GetHeal(20);
         }
     }
-    
-    
 }

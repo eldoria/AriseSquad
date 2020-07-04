@@ -18,8 +18,4 @@ public class Item : ScriptableObject
     {
         //Debug.Log("hp + 20");
     }
-
-
-
-
 }
