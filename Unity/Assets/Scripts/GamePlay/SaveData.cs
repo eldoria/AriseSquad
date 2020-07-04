@@ -28,7 +28,7 @@ public class SaveData : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.X)) Load();
     }
 
-    void Save()
+    public void Save()
     {
         string[] dataPlayer = new string[]
         {
@@ -107,7 +107,7 @@ public class SaveData : MonoBehaviour
         Debug.Log("Sauvegarde effectuée");
     }
 
-    void Load()
+    public void Load()
     {
         string saveStringPlayer = File.ReadAllText(Application.dataPath + "/dataPlayer.txt");
         string[] dataPlayer = saveStringPlayer.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
