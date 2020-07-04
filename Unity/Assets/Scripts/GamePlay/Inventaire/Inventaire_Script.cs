@@ -11,10 +11,12 @@ public class Inventaire_Script : MonoBehaviour
     public List<Item> items = new List<Item>();
     public int space = 9;
     private cameraController scriptCamera;
+    private playerScript scriptPlayer;
 
     private void Start()
     {
         scriptCamera = GameObject.Find("Joueur").GetComponentInChildren<cameraController>();
+        scriptPlayer = GameObject.Find("Joueur").GetComponentInChildren<playerScript>();
     }
 
     #region Singleton
@@ -95,6 +97,7 @@ public class Inventaire_Script : MonoBehaviour
     {
         inventaire_UI.SetActive(true);
         scriptCamera.enabled = false;
+        scriptPlayer.enabled = false;
     }
 
 
@@ -103,5 +106,6 @@ public class Inventaire_Script : MonoBehaviour
         inventaire_UI.SetActive(false);
         isOpen = false;
         scriptCamera.enabled = true;
+        scriptPlayer.enabled = true;
     }
 }
