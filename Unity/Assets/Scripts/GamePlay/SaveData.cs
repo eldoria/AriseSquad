@@ -160,7 +160,7 @@ public class SaveData : MonoBehaviour
             }
         }
 
-
+    
         string saveStringAllies = File.ReadAllText(Application.dataPath + "/dataAllies.txt");
         string[] dataAllies = saveStringAllies.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
 
@@ -198,8 +198,6 @@ public class SaveData : MonoBehaviour
                 GetComponent<monstersFight>().AddAlly(num, obj);
             }
         }
-
-        Debug.Log("val : " + dataAllies[dataAllies.Length - 1]);
         GetComponent<reanimationMonstre>().nbMonstresReanimables = int.Parse(dataAllies[dataAllies.Length - 1]);
 
         Debug.Log("Chargement effectué");

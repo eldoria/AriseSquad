@@ -46,7 +46,7 @@ public class generationMap : MonoBehaviour
         {
             Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), -.1f, z: j + Random.Range(0f, 8f));
             GameObject monster = Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
-            monster.GetComponent<wolfScript>().num = GetComponent<monstersFight>().GetCountAlly();
+            monster.GetComponent<wolfScript>().num = GetComponent<monstersFight>().GetCountEnemy();
             GetComponent<monstersFight>().AddEnemy(monster);
         }
         return areaWithMonsters;
@@ -65,7 +65,7 @@ public class generationMap : MonoBehaviour
             Vector3 position = new Vector3(i + 8f, 0f, j + 8f);
             GameObject boss = Instantiate(bossPrefab, position, bossPrefab.transform.rotation);
             bossCreated = true;
-            boss.GetComponent<bossScript>().num = GetComponent<monstersFight>().GetCountAlly();
+            boss.GetComponent<bossScript>().num = GetComponent<monstersFight>().GetCountEnemy();
             GameObject.Find("Joueur").GetComponentInChildren<WinScreen>().bossWolf = boss;
             GetComponent<monstersFight>().AddEnemy(boss);
         }
