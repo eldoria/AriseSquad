@@ -1193,7 +1193,6 @@ GameObject:
   - component: {fileID: 7483058286383242773}
   - component: {fileID: -2672617009004361334}
   - component: {fileID: 3080845898266899352}
-  - component: {fileID: 8150983797683650137}
   - component: {fileID: 1773498569492994676}
   - component: {fileID: 2554554687071178150}
   - component: {fileID: 7946107605437284856}
@@ -1249,21 +1248,9 @@ MonoBehaviour:
   animation: {fileID: 1773498569492994676}
   attackCollider: {fileID: 7946107605437284856}
   moveSpeed: 20
+  hitPoints: 3
   num: 0
   objectWithScripts: {fileID: 0}
---- !u!114 &8150983797683650137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873380034025909254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6831e6be3dae34eaa90d7ecace62bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attacking: 0
 --- !u!95 &1773498569492994676
 Animator:
   serializedVersion: 3
@@ -1292,7 +1279,7 @@ BoxCollider:
   m_GameObject: {fileID: 5873380034025909254}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 8.5, y: 17, z: 32.5}
   m_Center: {x: 0, y: 8.5, z: -5}

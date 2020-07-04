@@ -14,12 +14,12 @@ public class moveToTarget : MonoBehaviour
         if (CompareTag("wolfAlly"))
         {
             moveSpeed = GetComponent<wolfReanimated>().moveSpeed;
-            attackDistance = 20;
+            attackDistance = 22;
         }
         else if (CompareTag("wolfEnemy"))
         {
             moveSpeed = GetComponent<wolfScript>().moveSpeed;
-            attackDistance = 20;
+            attackDistance = 22;
         }
         else if (CompareTag("wolfBoss"))
         {

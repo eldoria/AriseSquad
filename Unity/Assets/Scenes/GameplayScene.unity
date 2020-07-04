@@ -4776,7 +4776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.050048828, y: 0}
+  m_AnchoredPosition: {x: -0.049804688, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471190564
@@ -5969,6 +5969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1440485263}
   textNbMonstres: {fileID: 1288539425}
+  nbMonstresReanimables: 0
   monstreReanime: {fileID: 3015308817734714355, guid: 1026aaa9f05cf6c41b2be6d00d900cfd,
     type: 3}
   player: {fileID: 8296172668458103375}
@@ -5988,9 +5989,7 @@ MonoBehaviour:
   moveSpeed: 16
   detectionDistance: 120
   Enemies: []
-  indE: 0
   Allies: []
-  indA: 0
 --- !u!114 &1860411686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6004,6 +6003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolfEnemy: {fileID: 5873380034025909254, guid: 8400b4c924918ba4a95f57c4ea5108b7,
+    type: 3}
+  wolfAlly: {fileID: 3015308817734714355, guid: 1026aaa9f05cf6c41b2be6d00d900cfd,
     type: 3}
   wolfBoss: {fileID: 5873380034025909254, guid: 884d8001ce3513145b4af0e78464939e,
     type: 3}

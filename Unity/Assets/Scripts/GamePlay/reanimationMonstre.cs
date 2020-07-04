@@ -10,7 +10,7 @@ public class reanimationMonstre : MonoBehaviour
 
     public GameObject menu;
     public Text textNbMonstres;
-    private static int nbMonstresReanimables;
+    public int nbMonstresReanimables;
     public GameObject monstreReanime;
     public GameObject player;
     private playerScript script1;
