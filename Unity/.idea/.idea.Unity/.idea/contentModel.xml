@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\user\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\user\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Unity.-1382121699.00" t="ExcludeRecursive" />
     <e p="C:\Users\user\Documents\Ecole\ESGI\3DJV\AriseSquad\Unity" t="IncludeRecursive">
+    <e p="C:\Users\user\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Unity.822195846.00" t="ExcludeRecursive" />
+    <e p="C:\Users\user\Desktop\arise\AriseSquad\Unity" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="dataAllies.txt" t="Include" />
