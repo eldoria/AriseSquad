@@ -10,6 +10,12 @@ public class Inventaire_Script : MonoBehaviour
     [SerializeField] private bool isOpen;
     public List<Item> items = new List<Item>();
     public int space = 9;
+    private cameraController scriptCamera;
+
+    private void Start()
+    {
+        scriptCamera = GameObject.Find("Joueur").GetComponentInChildren<cameraController>();
+    }
 
     #region Singleton
     
@@ -88,6 +94,7 @@ public class Inventaire_Script : MonoBehaviour
     void Inventaire_Open()
     {
         inventaire_UI.SetActive(true);
+        scriptCamera.enabled = false;
     }
 
 
@@ -95,6 +102,7 @@ public class Inventaire_Script : MonoBehaviour
     {
         inventaire_UI.SetActive(false);
         isOpen = false;
+        scriptCamera.enabled = true;
     }
     
     
