@@ -44,11 +44,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|dead
-      takeName: Armature|dead
+      name: Armature|Attack_salto
+      takeName: Armature|Attack_salto
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
