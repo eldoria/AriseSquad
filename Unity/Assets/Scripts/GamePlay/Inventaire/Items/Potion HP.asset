@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Potion HP
   m_EditorClassIdentifier: 
   name: popo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5938edddb68ac4a4f8b5b06b36fc41d3, type: 3}
   isDefaultItem: 0

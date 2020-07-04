@@ -9,7 +9,7 @@ public class Inventaire_Script : MonoBehaviour
     [SerializeField] private GameObject inventaire_UI;
     [SerializeField] private bool isOpen;
     public List<Item> items = new List<Item>();
-
+    public int space = 9;
 
     #region Singleton
     
@@ -27,7 +27,9 @@ public class Inventaire_Script : MonoBehaviour
     
     #endregion
 
-    public int space = 9;
+    public delegate void OnItemChanged();
+
+    public OnItemChanged onItemChangedCallBack;
     
     public bool add(Item item)
     {
@@ -39,6 +41,11 @@ public class Inventaire_Script : MonoBehaviour
                 return false;
             }
             items.Add(item);
+            if (onItemChangedCallBack != null)
+            {
+                onItemChangedCallBack.Invoke();
+            }
+            
         }
 
         return true;
@@ -47,6 +54,10 @@ public class Inventaire_Script : MonoBehaviour
     public void Remove(Item item)
     {
         items.Remove(item);
+        if (onItemChangedCallBack != null)
+        {
+            onItemChangedCallBack.Invoke();
+        }
     }
     
     
