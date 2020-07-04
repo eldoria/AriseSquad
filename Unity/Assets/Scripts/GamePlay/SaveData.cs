@@ -175,8 +175,12 @@ public class SaveData : MonoBehaviour
                 cpt++;
             }
         }
+
+        // si supérieur à 0 il fut augmenter l'indice sinon le baisser
+        int diffLoups = dataAllies.Length / 9 - cpt;
+
+        GetComponent<monstersFight>().ChangeNumberOfAllies(diffLoups);
         
-        GetComponent<monstersFight>().DecreaseNumberOfAllies(cpt);
         
         for (int i = 0; i < (dataAllies.Length - 1)/9; i++)
         {
@@ -186,8 +190,8 @@ public class SaveData : MonoBehaviour
                 Vector3 rotation = new Vector3(float.Parse(dataAllies[9 * i + 6]), float.Parse(dataAllies[9 * i + 7]), float.Parse(dataAllies[9 * i + 8]));
 
                 GameObject obj = Instantiate(wolfAlly, position, Quaternion.Euler(rotation));
-
-                int num = int.Parse(dataEnemies[9 * i + 1]);
+                
+                int num = int.Parse(dataAllies[9 * i + 1]);
                 obj.GetComponent<wolfReanimated>().num = num;
                 obj.GetComponent<wolfReanimated>().hitPoints = int.Parse(dataAllies[9 * i + 2]);
                 

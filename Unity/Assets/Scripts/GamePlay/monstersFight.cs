@@ -61,9 +61,9 @@ public class monstersFight : MonoBehaviour
         Allies[count] = null;
     }
 
-    public void DecreaseNumberOfAllies(int val)
+    public void ChangeNumberOfAllies(int val)
     {
-        indA -= val;
+        indA += val;
     }
 
     private void CalculateDistance()

@@ -16,8 +16,6 @@ public class generationMap : MonoBehaviour
     private readonly int[] areaBoss = {100, 400, 150, 300};
     private bool areaWithMonsters;
     private bool bossCreated = false;
-
-    private int count = 0;
     void Start()
     {
         for (int i = -tailleMap; i < tailleMap; i += 50)
@@ -48,7 +46,7 @@ public class generationMap : MonoBehaviour
         {
             Vector3 position = new Vector3(x: i + Random.Range(0f, 8f), -.1f, z: j + Random.Range(0f, 8f));
             GameObject monster = Instantiate(monsterPrefab, position, monsterPrefab.transform.rotation);
-            monster.GetComponent<wolfScript>().num = count++;
+            monster.GetComponent<wolfScript>().num = GetComponent<monstersFight>().GetCountAlly();
             GetComponent<monstersFight>().AddEnemy(monster);
         }
         return areaWithMonsters;
@@ -67,7 +65,7 @@ public class generationMap : MonoBehaviour
             Vector3 position = new Vector3(i + 8f, 0f, j + 8f);
             GameObject boss = Instantiate(bossPrefab, position, bossPrefab.transform.rotation);
             bossCreated = true;
-            boss.GetComponent<bossScript>().num = count++;
+            boss.GetComponent<bossScript>().num = GetComponent<monstersFight>().GetCountAlly();
             GameObject.Find("Joueur").GetComponentInChildren<WinScreen>().bossWolf = boss;
             GetComponent<monstersFight>().AddEnemy(boss);
         }
