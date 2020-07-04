@@ -25,7 +25,7 @@ public class bossScript : MonoBehaviour
     private void Start()
     {
         //player = GameObject.FindWithTag("Player").transform;
-        //objectWithScripts = GameObject.Find("Scripts_Map_boss");
+        objectWithScripts = GameObject.Find("Scripts_Map_boss");
         //num = objectWithScripts.GetComponent<monstersFight>().GetCountEnemy();
     }
 
