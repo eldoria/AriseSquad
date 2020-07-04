@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.UNetWeaver;
 using UnityEngine.UI;
@@ -11,6 +12,11 @@ public class Inventaire_Slot : MonoBehaviour
     private PlayerHealth playerHealth;
     public Image icon;
     Item item;
+
+    private void Start()
+    {
+        playerHealth = GameObject.Find("Joueur").GetComponent<PlayerHealth>();
+    }
 
     public void AddItem(Item newItem)
     {
