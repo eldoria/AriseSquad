@@ -14,7 +14,7 @@ public class PickUpItem : Interactable
 
     void PickUp()
     {
-        Debug.Log("vous avez ramassé un " + item.name);
+        //Debug.Log("vous avez ramassé un " + item.name);
         bool WasPickUp = Inventaire_Script.instance.add(item);
 
         if (WasPickUp)

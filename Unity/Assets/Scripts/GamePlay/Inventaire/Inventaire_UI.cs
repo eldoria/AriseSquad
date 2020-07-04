@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class Inventaire_UI : MonoBehaviour
 {
-
     public Transform item_parent;
-
     Inventaire_Slot[] slots;
-    
     Inventaire_Script inventaireScript;
+    
     // Start is called before the first frame update
     void Start()
     {
         inventaireScript = Inventaire_Script.instance;
         inventaireScript.onItemChangedCallBack += Update_UI;
-
         slots = item_parent.GetComponentsInChildren<Inventaire_Slot>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     
     void Update_UI()
@@ -38,8 +29,5 @@ public class Inventaire_UI : MonoBehaviour
                 slots[i].clearSlot();
             }
         }
-        
     }
-    
-    
 }

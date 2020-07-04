@@ -16,9 +16,7 @@ public class Item : ScriptableObject
 
     public virtual void UsePotion()
     {
-        
-        Debug.Log("hp + 20");
-        
+        //Debug.Log("hp + 20");
     }
 
 

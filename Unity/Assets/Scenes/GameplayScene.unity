@@ -441,22 +441,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -466,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -566,22 +566,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -591,7 +591,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -601,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -769,22 +769,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -794,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -1395,22 +1395,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -1420,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -1430,7 +1430,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -1916,7 +1916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &584603118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3593,7 +3593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185887817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.07, y: 0.6, z: 173.99}
+  m_LocalPosition: {x: -20.59, y: 0.6, z: 170}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3733,22 +3733,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -3758,7 +3758,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -3768,7 +3768,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -3952,22 +3952,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -3977,7 +3977,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -3987,7 +3987,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5046,22 +5046,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5071,7 +5071,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5081,7 +5081,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5866,22 +5866,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5891,7 +5891,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -5901,7 +5901,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -6136,7 +6136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878834336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.060992, y: 0.64, z: 170.79}
+  m_LocalPosition: {x: -11.060992, y: 0.64, z: 170}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6290,7 +6290,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947268828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.26, y: 1, z: 171.32}
+  m_LocalPosition: {x: -3.26, y: 1, z: 170}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1266597791}
@@ -7651,22 +7651,22 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -7676,7 +7676,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
@@ -7686,7 +7686,7 @@ PrefabInstance:
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}

@@ -17,7 +17,7 @@ public class Inventaire_Slot : MonoBehaviour
     {
         playerHealth = GameObject.Find("Joueur").GetComponent<PlayerHealth>();
     }
-
+    
     public void AddItem(Item newItem)
     {
         item = newItem;
