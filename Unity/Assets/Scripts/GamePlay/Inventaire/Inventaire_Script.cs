@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,47 @@ public class Inventaire_Script : MonoBehaviour
     
     [SerializeField] private GameObject inventaire_UI;
     [SerializeField] private bool isOpen;
+    public List<Item> items = new List<Item>();
+
+
+    #region Singleton
+    
+    public static Inventaire_Script instance;
+    
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("more than one instance of inventory found");
+            return;
+        }
+        instance = this;
+    }
+    
+    #endregion
+
+    public int space = 9;
+    
+    public bool add(Item item)
+    {
+        if (!item.isDefaultItem)
+        {
+            if (items.Count >= space)
+            {
+                Debug.Log("pas assez d'espace");
+                return false;
+            }
+            items.Add(item);
+        }
+
+        return true;
+    }
+
+    public void Remove(Item item)
+    {
+        items.Remove(item);
+    }
+    
     
     
     // Start is called before the first frame update

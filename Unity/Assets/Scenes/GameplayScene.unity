@@ -3513,6 +3513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 10
   interactionTransform: {fileID: 1185887822}
+  item: {fileID: 11400000, guid: db7a5e7869501b741bd2ca7dbbb34501, type: 2}
 --- !u!65 &1185887819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5175,7 +5176,7 @@ GameObject:
   - component: {fileID: 1602942396}
   - component: {fileID: 1602942398}
   m_Layer: 0
-  m_Name: Scripts_PauseMenu
+  m_Name: Scripts_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5223,6 +5224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventaire_UI: {fileID: 584603117}
   isOpen: 0
+  items: []
+  space: 9
 --- !u!1 &1604967729
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,6 +6041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 10
   interactionTransform: {fileID: 1878834341}
+  item: {fileID: 11400000, guid: db7a5e7869501b741bd2ca7dbbb34501, type: 2}
 --- !u!135 &1878834338
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6189,8 +6193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ad70dcc64126b4993c4bbf49666cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 10
   interactionTransform: {fileID: 1947268833}
+  item: {fileID: 11400000, guid: db7a5e7869501b741bd2ca7dbbb34501, type: 2}
 --- !u!135 &1947268830
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7562,6 +7567,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1718637895}
     m_Modifications:
+    - target: {fileID: 2855601015770550979, guid: bb1f9deac3a5961428e6b68f6d098bd5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2855601015770550979, guid: bb1f9deac3a5961428e6b68f6d098bd5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2855601016777833240, guid: bb1f9deac3a5961428e6b68f6d098bd5,
         type: 3}
       propertyPath: m_LocalPosition.x

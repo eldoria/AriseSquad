@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpItem : Interactable
 {
+    public Item item;
     public override void Interact()
     {
         base.Interact();
@@ -13,8 +14,14 @@ public class PickUpItem : Interactable
 
     void PickUp()
     {
-        Debug.Log("vous avez ramassé un potion HP");
-        Destroy(gameObject);
+        Debug.Log("vous avez ramassé un " + item.name);
+        bool WasPickUp = Inventaire_Script.instance.add(item);
+
+        if (WasPickUp)
+        {
+            Destroy(gameObject);
+        }
+        
     }
     
         
