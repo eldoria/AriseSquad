@@ -44,7 +44,7 @@ public class playerScript : MonoBehaviour
     private static readonly int esquiveDroite = Animator.StringToHash("esquiveDroite");
     private static readonly int esquiveGauche = Animator.StringToHash("esquiveGauche");
     private static readonly int arise = Animator.StringToHash("arise");
-
+    
     [SerializeField]private GameObject objectWithScripts;
     private void Start()
     {
@@ -62,14 +62,6 @@ public class playerScript : MonoBehaviour
             return;
         }
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-        Vector3 pos = transform.position;
-
-        if (pos.y > 0)
-        {
-            pos.y = 0;
-            transform.position = pos;
-        }
         
         // Get the key that player hit and move in consequence by the call of movePlayer function
         getKeyCode();

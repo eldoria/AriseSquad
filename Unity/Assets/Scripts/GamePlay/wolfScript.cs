@@ -17,7 +17,6 @@ public class wolfScript : MonoBehaviour
 
     private static readonly int Moving = Animator.StringToHash("moving");
     private static readonly int Attack = Animator.StringToHash("attack");
-    private static readonly int Die = Animator.StringToHash("dead");
 
     private bool hasHit = false;
     //public bool hasBeenHit = false;
@@ -78,13 +77,6 @@ public class wolfScript : MonoBehaviour
                 hasHit = false;
             }
         }
-        else if (animation.GetCurrentAnimatorStateInfo(0).IsName("dead"))
-        {
-            if (animation.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.99f)
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -110,9 +102,8 @@ public class wolfScript : MonoBehaviour
         if (hitPoints <= 0)
         {
             objectWithScripts.GetComponent<monstersFight>().DeleteEnemy(num);
-            objectWithScripts.GetComponent<reanimationMonstre>().UpdateNbMonstre();
             Destroy(gameObject);
-            //AnimationDie();
+            objectWithScripts.GetComponent<reanimationMonstre>().UpdateNbMonstre();
         }
     }
 
@@ -130,10 +121,5 @@ public class wolfScript : MonoBehaviour
     public void StopMoving()
     {
         animation.SetBool(Moving, false);
-    }
-
-    public void AnimationDie()
-    {
-        animation.SetBool(Die, true);
     }
 }
