@@ -9,6 +9,7 @@
         <e p="dataAllies.txt" t="Include" />
         <e p="dataEnemies.txt" t="Include" />
         <e p="dataPlayer.txt" t="Include" />
+        <e p="dataPotions.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="GamePlay" t="Include">
             <e p="bossScript.cs" t="Include" />

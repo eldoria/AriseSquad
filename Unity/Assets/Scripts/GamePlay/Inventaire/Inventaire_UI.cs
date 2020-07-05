@@ -8,7 +8,6 @@ public class Inventaire_UI : MonoBehaviour
     Inventaire_Slot[] slots;
     Inventaire_Script inventaireScript;
     
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +27,24 @@ public class Inventaire_UI : MonoBehaviour
             else
             {
                 slots[i].clearSlot();
-
             }
+        }
+    }
+
+    public int CountItemInInventory()
+    {
+        return inventaireScript.items.Count;
+    }
+
+    public void SetNbItemInventory(int nb)
+    {
+        for (int i = 0; i < inventaireScript.items.Count; i++)
+        {
+            inventaireScript.Remove(inventaireScript.items[i]);
+        }
+        for (int i = 0; i < nb; i++)
+        {
+            inventaireScript.add(inventaireScript.items[i]);
         }
     }
 }
