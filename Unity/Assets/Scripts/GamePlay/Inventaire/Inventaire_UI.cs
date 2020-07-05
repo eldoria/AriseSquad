@@ -38,9 +38,9 @@ public class Inventaire_UI : MonoBehaviour
 
     public void SetNbItemInventory(int nb)
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < inventaireScript.items.Count; i++)
         {
-            slots[i].clearSlot();
+            inventaireScript.Remove(inventaireScript.items[i]);
         }
         for (int i = 0; i < nb; i++)
         {
