@@ -223,8 +223,10 @@ public class SaveData : MonoBehaviour
         
         foreach (Transform child in potion.transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
+        
+        Debug.Log(dataPotions.Length);
         
         for (int i = 0; i < dataPotions.Length/3; i++)
         {
