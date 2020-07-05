@@ -108,7 +108,7 @@ public class SaveData : MonoBehaviour
 
         GameObject potion = GameObject.Find("Potions");
 
-        string[] dataPotions = new string[potion.transform.childCount * 3];// +1 for the number of potions in the inventory
+        string[] dataPotions = new string[potion.transform.childCount * 3 + 1];// +1 for the number of potions in the inventory
         cpt = 0;
 
         foreach (Transform child in potion.transform)
@@ -117,6 +117,8 @@ public class SaveData : MonoBehaviour
             dataPotions[cpt++] = child.transform.position.y.ToString();
             dataPotions[cpt++] = child.transform.position.z.ToString();
         }
+        
+        dataPotions[cpt++] = GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().CountItemInInventory().ToString();
 
         string stringDataPotions = string.Join(saveSeparator, dataPotions);
         File.WriteAllText(Application.dataPath + "/dataPotions.txt", stringDataPotions);
@@ -227,12 +229,20 @@ public class SaveData : MonoBehaviour
             Destroy(child.gameObject);
         }
         
-        for (int i = 0; i < dataPotions.Length/3; i++)
+        for (int i = 0; i < (dataPotions.Length - 1)/3; i++)
         {
-            Debug.Log(dataPotions.Length);
             Vector3 pos = new Vector3(float.Parse(dataPotions[3 * i]), float.Parse(dataPotions[3 * i + 1]), float.Parse(dataPotions[3 * i + 2]));
             GameObject obj = Instantiate(potionHealth, pos, Quaternion.identity);
             obj.transform.parent = potion.transform;
+        }
+        
+        int nbItemsApres = GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().CountItemInInventory();
+        int nbItemsAvant = int.Parse(dataPotions[dataPotions.Length - 1]);
+
+        if (nbItemsApres != nbItemsAvant)
+        {
+            Debug.Log("nbPotions : " + nbItemsAvant);
+            GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().SetNbItemInventory(nbItemsAvant);
         }
     
         Debug.Log("Chargement effectué");

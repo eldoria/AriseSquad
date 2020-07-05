@@ -30,4 +30,21 @@ public class Inventaire_UI : MonoBehaviour
             }
         }
     }
+
+    public int CountItemInInventory()
+    {
+        return inventaireScript.items.Count;
+    }
+
+    public void SetNbItemInventory(int nb)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i].clearSlot();
+        }
+        for (int i = 0; i < nb; i++)
+        {
+            slots[i].AddItem(inventaireScript.items[i]);
+        }
+    }
 }
