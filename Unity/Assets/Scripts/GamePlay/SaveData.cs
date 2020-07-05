@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class SaveData : MonoBehaviour
     public GameObject wolfEnemy;
     public GameObject wolfAlly;
     public GameObject wolfBoss;
+    public GameObject potionHealth;
 
     private void Start()
     {
@@ -103,6 +105,23 @@ public class SaveData : MonoBehaviour
 
         string stringDataAllies = string.Join(saveSeparator, dataAllies);
         File.WriteAllText(Application.dataPath + "/dataAllies.txt", stringDataAllies);
+
+        GameObject potion = GameObject.Find("Potions");
+
+        string[] dataPotions = new string[potion.transform.childCount * 3 + 1];// +1 for the number of potions in the inventory
+        cpt = 0;
+
+        foreach (Transform child in potion.transform)
+        {
+            dataPotions[cpt++] = child.transform.position.x.ToString();
+            dataPotions[cpt++] = child.transform.position.y.ToString();
+            dataPotions[cpt++] = child.transform.position.z.ToString();
+        }
+        
+        dataPotions[cpt++] = GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().CountItemInInventory().ToString();
+
+        string stringDataPotions = string.Join(saveSeparator, dataPotions);
+        File.WriteAllText(Application.dataPath + "/dataPotions.txt", stringDataPotions);
         
         Debug.Log("Sauvegarde effectuée");
     }
@@ -199,7 +218,33 @@ public class SaveData : MonoBehaviour
             }
         }
         GetComponent<reanimationMonstre>().nbMonstresReanimables = int.Parse(dataAllies[dataAllies.Length - 1]);
+        
+        GameObject potion = GameObject.Find("Potions");
 
+        string saveStringPotions = File.ReadAllText(Application.dataPath + "/dataPotions.txt");
+        string[] dataPotions = saveStringPotions.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
+        
+        foreach (Transform child in potion.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        for (int i = 0; i < (dataPotions.Length - 1)/3; i++)
+        {
+            Vector3 pos = new Vector3(float.Parse(dataPotions[3 * i]), float.Parse(dataPotions[3 * i + 1]), float.Parse(dataPotions[3 * i + 2]));
+            GameObject obj = Instantiate(potionHealth, pos, Quaternion.identity);
+            obj.transform.parent = potion.transform;
+        }
+        
+        int nbItemsApres = GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().CountItemInInventory();
+        int nbItemsAvant = int.Parse(dataPotions[dataPotions.Length - 1]);
+
+        if (nbItemsApres != nbItemsAvant)
+        {
+            Debug.Log("nbPotions : " + nbItemsAvant);
+            GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().SetNbItemInventory(nbItemsAvant);
+        }
+    
         Debug.Log("Chargement effectué");
     }
 }
