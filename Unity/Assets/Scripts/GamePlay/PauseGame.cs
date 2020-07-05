@@ -1,33 +1,66 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenuUI;
+    [SerializeField] private GameObject OptionMenuUI;
     [SerializeField] private bool isPaused;
+    private bool isOption;
+    public Dropdown resolutionDropdown;
+    private Resolution[] resolutions;
+
+    private void Start()
+    {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        
+        int currentResolutionIndex = 0;
+        List<string> options = new List<string>();
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].width == Screen.currentResolution.width)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            isPaused = !isPaused;
-
-            if (isPaused)
+        
+            if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
             {
-                ActivateMenuPaused();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                isPaused = !isPaused;
+                {
+                    if (isPaused)
+                    {
+                        ActivateMenuPaused();
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                    else
+                    {
+                        DeactivateMenuPause();
+                        Cursor.lockState = CursorLockMode.Locked;
+                        Cursor.visible = false;
+                    }
+                }
             }
-            else
-            {
-                DeactivateMenuPause();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-        }
     }
 
     void ActivateMenuPaused()
@@ -42,4 +75,35 @@ public class PauseGame : MonoBehaviour
         PauseMenuUI.SetActive(false);
         isPaused = false;
     }
+
+    void ActivateMenuOption()
+    {
+        Time.timeScale = 0;
+        OptionMenuUI.SetActive(true);
+        isOption = true;
+    }
+    
+    public void DeactivateMenuOption()
+    {
+        Time.timeScale = 1;
+        OptionMenuUI.SetActive(false);
+        isOption = false;
+    }
+
+
+    public void SetFullScreen(bool isFullEcran)
+    {
+        Screen.fullScreen = isFullEcran;
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+    }
+    
+    
+    
+    
+    
 }
