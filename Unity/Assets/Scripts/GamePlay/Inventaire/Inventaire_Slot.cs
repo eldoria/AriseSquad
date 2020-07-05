@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.UNetWeaver;
+﻿
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
+
 
 
 public class Inventaire_Slot : MonoBehaviour
