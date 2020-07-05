@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -226,14 +227,13 @@ public class SaveData : MonoBehaviour
             Destroy(child.gameObject);
         }
         
-        Debug.Log(dataPotions.Length);
-        
         for (int i = 0; i < dataPotions.Length/3; i++)
         {
             Vector3 pos = new Vector3(float.Parse(dataPotions[i]), float.Parse(dataPotions[i + 1]), float.Parse(dataPotions[i + 2]));
-            Instantiate(potion, pos, Quaternion.identity);
+            GameObject obj = Instantiate(potion, pos, Quaternion.identity);
+            obj.transform.parent = potion.transform;
         }
-
+    
         Debug.Log("Chargement effectué");
     }
 }
