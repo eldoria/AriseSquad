@@ -44,7 +44,7 @@ public class Inventaire_UI : MonoBehaviour
         }
         for (int i = 0; i < nb; i++)
         {
-            slots[i].AddItem(inventaireScript.items[i]);
+            inventaireScript.add(inventaireScript.items[i]);
         }
     }
 }

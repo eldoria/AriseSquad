@@ -241,7 +241,6 @@ public class SaveData : MonoBehaviour
 
         if (nbItemsApres != nbItemsAvant)
         {
-            Debug.Log("nbPotions : " + nbItemsAvant);
             GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().SetNbItemInventory(nbItemsAvant);
         }
     
