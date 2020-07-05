@@ -16,7 +16,7 @@ public class SaveData : MonoBehaviour
     public GameObject wolfEnemy;
     public GameObject wolfAlly;
     public GameObject wolfBoss;
-    public GameObject potion;
+    public GameObject potionHealth;
 
     private void Start()
     {
@@ -229,8 +229,9 @@ public class SaveData : MonoBehaviour
         
         for (int i = 0; i < dataPotions.Length/3; i++)
         {
-            Vector3 pos = new Vector3(float.Parse(dataPotions[i]), float.Parse(dataPotions[i + 1]), float.Parse(dataPotions[i + 2]));
-            GameObject obj = Instantiate(potion, pos, Quaternion.identity);
+            Debug.Log(dataPotions.Length);
+            Vector3 pos = new Vector3(float.Parse(dataPotions[3 * i]), float.Parse(dataPotions[3 * i + 1]), float.Parse(dataPotions[3 * i + 2]));
+            GameObject obj = Instantiate(potionHealth, pos, Quaternion.identity);
             obj.transform.parent = potion.transform;
         }
     
