@@ -13,6 +13,9 @@ public class monstersFight : MonoBehaviour
     public GameObject[] Allies;
     private int indA = 0;
     private float timeDelay = 0;
+    private int nbEnemyDie;
+
+    public GameOver script;
 
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class monstersFight : MonoBehaviour
     public void DeleteEnemy(int count)
     {
         Enemies[count] = null;
+        GetNbEnemyDie();
     }
     
     public void AddAlly(GameObject Ally)
@@ -64,6 +68,15 @@ public class monstersFight : MonoBehaviour
     public void ChangeNumberOfAllies(int val)
     {
         indA += val;
+    }
+
+    public void GetNbEnemyDie()
+    {
+        nbEnemyDie++;
+        if (nbEnemyDie == indE)
+        {
+            script.endGame();
+        }
     }
 
     private void CalculateDistance()

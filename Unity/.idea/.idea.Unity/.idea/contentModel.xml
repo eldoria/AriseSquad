@@ -18,6 +18,7 @@
             <e p="GameOver.cs" t="Include" />
             <e p="generationMap.cs" t="Include" />
             <e p="HealthBar.cs" t="Include" />
+            <e p="HighScoreScript.cs" t="Include" />
             <e p="Inventaire" t="Include">
               <e p="Interactable.cs" t="Include" />
               <e p="Inventaire_Script.cs" t="Include" />
@@ -26,6 +27,7 @@
               <e p="Item.cs" t="Include" />
               <e p="PickUpItem.cs" t="Include" />
             </e>
+            <e p="leadboard.cs" t="Include" />
             <e p="LockMouse.cs" t="Include" />
             <e p="MiniMap.cs" t="Include" />
             <e p="monstersFight.cs" t="Include" />
@@ -35,6 +37,7 @@
             <e p="playerScript.cs" t="Include" />
             <e p="reanimationMonstre.cs" t="Include" />
             <e p="SaveData.cs" t="Include" />
+            <e p="UIScript.cs" t="Include" />
             <e p="WinScreen.cs" t="Include" />
             <e p="wolfReanimated.cs" t="Include" />
             <e p="wolfScript.cs" t="Include" />
