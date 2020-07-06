@@ -713,7 +713,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 452811550}
+      - m_Target: {fileID: 0}
         m_MethodName: TitleScreen
         m_Mode: 1
         m_Arguments:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:00:00
+  m_Text: 
 --- !u!222 &241427121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3156,9 +3156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 452811548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b75425df0fb194cbf5679fbd3e0f5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fefc0bf79c7a804abbe8e4a2b5c6b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endGamePanel: {fileID: 452811548}
+  textTime: {fileID: 241427120}
 --- !u!225 &452811551
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3179,7 +3181,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452811548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 37290b937166dd446ba142e8fdd81f92, type: 2}
   m_CullingMode: 0
@@ -8227,6 +8229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item_parent: {fileID: 1718637895}
+  itemTemplate: {fileID: 0}
 --- !u!1 &1604967729
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,7 +8767,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 452811550}
+      - m_Target: {fileID: 0}
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
@@ -9662,6 +9665,7 @@ GameObject:
   - component: {fileID: 1860411684}
   - component: {fileID: 1860411685}
   - component: {fileID: 1860411686}
+  - component: {fileID: 1860411687}
   m_Layer: 0
   m_Name: Scripts_Map_boss
   m_TagString: Untagged
@@ -9738,6 +9742,7 @@ MonoBehaviour:
   detectionDistance: 120
   Enemies: []
   Allies: []
+  scriptWinGame: {fileID: 452811550}
 --- !u!114 &1860411686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9758,6 +9763,19 @@ MonoBehaviour:
     type: 3}
   potionHealth: {fileID: 7438971427172728396, guid: 23b1063908b98e443bc83f69bd7fe507,
     type: 3}
+  isLoading: 0
+--- !u!114 &1860411687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860411681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c02dcc14a2c2346b0aed1ac3b5b865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1876848092
 GameObject:
   m_ObjectHideFlags: 0
