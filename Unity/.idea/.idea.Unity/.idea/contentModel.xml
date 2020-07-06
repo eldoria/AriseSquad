@@ -43,6 +43,11 @@
             <e p="changeScene.cs" t="Include" />
             <e p="ExitGame.cs" t="Include" />
           </e>
+          <e p="NewGameScene" t="Include">
+            <e p="mapSizeScript.cs" t="Include" />
+            <e p="monsterCountScript.cs" t="Include" />
+            <e p="vegetationScript.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
