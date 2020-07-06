@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81c13c49465f641ae8e5849cfaff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: GameplayScene
+  sceneToLoad: NewGameScene
 --- !u!4 &209630189
 Transform:
   m_ObjectHideFlags: 0
@@ -520,6 +520,7 @@ MonoBehaviour:
   wolfEnemy: {fileID: 0}
   wolfAlly: {fileID: 0}
   wolfBoss: {fileID: 0}
+  potionHealth: {fileID: 0}
 --- !u!114 &516331151
 MonoBehaviour:
   m_ObjectHideFlags: 0
