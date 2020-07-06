@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     public bool isInvincible = false;
     public SpriteRenderer graphics;
-    
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -29,7 +29,15 @@ public class PlayerHealth : MonoBehaviour
         {
             GetHeal(20);
         }
-        
+
+        if (isInvincible)
+        {
+            healthBar.setColorInvincible();
+        }
+        else
+        {
+            healthBar.setColorDefault();
+        }
     }
     
     public void TakeDamage(int damage)
