@@ -38,10 +38,10 @@ public class Inventaire_UI : MonoBehaviour
 
     public void SetNbItemInventory(int nb)
     {
-        for (int i = 0; i < inventaireScript.items.Count + 1; i++)
+        var count = inventaireScript.items.Count;
+        for (int i = 0; i < count; i++)
         {
-            Debug.Log(inventaireScript.items.Count);
-            inventaireScript.Remove(inventaireScript.items[i]);
+            inventaireScript.Remove(inventaireScript.items[count - i - 1]);
         }
         for (int i = 0; i < nb; i++)
         {
