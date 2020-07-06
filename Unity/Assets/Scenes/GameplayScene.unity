@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 178505307}
   healthPoint: {fileID: 936210679}
+  fillHealthBar: {fileID: 2064442067}
 --- !u!114 &178505307
 MonoBehaviour:
   m_ObjectHideFlags: 0
