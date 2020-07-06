@@ -12,26 +12,12 @@ public class generationMap : MonoBehaviour
     public GameObject bossPrefab;
     private float randomX, randomZ;
     // the first two values are the boundary of the x zone, the nex two are the boudary of the z zone, then repeats for each area
-    private int monsterAreas = 0;
-    private List<int> areaMonsters = new List<int>();
-/*
     private readonly int [] areaMonsters = {200, 400, 200, 400, 100, 300, 50, 250, -120, 120, 770, 1000};
-*/
     private readonly int[] areaBoss = {100, 400, 150, 300};
     private bool areaWithMonsters;
     private bool bossCreated = false;
     void Start()
     {
-        monsterAreas = Random.Range(3, 8);
-        for (int i = 0; i < monsterAreas; i++)
-        {
-            int val = Random.Range(-tailleMap, tailleMap - 200);
-            areaMonsters.Add(val);
-            areaMonsters.Add(val + 200);
-            val = Random.Range(-tailleMap, tailleMap - 200);
-            areaMonsters.Add(val);
-            areaMonsters.Add(val + 200);
-        }
         for (int i = -tailleMap; i < tailleMap; i += 50)
         {
             for (int j = -tailleMap; j < tailleMap; j += 50)
@@ -51,7 +37,7 @@ public class generationMap : MonoBehaviour
     {
         areaWithMonsters = false;
         // check if the coordinates match with a zone monster
-        for (int l = 0; l < monsterAreas * 4 /*areaMonsters.Length*/ && !areaWithMonsters; l += 4)
+        for (int l = 0; l < areaMonsters.Length && !areaWithMonsters; l += 4)
         {
             areaWithMonsters = (i > areaMonsters[l] && i < areaMonsters[l + 1]) && (j > areaMonsters[l + 2] && j < areaMonsters[l + 3]);
         }
