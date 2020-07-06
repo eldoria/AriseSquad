@@ -239,6 +239,8 @@ public class SaveData : MonoBehaviour
         int nbItemsApres = GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().CountItemInInventory();
         int nbItemsAvant = int.Parse(dataPotions[dataPotions.Length - 1]);
 
+        Debug.Log(nbItemsAvant);
+        
         if (nbItemsApres != nbItemsAvant)
         {
             GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().SetNbItemInventory(nbItemsAvant);
