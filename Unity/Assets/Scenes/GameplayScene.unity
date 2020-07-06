@@ -7338,11 +7338,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion HP
       objectReference: {fileID: 0}
-    - target: {fileID: 7438971427172728396, guid: 23b1063908b98e443bc83f69bd7fe507,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7438971427172728433, guid: 23b1063908b98e443bc83f69bd7fe507,
         type: 3}
       propertyPath: m_LocalPosition.x
