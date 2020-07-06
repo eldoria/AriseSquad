@@ -72,10 +72,13 @@ public class monstersFight : MonoBehaviour
 
     public void GetNbEnemyDie()
     {
-        nbEnemyDie++;
-        if (nbEnemyDie == indE)
+        if (GameObject.Find("Scripts_Map_boss").GetComponent<SaveData>().isLoading == false)
         {
-            script.endGame();
+            nbEnemyDie++;
+            if (nbEnemyDie == indE)
+            {
+                script.endGame();
+            }
         }
     }
 

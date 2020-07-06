@@ -18,10 +18,14 @@ public class SaveData : MonoBehaviour
     public GameObject wolfBoss;
     public GameObject potionHealth;
 
+    public bool isLoading;
+
+
     private void Start()
     {
         player = GameObject.Find("Joueur").transform;
         healthBar = GameObject.Find("Canvas").GetComponentInChildren<HealthBar>();
+        isLoading = false;
     }
 
     void Update()
@@ -128,6 +132,8 @@ public class SaveData : MonoBehaviour
 
     public void Load()
     {
+        isLoading = true;
+
         string saveStringPlayer = File.ReadAllText(Application.dataPath + "/dataPlayer.txt");
         string[] dataPlayer = saveStringPlayer.Split(new[] {saveSeparator}, System.StringSplitOptions.None);
 
@@ -245,7 +251,9 @@ public class SaveData : MonoBehaviour
         {
             GameObject.Find("Scripts_UI").GetComponent<Inventaire_UI>().SetNbItemInventory(nbItemsAvant);
         }
-    
+
+        isLoading = false;
+
         Debug.Log("Chargement effectué");
     }
 }
