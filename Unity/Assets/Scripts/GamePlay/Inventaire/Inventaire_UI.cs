@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventaire_UI : MonoBehaviour
 {
     public Transform item_parent;
+    public Item itemTemplate;
     Inventaire_Slot[] slots;
     Inventaire_Script inventaireScript;
     
@@ -39,14 +40,13 @@ public class Inventaire_UI : MonoBehaviour
     public void SetNbItemInventory(int nb)
     {
         var count = inventaireScript.items.Count;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < count - nb; i++)
         {
             inventaireScript.Remove(inventaireScript.items[count - i - 1]);
         }
-        for (int i = 0; i < nb; i++)
+        for (int i = 0; i < nb - count; i++)
         {
-            Debug.Log("test");
-            inventaireScript.add(inventaireScript.items[i]);
+            inventaireScript.add(itemTemplate);
         }
     }
 }
