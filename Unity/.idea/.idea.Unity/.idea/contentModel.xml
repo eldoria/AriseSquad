@@ -37,7 +37,9 @@
             <e p="playerScript.cs" t="Include" />
             <e p="reanimationMonstre.cs" t="Include" />
             <e p="SaveData.cs" t="Include" />
+            <e p="timer.cs" t="Include" />
             <e p="UIScript.cs" t="Include" />
+            <e p="WinGame.cs" t="Include" />
             <e p="WinScreen.cs" t="Include" />
             <e p="wolfReanimated.cs" t="Include" />
             <e p="wolfScript.cs" t="Include" />

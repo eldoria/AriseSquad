@@ -15,14 +15,14 @@ public class monstersFight : MonoBehaviour
     private float timeDelay = 0;
     private int nbEnemyDie;
 
-    public GameOver script;
+    public WinGame scriptWinGame;
 
     private void Awake()
     {
         Enemies = new GameObject[100];
         Allies = new GameObject[100];
     }
-    
+
     public int GetCountAlly()
     {
         return indA;
@@ -75,9 +75,10 @@ public class monstersFight : MonoBehaviour
         if (GameObject.Find("Scripts_Map_boss").GetComponent<SaveData>().isLoading == false)
         {
             nbEnemyDie++;
+            Debug.Log("nbEnemyDie : " + nbEnemyDie + " et indE : " + indE);
             if (nbEnemyDie == indE)
             {
-                script.endGame();
+                scriptWinGame.endGame();
             }
         }
     }
