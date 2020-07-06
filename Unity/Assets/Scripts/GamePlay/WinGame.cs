@@ -9,7 +9,16 @@ using UnityEngine.UI;
 public class WinGame : MonoBehaviour
 {
     public GameObject endGamePanel;
-    public Text text;
+    public Text textTime;
+
+
+    private void Update()
+    {
+        string str = GameObject.Find("Scripts_Map_boss").GetComponent<timer>().getTimeSinceStart().ToString();
+        str = string.Concat(str, " secondes");
+
+        textTime.text = str;
+    }
 
     private void OnEnable() {
     
@@ -32,8 +41,10 @@ public class WinGame : MonoBehaviour
     {
         endGamePanel.SetActive(true);
         string str = GameObject.Find("Scripts_Map_boss").GetComponent<timer>().getTimeSinceStart().ToString();
-        text.text = string.Format("{0} {1}", str, " secondes");
-            
+        str = string.Concat(str, " secondes");
+
+        textTime.text = str;
+        
         GameObject.Find("Joueur").GetComponent<playerScript>().enabled = false;
         GameObject.Find("Joueur").GetComponentInChildren<cameraController>().enabled = false;
         GameObject.Find("Scripts_Map_boss").GetComponent<reanimationMonstre>().enabled = false;

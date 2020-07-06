@@ -21,7 +21,7 @@ public class reanimationMonstre : MonoBehaviour
     //private int count = 0;
     void Start()
     {
-        nbMonstresReanimables = 10;
+        nbMonstresReanimables = 30;
         menu.SetActive(false);
         UpdateText();
         script1 = player.GetComponent<playerScript>();

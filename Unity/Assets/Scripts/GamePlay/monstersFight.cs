@@ -45,8 +45,11 @@ public class monstersFight : MonoBehaviour
 
     public void DeleteEnemy(int count)
     {
-        Enemies[count] = null;
-        GetNbEnemyDie();
+        if (Enemies[count] != null)
+        {
+            Enemies[count] = null;
+            GetNbEnemyDie();
+        }
     }
     
     public void AddAlly(GameObject Ally)
