@@ -713,7 +713,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 452811550}
         m_MethodName: TitleScreen
         m_Mode: 1
         m_Arguments:
@@ -1775,8 +1775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131.6, y: -0.0000081562}
-  m_SizeDelta: {x: 168.14026, y: 56.112732}
+  m_AnchoredPosition: {x: 221, y: -0.0000081562}
+  m_SizeDelta: {x: 400, y: 56.112732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &241427119
 CanvasGroup:
@@ -8767,7 +8767,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 452811550}
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:

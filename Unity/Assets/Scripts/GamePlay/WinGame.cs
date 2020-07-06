@@ -11,15 +11,6 @@ public class WinGame : MonoBehaviour
     public GameObject endGamePanel;
     public Text textTime;
 
-
-    private void Update()
-    {
-        string str = GameObject.Find("Scripts_Map_boss").GetComponent<timer>().getTimeSinceStart().ToString();
-        str = string.Concat(str, " secondes");
-
-        textTime.text = str;
-    }
-
     private void OnEnable() {
     
         Cursor.lockState = CursorLockMode.None;
