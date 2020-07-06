@@ -123,6 +123,8 @@ public class SaveData : MonoBehaviour
         string stringDataPotions = string.Join(saveSeparator, dataPotions);
         File.WriteAllText(Application.dataPath + "/dataPotions.txt", stringDataPotions);
         
+        
+        
         Debug.Log("Sauvegarde effectuée");
     }
 
