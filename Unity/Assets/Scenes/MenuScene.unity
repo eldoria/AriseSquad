@@ -592,16 +592,16 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: English
-      m_Image: {fileID: 0}
     - m_Text: "Fran\xE7ais"
+      m_Image: {fileID: 0}
+    - m_Text: English
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetResolution
-        m_Mode: 0
+      - m_Target: {fileID: 1244925864}
+        m_MethodName: ChangeLanguage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1917,7 +1917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: English
+  m_Text: "Fran\xE7ais"
 --- !u!222 &606842832
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1995,7 +1995,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option
+  m_Text: Options
 --- !u!222 &727864962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2281,7 +2281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 88, y: -102}
+  m_AnchoredPosition: {x: 88, y: -71}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911378127
@@ -2503,7 +2503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Full \xE9cran"
+  m_Text: "Plein \xE9cran"
 --- !u!222 &941878058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2814,7 +2814,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 266, y: 172}
-  m_SizeDelta: {x: 189.26001, y: 42.795944}
+  m_SizeDelta: {x: 220, y: 42.795944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162566124
 MonoBehaviour:
@@ -3033,12 +3033,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e17217f2b83ad4fa06f2bd876400e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textLanguage: {fileID: 606842831}
   button1: {fileID: 503487122}
   button2: {fileID: 727864961}
   button3: {fileID: 41049402}
   button4: {fileID: 1301072254}
   button5: {fileID: 237337747}
   button6: {fileID: 1457184194}
+  button7: {fileID: 941878057}
+  button8: {fileID: 2086536945}
 --- !u!4 &1244925865
 Transform:
   m_ObjectHideFlags: 0
@@ -3276,7 +3279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load Game
+  m_Text: Charger
 --- !u!222 &1301072255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4523,7 +4526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 94.8, y: 277}
+  m_AnchoredPosition: {x: 94.8, y: 230}
   m_SizeDelta: {x: 236.52917, y: 63.08114}
   m_Pivot: {x: 0.50000006, y: 0.49999976}
 --- !u!114 &1612787666
