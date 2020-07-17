@@ -9111,6 +9111,10 @@ MonoBehaviour:
   isOpen: 0
   items: []
   space: 9
+  scriptCamera: {fileID: 946725541}
+  scriptPlayer: {fileID: 83265364}
+  scriptReanimation: {fileID: 1860411684}
+  scriptPause: {fileID: 1602942396}
 --- !u!114 &1602942399
 MonoBehaviour:
   m_ObjectHideFlags: 0

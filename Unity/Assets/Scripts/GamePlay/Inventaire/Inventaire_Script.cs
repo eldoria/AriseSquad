@@ -10,14 +10,10 @@ public class Inventaire_Script : MonoBehaviour
     [SerializeField] private bool isOpen;
     public List<Item> items = new List<Item>();
     public int space = 9;
-    private cameraController scriptCamera;
-    private playerScript scriptPlayer;
-
-    private void Start()
-    {
-        scriptCamera = GameObject.Find("Joueur").GetComponentInChildren<cameraController>();
-        scriptPlayer = GameObject.Find("Joueur").GetComponentInChildren<playerScript>();
-    }
+    [SerializeField] private cameraController scriptCamera;
+    [SerializeField] private playerScript scriptPlayer;
+    [SerializeField] private reanimationMonstre scriptReanimation;
+    [SerializeField] private PauseGame scriptPause;
 
     #region Singleton
     
@@ -34,7 +30,6 @@ public class Inventaire_Script : MonoBehaviour
     }
     
     #endregion
-
     public delegate void OnItemChanged();
 
     public OnItemChanged onItemChangedCallBack;
@@ -98,6 +93,8 @@ public class Inventaire_Script : MonoBehaviour
         inventaire_UI.SetActive(true);
         scriptCamera.enabled = false;
         scriptPlayer.enabled = false;
+        scriptPause.enabled = false;
+        scriptReanimation.enabled = false;
     }
 
 
@@ -107,5 +104,7 @@ public class Inventaire_Script : MonoBehaviour
         isOpen = false;
         scriptCamera.enabled = true;
         scriptPlayer.enabled = true;
+        scriptPause.enabled = true;
+        scriptReanimation.enabled = true;
     }
 }
