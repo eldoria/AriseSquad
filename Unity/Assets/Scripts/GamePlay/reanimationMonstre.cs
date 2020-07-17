@@ -11,14 +11,17 @@ public class reanimationMonstre : MonoBehaviour
     public GameObject menu;
     public Text textNbMonstres;
     public int nbMonstresReanimables;
-    public GameObject monstreReanime;
-    public GameObject player;
-    private playerScript script1;
-    private cameraController script2;
-    private GameObject scripts;
-    public GameObject nombreField;
+    [SerializeField] private GameObject monstreReanime;
+    [SerializeField] private GameObject player;
+    
+    [SerializeField] private playerScript scriptPlayer;
+    [SerializeField] private cameraController scriptCamera;
+    [SerializeField] private Inventaire_Script scriptInventaire;
+    [SerializeField] private PauseGame scriptPause;
+    
+    [SerializeField] private GameObject nombreField;
 
-    public PauseGame script3;
+    
 
     public Text language;
     
@@ -28,8 +31,6 @@ public class reanimationMonstre : MonoBehaviour
         nbMonstresReanimables = 30;
         menu.SetActive(false);
         UpdateText();
-        script1 = player.GetComponent<playerScript>();
-        script2 = player.GetComponentInChildren<cameraController>();
     }
 
     public void UpdateNbMonstre()
@@ -54,18 +55,20 @@ public class reanimationMonstre : MonoBehaviour
                 UpdateText();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                script1.enabled = false;
-                script2.enabled = false;
-                script3.enabled = false;
-                script1.stopMoving();
+                scriptCamera.enabled = false;
+                scriptInventaire.enabled = false;
+                scriptPause.enabled = false;
+                scriptPlayer.enabled = false;
+                scriptPlayer.stopMoving();
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                script1.enabled = true;
-                script2.enabled = true;
-                script3.enabled = true;
+                scriptCamera.enabled = true;
+                scriptInventaire.enabled = true;
+                scriptPause.enabled = true;
+                scriptPlayer.enabled = true;
             }
         }
 
@@ -78,7 +81,7 @@ public class reanimationMonstre : MonoBehaviour
         int.TryParse(nombreField.GetComponent<Text>().text, out nbLoups);
         if (nbMonstresReanimables > 0 & nbLoups > 0)
         {
-            script1.animationReanimation();
+            scriptPlayer.animationReanimation();
             if (nbLoups > nbMonstresReanimables) nbLoups = nbMonstresReanimables;
             for (int i = 0; i < nbLoups; i++)
             {
@@ -92,8 +95,10 @@ public class reanimationMonstre : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            script1.enabled = true;
-            script2.enabled = true;
+            scriptCamera.enabled = true;
+            scriptInventaire.enabled = true;
+            scriptPause.enabled = true;
+            scriptPlayer.enabled = true;
             menu.SetActive(false);
         }
     }

@@ -10569,8 +10569,11 @@ MonoBehaviour:
   monstreReanime: {fileID: 3015308817734714355, guid: 1026aaa9f05cf6c41b2be6d00d900cfd,
     type: 3}
   player: {fileID: 8296172668458103375}
+  scriptPlayer: {fileID: 83265364}
+  scriptCamera: {fileID: 946725541}
+  scriptInventaire: {fileID: 1602942398}
+  scriptPause: {fileID: 1602942396}
   nombreField: {fileID: 669116129}
-  script3: {fileID: 1602942396}
   language: {fileID: 1394363840}
 --- !u!114 &1860411685
 MonoBehaviour:
