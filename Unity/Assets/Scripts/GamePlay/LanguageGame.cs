@@ -40,9 +40,10 @@ public class LanguageGame : MonoBehaviour
             
             button7.text = "Plein écran";
             button8.text = "Retour";
+            
+            button9.text = "Recussiter";
 
-            //button9.text = "Nombre de monstres ressucitables";
-            button10.text = "Recussiter";
+            button10.text = "Inventaire";
         }
         else if (language == "English")
         {
@@ -55,9 +56,10 @@ public class LanguageGame : MonoBehaviour
             
             button7.text = "Full screen";
             button8.text = "Back";
-            
-            //button9.text = "Number of resuscitable monsters";
-            button10.text = "Resurrect";
+
+            button9.text = "Resurrect";
+
+            button10.text = "Inventory";
         }
     }
 

@@ -10639,8 +10639,8 @@ MonoBehaviour:
   button6: {fileID: 1664489421}
   button7: {fileID: 1053727195}
   button8: {fileID: 37069535}
-  button9: {fileID: 1288539425}
-  button10: {fileID: 133310353}
+  button9: {fileID: 133310353}
+  button10: {fileID: 392554568}
 --- !u!1 &1876848092
 GameObject:
   m_ObjectHideFlags: 0
