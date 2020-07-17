@@ -39,5 +39,7 @@ public class WinGame : MonoBehaviour
         GameObject.Find("Joueur").GetComponent<playerScript>().enabled = false;
         GameObject.Find("Joueur").GetComponentInChildren<cameraController>().enabled = false;
         GameObject.Find("Scripts_Map_boss").GetComponent<reanimationMonstre>().enabled = false;
+        
+        Time.timeScale = 0;
     }
 }
