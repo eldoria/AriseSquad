@@ -9080,7 +9080,8 @@ MonoBehaviour:
   OptionMenuUI: {fileID: 1232440274}
   isPaused: 0
   resolutionDropdown: {fileID: 1833326722}
-  script: {fileID: 1860411684}
+  scriptReanimationMonstre: {fileID: 1860411684}
+  scriptInventaire: {fileID: 1602942398}
 --- !u!4 &1602942397
 Transform:
   m_ObjectHideFlags: 0

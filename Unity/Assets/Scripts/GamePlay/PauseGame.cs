@@ -16,7 +16,8 @@ public class PauseGame : MonoBehaviour
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
 
-    public reanimationMonstre script;
+    [SerializeField] private reanimationMonstre scriptReanimationMonstre;
+    [SerializeField] private Inventaire_Script scriptInventaire;
 
     private void Start()
     {
@@ -46,11 +47,13 @@ public class PauseGame : MonoBehaviour
     {
         if (PauseMenuUI.activeSelf is true || OptionMenuUI.activeSelf is true)
         {
-            script.enabled = false;
+            scriptReanimationMonstre.enabled = false;
+            scriptInventaire.enabled = false;
         }
         else
         {
-            script.enabled = true;
+            scriptReanimationMonstre.enabled = true;
+            scriptInventaire.enabled = true;
         }
         if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
             isPaused = !isPaused;
