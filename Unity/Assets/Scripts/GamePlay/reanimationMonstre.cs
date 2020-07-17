@@ -17,6 +17,8 @@ public class reanimationMonstre : MonoBehaviour
     private cameraController script2;
     private GameObject scripts;
     public GameObject nombreField;
+
+    public Text language;
     
     //private int count = 0;
     void Start()
@@ -31,12 +33,13 @@ public class reanimationMonstre : MonoBehaviour
     public void UpdateNbMonstre()
     {
         nbMonstresReanimables++;
-        textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
+        UpdateText();
     }
 
     public void UpdateText()
     {
-        textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
+        if(language.text == "Français") textNbMonstres.text = "Nombre de monstres ressucitables : " + nbMonstresReanimables;
+        else if (language.text == "English") textNbMonstres.text = "Number of resuscitable monsters : " + nbMonstresReanimables;
     }
     void Update()
     {

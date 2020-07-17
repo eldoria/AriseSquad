@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LanguageMenu : MonoBehaviour
 {
-    private string language = "français";
+    private string language = "Français";
 
     public Text textLanguage;
 
@@ -27,7 +27,7 @@ public class LanguageMenu : MonoBehaviour
     private void ChangeText()
     {
         Debug.Log("Langue choisi : " + textLanguage.text);
-        if (language == "français")     
+        if (language == "Français")     
         {
             button1.text = "Jouer";
             button2.text = "Options";
@@ -38,7 +38,7 @@ public class LanguageMenu : MonoBehaviour
             button7.text = "Plein écran";
             button8.text = "Retour";
         }
-        else if (language == "english")
+        else if (language == "English")
         {
             button1.text = "Play";
             button2.text = "Options";
@@ -53,18 +53,18 @@ public class LanguageMenu : MonoBehaviour
 
     private void ChooseEnglish()
     {
-        if (language != "english")
+        if (language != "English")
         {
-            language = "english";
+            language = "English";
             ChangeText();
         }
     }
 
     private void ChooseFrench()
     {
-        if (language != "français")
+        if (language != "Français")
         {
-            language = "français";
+            language = "Français";
             ChangeText();
         }
     }

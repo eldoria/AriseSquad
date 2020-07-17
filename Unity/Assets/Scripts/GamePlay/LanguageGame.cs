@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LanguageGame : MonoBehaviour
 {
-    private string language = "français";
+    private string language = "Français";
 
     public Text textLanguage;
 
@@ -18,6 +18,8 @@ public class LanguageGame : MonoBehaviour
     public Text button6;
     public Text button7;
     public Text button8;
+    public Text button9;
+    public Text button10;
 
     private void Awake()
     {
@@ -27,7 +29,7 @@ public class LanguageGame : MonoBehaviour
     private void ChangeText()
     {
         Debug.Log("Langue choisi : " + textLanguage.text);
-        if (language == "français")     
+        if (language == "Français")     
         {
             button1.text = "Continuer";
             button2.text = "Options";
@@ -38,8 +40,11 @@ public class LanguageGame : MonoBehaviour
             
             button7.text = "Plein écran";
             button8.text = "Retour";
+
+            //button9.text = "Nombre de monstres ressucitables";
+            button10.text = "Recussiter";
         }
-        else if (language == "english")
+        else if (language == "English")
         {
             button1.text = "Resume";
             button2.text = "Options";
@@ -50,23 +55,26 @@ public class LanguageGame : MonoBehaviour
             
             button7.text = "Full screen";
             button8.text = "Back";
+            
+            //button9.text = "Number of resuscitable monsters";
+            button10.text = "Resurrect";
         }
     }
 
     private void ChooseEnglish()
     {
-        if (language != "english")
+        if (language != "English")
         {
-            language = "english";
+            language = "English";
             ChangeText();
         }
     }
 
     private void ChooseFrench()
     {
-        if (language != "français")
+        if (language != "Français")
         {
-            language = "français";
+            language = "Français";
             ChangeText();
         }
     }

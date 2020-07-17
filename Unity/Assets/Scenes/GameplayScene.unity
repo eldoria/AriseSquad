@@ -6665,13 +6665,24 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: English
-      m_Image: {fileID: 0}
     - m_Text: "Fran\xE7ais"
+      m_Image: {fileID: 0}
+    - m_Text: English
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1860411688}
+        m_MethodName: ChangeLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1159320346
 MonoBehaviour:
@@ -7147,7 +7158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1232440275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7912,7 +7923,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: English
+  m_Text: "Fran\xE7ais"
 --- !u!222 &1394363841
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10554,6 +10565,7 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 8296172668458103375}
   nombreField: {fileID: 669116129}
+  language: {fileID: 1394363840}
 --- !u!114 &1860411685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10625,6 +10637,8 @@ MonoBehaviour:
   button6: {fileID: 1664489421}
   button7: {fileID: 1053727195}
   button8: {fileID: 37069535}
+  button9: {fileID: 1288539425}
+  button10: {fileID: 133310353}
 --- !u!1 &1876848092
 GameObject:
   m_ObjectHideFlags: 0
