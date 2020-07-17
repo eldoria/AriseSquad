@@ -18,6 +18,8 @@ public class reanimationMonstre : MonoBehaviour
     private GameObject scripts;
     public GameObject nombreField;
 
+    public PauseGame script3;
+
     public Text language;
     
     //private int count = 0;
@@ -54,6 +56,7 @@ public class reanimationMonstre : MonoBehaviour
                 Cursor.visible = true;
                 script1.enabled = false;
                 script2.enabled = false;
+                script3.enabled = false;
                 script1.stopMoving();
             }
             else
@@ -62,6 +65,7 @@ public class reanimationMonstre : MonoBehaviour
                 Cursor.visible = false;
                 script1.enabled = true;
                 script2.enabled = true;
+                script3.enabled = true;
             }
         }
 

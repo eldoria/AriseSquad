@@ -16,6 +16,8 @@ public class PauseGame : MonoBehaviour
     public Dropdown resolutionDropdown;
     private Resolution[] resolutions;
 
+    public reanimationMonstre script;
+
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -42,25 +44,32 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-            if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        if (PauseMenuUI.activeSelf is true || OptionMenuUI.activeSelf is true)
+        {
+            script.enabled = false;
+        }
+        else
+        {
+            script.enabled = true;
+        }
+        if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) {
+            isPaused = !isPaused;
             {
-                isPaused = !isPaused;
+                if (isPaused)
                 {
-                    if (isPaused)
-                    {
-                        ActivateMenuPaused();
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
-                    }
-                    else
-                    {
-                        DeactivateMenuPause();
-                        Cursor.lockState = CursorLockMode.Locked;
-                        Cursor.visible = false;
-                    }
+                    ActivateMenuPaused();
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    DeactivateMenuPause();
+                    if(OptionMenuUI.activeSelf is true) DeactivateMenuOption();
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
                 }
             }
+        }
     }
 
     void ActivateMenuPaused()

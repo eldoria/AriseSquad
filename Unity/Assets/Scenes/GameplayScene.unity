@@ -9077,9 +9077,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1755061119}
-  OptionMenuUI: {fileID: 0}
+  OptionMenuUI: {fileID: 1232440274}
   isPaused: 0
   resolutionDropdown: {fileID: 1833326722}
+  script: {fileID: 1860411684}
 --- !u!4 &1602942397
 Transform:
   m_ObjectHideFlags: 0
@@ -10565,6 +10566,7 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 8296172668458103375}
   nombreField: {fileID: 669116129}
+  script3: {fileID: 1602942396}
   language: {fileID: 1394363840}
 --- !u!114 &1860411685
 MonoBehaviour:
