@@ -26,7 +26,6 @@ public class LanguageMenu : MonoBehaviour
 
     private void ChangeText()
     {
-        Debug.Log("Langue choisi : " + textLanguage.text);
         if (language == "Français")     
         {
             button1.text = "Jouer";
