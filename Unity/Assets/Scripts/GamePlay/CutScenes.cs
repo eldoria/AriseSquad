@@ -1,18 +1,44 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CutScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private Camera cameraForCutScene;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private GameObject Minimap;
+    
+    [SerializeField] private playerScript scriptPlayer;
+    [SerializeField] private reanimationMonstre scriptReanimationMonstre;
+    [SerializeField] private PauseGame scriptPauseGame;
+    [SerializeField] private Inventaire_Script scriptInventaire;
+
+    private void Start()
     {
-        
+        StartCoroutine(CutScene1());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CutScene1()
     {
+        Debug.Log("Avant");
         
+        playerCamera.enabled = false;
+        Minimap.SetActive(false);
+        scriptPlayer.enabled = false;
+        scriptReanimationMonstre.enabled = false;
+        scriptPauseGame.enabled = false;
+        scriptInventaire.enabled = false;
+        
+        yield return new WaitForSeconds(10);
+        playerCamera.enabled = true;
+        Minimap.SetActive(true);
+        scriptPlayer.enabled = true;
+        scriptReanimationMonstre.enabled = true;
+        scriptPauseGame.enabled = true;
+        scriptInventaire.enabled = true;
+        
+        Debug.Log("Après");
     }
 }

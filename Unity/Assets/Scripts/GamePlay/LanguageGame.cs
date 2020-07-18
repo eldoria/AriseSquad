@@ -28,7 +28,6 @@ public class LanguageGame : MonoBehaviour
 
     private void ChangeText()
     {
-        Debug.Log("Langue choisi : " + textLanguage.text);
         if (language == "Français")     
         {
             button1.text = "Continuer";

@@ -10437,6 +10437,7 @@ GameObject:
   - component: {fileID: 1860411686}
   - component: {fileID: 1860411687}
   - component: {fileID: 1860411688}
+  - component: {fileID: 1860411689}
   m_Layer: 0
   m_Name: Scripts_Map_boss
   m_TagString: Untagged
@@ -10575,6 +10576,25 @@ MonoBehaviour:
   button8: {fileID: 37069535}
   button9: {fileID: 133310353}
   button10: {fileID: 392554568}
+--- !u!114 &1860411689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860411681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b17749f8795a146b97e2552d59dd81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraForCutScene: {fileID: 1912661998}
+  playerCamera: {fileID: 946725543}
+  Minimap: {fileID: 1962218641}
+  scriptPlayer: {fileID: 83265364}
+  scriptReanimationMonstre: {fileID: 1860411684}
+  scriptPauseGame: {fileID: 1602942396}
+  scriptInventaire: {fileID: 1602942398}
 --- !u!1 &1876848092
 GameObject:
   m_ObjectHideFlags: 0
