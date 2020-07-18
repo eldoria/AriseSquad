@@ -14,6 +14,7 @@
           <e p="GamePlay" t="Include">
             <e p="bossScript.cs" t="Include" />
             <e p="cameraController.cs" t="Include" />
+            <e p="CutScenes.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GameOver.cs" t="Include" />
             <e p="generationMap.cs" t="Include" />
