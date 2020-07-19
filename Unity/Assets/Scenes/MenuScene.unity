@@ -3665,7 +3665,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Les R\xE8gles du jeu :\n\nLe but est de tu\xE9e les plus vite possible
-    tous les loups\nsur la map.\n\nTouches de d\xE9placement:\r\n\r\nZ/Q/S/D : Touches
+    tous les loups sur la map et lorsque vous r\xE9ussissez \xE0 tuer un loup vous
+    pouvez le r\xE9animer.\n\nTouches de d\xE9placement:\r\n\r\nZ/Q/S/D : Touches
     de d\xE9placement \nSHIFT + Z/Q/S/D : Courir dans la direction choisi\nespace
     + Z/D/Q/D : Esquives\r\n\r\nTouches pour attaquer :\r\n\r\nClic gauche : attaque
     normale\r\nA : comp\xE9tence 1 \nE : comp\xE9tence 2 \n\nMenus :\r\n\r\nTab :
