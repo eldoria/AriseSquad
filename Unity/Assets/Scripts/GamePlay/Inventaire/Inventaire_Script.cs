@@ -36,8 +36,7 @@ public class Inventaire_Script : MonoBehaviour
     
     public bool add(Item item)
     {
-        if (!item.isDefaultItem)
-        {
+        if (!item.isDefaultItem) {
             if (items.Count >= space)
             {
                 Debug.Log("pas assez d'espace");
@@ -48,7 +47,6 @@ public class Inventaire_Script : MonoBehaviour
             {
                 onItemChangedCallBack.Invoke();
             }
-            
         }
 
         return true;
