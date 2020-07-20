@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class setResolutionMenu : MonoBehaviour
 {
     
     [SerializeField] private Dropdown resolutionDropdown;
     private Resolution[] resolutions;
+    
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -28,7 +31,11 @@ public class setResolutionMenu : MonoBehaviour
             }
         }
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+        string path = Directory.GetCurrentDirectory() + @"\Assets\dataResolution.txt";
+        if (File.Exists(path))
+            resolutionDropdown.value = int.Parse(File.ReadAllText(Application.dataPath + "/dataResolution.txt"));
+        else resolutionDropdown.value = currentResolutionIndex;
+
         resolutionDropdown.RefreshShownValue();
     }
 
@@ -41,5 +48,6 @@ public class setResolutionMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+        File.WriteAllText(Application.dataPath + "/dataResolution.txt", resolutionIndex.ToString());
     }
 }

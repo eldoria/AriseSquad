@@ -2734,15 +2734,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1001808467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd408915b0772341819894566ea3ea8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8de2142c2ab373342ae1766c7d40041c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenuUI: {fileID: 0}
-  OptionMenuUI: {fileID: 0}
-  isPaused: 0
   resolutionDropdown: {fileID: 198158715}
-  scriptReanimationMonstre: {fileID: 0}
-  scriptInventaire: {fileID: 0}
 --- !u!1 &1030163450
 GameObject:
   m_ObjectHideFlags: 0

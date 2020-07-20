@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
+using System.IO;
 
 
 public class PauseGame : MonoBehaviour
@@ -38,7 +39,10 @@ public class PauseGame : MonoBehaviour
             }
         }
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+        string path = Directory.GetCurrentDirectory() + @"\Assets\dataResolution.txt";
+        if (File.Exists(path))
+            resolutionDropdown.value = int.Parse(File.ReadAllText(Application.dataPath + "/dataResolution.txt"));
+        else resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
@@ -112,10 +116,6 @@ public class PauseGame : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+        File.WriteAllText(Application.dataPath + "/dataResolution.txt", resolutionIndex.ToString());
     }
-    
-    
-    
-    
-    
 }

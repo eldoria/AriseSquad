@@ -22,8 +22,6 @@ public class CutScenes : MonoBehaviour
 
     IEnumerator CutScene1()
     {
-        Debug.Log("Avant");
-        
         playerCamera.enabled = false;
         Minimap.SetActive(false);
         scriptPlayer.enabled = false;
@@ -38,7 +36,5 @@ public class CutScenes : MonoBehaviour
         scriptReanimationMonstre.enabled = true;
         scriptPauseGame.enabled = true;
         scriptInventaire.enabled = true;
-        
-        Debug.Log("Après");
     }
 }
