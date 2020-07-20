@@ -13,12 +13,14 @@ public class SaveData : MonoBehaviour
 
     private string saveSeparator = "%VALUE%";
 
-    public GameObject wolfEnemy;
-    public GameObject wolfAlly;
-    public GameObject wolfBoss;
-    public GameObject potionHealth;
+    [SerializeField] private GameObject wolfEnemy;
+    [SerializeField] private GameObject wolfAlly;
+    [SerializeField] private GameObject wolfBoss;
+    [SerializeField] private GameObject potionHealth;
 
     public bool isLoading;
+    
+    [SerializeField] private Text textLanguage;
 
 
     private void Start()
@@ -126,6 +128,9 @@ public class SaveData : MonoBehaviour
 
         string stringDataPotions = string.Join(saveSeparator, dataPotions);
         File.WriteAllText(Application.dataPath + "/dataPotions.txt", stringDataPotions);
+
+        
+        File.WriteAllText(Application.dataPath + "/dataLanguage.txt", textLanguage.text);
         
         Debug.Log("Sauvegarde effectuée");
     }

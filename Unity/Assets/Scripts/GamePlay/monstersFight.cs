@@ -15,7 +15,7 @@ public class monstersFight : MonoBehaviour
     private float timeDelay = 0;
     private int nbEnemyDie;
 
-    public WinGame scriptWinGame;
+    [SerializeField] private WinGame scriptWinGame;
 
     private void Awake()
     {

@@ -10541,6 +10541,7 @@ MonoBehaviour:
   potionHealth: {fileID: 7438971427172728396, guid: 23b1063908b98e443bc83f69bd7fe507,
     type: 3}
   isLoading: 0
+  textLanguage: {fileID: 1394363840}
 --- !u!114 &1860411687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10565,6 +10566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646cf5449ff27942805e4fe74e1279a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  language: "Fran\xE7ais"
   textLanguage: {fileID: 1394363840}
   button1: {fileID: 705276543}
   button2: {fileID: 524354862}
@@ -10576,6 +10578,7 @@ MonoBehaviour:
   button8: {fileID: 37069535}
   button9: {fileID: 133310353}
   button10: {fileID: 392554568}
+  DrLanguage: {fileID: 1159320345}
 --- !u!114 &1860411689
 MonoBehaviour:
   m_ObjectHideFlags: 0
