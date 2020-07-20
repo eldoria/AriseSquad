@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="dataAllies.txt" t="Include" />
         <e p="dataEnemies.txt" t="Include" />
+        <e p="dataLanguage.txt" t="Include" />
         <e p="dataPlayer.txt" t="Include" />
         <e p="dataPotions.txt" t="Include" />
         <e p="Scripts" t="Include">

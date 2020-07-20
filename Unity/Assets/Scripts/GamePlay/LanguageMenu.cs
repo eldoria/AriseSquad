@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class LanguageMenu : MonoBehaviour
 {
@@ -10,18 +11,24 @@ public class LanguageMenu : MonoBehaviour
 
     public Text textLanguage;
 
-    public Text button1;
-    public Text button2;
-    public Text button3;
-    public Text button4;
-    public Text button5;
-    public Text button6;
-    public Text button7;
-    public Text button8;
+    [SerializeField] private Text button1;
+    [SerializeField] private Text button2;
+    [SerializeField] private Text button3;
+    [SerializeField] private Text button4;
+    [SerializeField] private Text button5;
+    [SerializeField] private Text button6;
+    [SerializeField] private Text button7;
+    [SerializeField] private Text button8;
+
+    [SerializeField] private Dropdown DrLanguage;
+    
 
     private void Awake()
     {
+        language = File.ReadAllText(Application.dataPath + "/dataLanguage.txt");
         ChangeText();
+        if (language == "Français") DrLanguage.value = 0;
+        else if (language == "English") DrLanguage.value = 1;
     }
 
     private void ChangeText()
@@ -52,24 +59,19 @@ public class LanguageMenu : MonoBehaviour
 
     private void ChooseEnglish()
     {
-        if (language != "English")
-        {
-            language = "English";
-            ChangeText();
-        }
+        language = "English";
+        ChangeText();
     }
 
     private void ChooseFrench()
     {
-        if (language != "Français")
-        {
-            language = "Français";
-            ChangeText();
-        }
+        language = "Français";
+        ChangeText();
     }
 
     public void ChangeLanguage()
     {
+        File.WriteAllText(Application.dataPath + "/dataLanguage.txt", textLanguage.text);
         if (textLanguage.text == "Français") ChooseFrench();
         else if (textLanguage.text == "English") ChooseEnglish();
     }
